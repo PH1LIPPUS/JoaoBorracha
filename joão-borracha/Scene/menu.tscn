@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ugrc541md6ta"]
+
+[node name="Menu" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1058.0
+offset_top = 18.0
+offset_right = 1111.0
+offset_bottom = 49.0
+text = "Menu"
+flat = true
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = 186.0
+offset_top = 101.0
+offset_right = 959.0
+offset_bottom = 569.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 188.0
+offset_top = 102.0
+offset_right = 958.0
+offset_bottom = 571.0
+color = Color(0, 0, 0, 0.392157)
