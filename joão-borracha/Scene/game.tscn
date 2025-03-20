@@ -1,12 +1,55 @@
-[gd_scene load_steps=3 format=3 uid="uid://w2e5lycek025"]
+[gd_scene load_steps=5 format=3 uid="uid://w2e5lycek025"]
 
 [ext_resource type="PackedScene" uid="uid://b3koslma6spkr" path="res://Player/player.tscn" id="1_w51g1"]
 [ext_resource type="PackedScene" uid="uid://b16unhwt7cbbr" path="res://Scene/mapa.tscn" id="2_4jv7b"]
+[ext_resource type="Script" uid="uid://bhceiovadcvqo" path="res://Scene/pause_menu.gd" id="3_03iqk"]
+[ext_resource type="Texture2D" uid="uid://lrnlqrwrr71e" path="res://Player/Player Sprits/MenuDuranteJogo.png" id="4_03iqk"]
 
 [node name="Game" type="Node"]
 
 [node name="Mapa" parent="." instance=ExtResource("2_4jv7b")]
 
 [node name="Player" parent="." instance=ExtResource("1_w51g1")]
-position = Vector2(132, 500)
+position = Vector2(142, 378)
 scale = Vector2(5, 5)
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("3_03iqk")
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+anchors_preset = -1
+anchor_left = -0.15625
+anchor_top = -0.0972222
+anchor_right = 0.219618
+anchor_bottom = 0.212963
+offset_left = 179.0
+offset_top = 60.0
+offset_right = 905.0
+offset_bottom = 527.0
+color = Color(0, 0, 0, 0.666667)
+metadata/_edit_use_anchors_ = true
+
+[node name="MenuDuranteJogo" type="Sprite2D" parent="PauseMenu"]
+position = Vector2(552, 329)
+scale = Vector2(5.26, 5.105)
+texture = ExtResource("4_03iqk")
+
+[node name="Resume" type="Button" parent="PauseMenu"]
+offset_left = 401.0
+offset_top = 396.0
+offset_right = 708.0
+offset_bottom = 470.0
+focus_mode = 0
+flat = true
+
+[node name="Back" type="Button" parent="PauseMenu"]
+offset_left = 378.0
+offset_top = 233.0
+offset_right = 501.0
+offset_bottom = 349.0
+focus_mode = 0
+flat = true
+
+[connection signal="pressed" from="PauseMenu/Resume" to="PauseMenu" method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseMenu/Back" to="PauseMenu" method="_on_back_pressed"]

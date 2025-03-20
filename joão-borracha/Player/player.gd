@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 
 	hands.rotation = direction.angle()
 
-	var max_distance = 30.0  
+	var max_distance = 25.0  
 	hands.position = direction * max_distance
 
 	if mouse_position.x > global_position.x:
