@@ -20,7 +20,6 @@ window/size/viewport_width=640
 window/size/viewport_height=480
 window/size/mode=3
 window/stretch/mode="viewport"
-<<<<<<< Updated upstream
 
 [input]
 
@@ -64,5 +63,3 @@ textures/canvas_textures/default_texture_filter=0
 textures/canvas_textures/default_texture_repeat=1
 textures/size/viewport_height=648
 textures/size/viewport_width=1152
-=======
->>>>>>> Stashed changes
