@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-uid="uid://0tmxo0cfdtsk"
-=======
-uid="uid://cpka1i0bf8kjg"
->>>>>>> 39307d5717a3c6649a87f331fb7312be2e9994b3
-path="res://.godot/imported/CapsuleLife.png-c91e0f649bbf20f101f651f1b1b0abe1.ctex"
+uid="uid://srkapw4j1ev0"
+path="res://.godot/imported/background.png-81d8b5ab0cf7b4daed6bbc4f839ebe3e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Player Sprits/CapsuleLife.png"
-dest_files=["res://.godot/imported/CapsuleLife.png-c91e0f649bbf20f101f651f1b1b0abe1.ctex"]
+source_file="res://Assets/Mapa/background.png"
+dest_files=["res://.godot/imported/background.png-81d8b5ab0cf7b4daed6bbc4f839ebe3e.ctex"]
 
 [params]
 
