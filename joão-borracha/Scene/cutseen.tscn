@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://jqbjgv6vxruj"]
+
+[node name="cutseen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Skip" type="Button" parent="."]
+offset_left = 1064.0
+offset_top = 23.0
+offset_right = 1106.0
+offset_bottom = 54.0
+text = "SKIP"
+flat = true
