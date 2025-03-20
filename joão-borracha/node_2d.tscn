@@ -13,12 +13,12 @@ offset_bottom = 1193.0
 color = Color(0.485703, 0.485704, 0.485703, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_wtcfe")]
-position = Vector2(225, 568)
+position = Vector2(72, 411)
 scale = Vector2(4, 4)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(556, 555)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(26, 100)
+position = Vector2(42, -48)
 shape = SubResource("RectangleShape2D_0e48y")
