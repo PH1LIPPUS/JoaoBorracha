@@ -17,28 +17,26 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	var direction = Input.get_axis("ui_left", "ui_right")
+	var direction = Input.get_axis("left", "right")
 	var current_speed = speed
 
-	if Input.is_action_pressed("ui_shift") and use_stamina(stamina_cost * delta):
+	if Input.is_action_pressed("sprint") and use_stamina(stamina_cost * delta):
 		current_speed = run_speed
 
 	velocity.x = direction * current_speed
 
 	# Pulo
-	if Input.is_action_just_pressed("ui_up") and is_on_floor():
+	if Input.is_action_just_pressed("up") and is_on_floor():
 		velocity.y = -jump_force
 
-	# Aplicar velocidade
 	move_and_slide()
 
-	# Regenerar stamina
 	regenerate_stamina(delta)
 
 func _process(delta: float) -> void:
 	var mouse_position = get_global_mouse_position()
 	var direction = (mouse_position - global_position).normalized()
-	var max_distance = 30.0  # Distância máxima das mãos em relação ao player
+	var max_distance = 30.0  
 	hands.position = direction * max_distance
 
 func take_damage(amount: int) -> void:
