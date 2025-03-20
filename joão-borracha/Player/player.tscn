@@ -1,11 +1,63 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3koslma6spkr"]
+[gd_scene load_steps=17 format=3 uid="uid://b3koslma6spkr"]
 
 [ext_resource type="Texture2D" uid="uid://cqh4eska8r7iv" path="res://Player/Player Sprits/borracha.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://tnje6u8fsn07" path="res://Player/player.gd" id="1_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://cpjaoph37eqg1" path="res://Player/Player Sprits/mao.png" id="3_hqtel"]
+[ext_resource type="Texture2D" uid="uid://cy4mjii2q1ntb" path="res://Player/Player Sprits/Barra de vida/barra de vida1.png" id="4_gu6f8"]
+[ext_resource type="Texture2D" uid="uid://bmfsmagwwfbf8" path="res://Player/Player Sprits/Barra de vida/barra de vida2.png" id="5_dkpta"]
+[ext_resource type="Texture2D" uid="uid://6ta8ognvvp2s" path="res://Player/Player Sprits/Barra de vida/barra de vida3.png" id="6_lfmf2"]
+[ext_resource type="Texture2D" uid="uid://cslj3yvfp14t4" path="res://Player/Player Sprits/Barra de vida/barra de vida4.png" id="7_pisgm"]
+[ext_resource type="Texture2D" uid="uid://c0xgyciqqep35" path="res://Player/Player Sprits/Barra de vida/barra de vida5.png" id="8_b1ygp"]
+[ext_resource type="Texture2D" uid="uid://ddqnkm0yfpxp8" path="res://Player/Player Sprits/Barra de vida/barra de vida6.png" id="9_o28un"]
+[ext_resource type="Texture2D" uid="uid://byxv075vnttfc" path="res://Player/Player Sprits/Barra de vida/barra de vida7.png" id="10_n471f"]
+[ext_resource type="Texture2D" uid="uid://ftw8snf7frmm" path="res://Player/Player Sprits/Barra de vida/barra de vida8.png" id="11_7emwf"]
+[ext_resource type="Texture2D" uid="uid://dn7ov4nn6c1yo" path="res://Player/Player Sprits/Barra de vida/barra de vida9.png" id="12_hshwv"]
+[ext_resource type="Texture2D" uid="uid://byr8v2dsu8xmi" path="res://Player/Player Sprits/Barra de vida/barra de vida10.png" id="13_gpjlu"]
+[ext_resource type="Texture2D" uid="uid://ccp8spg0q2fcf" path="res://Player/Player Sprits/Barra de vida/barra de vida11.png" id="14_8mwp6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(21, 35)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gu6f8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_gu6f8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dkpta")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lfmf2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pisgm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_b1ygp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_o28un")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_n471f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_7emwf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_hshwv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_gpjlu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_8mwp6")
+}],
+"loop": true,
+"name": &"Barra de vida",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_i3pqv")
@@ -25,3 +77,13 @@ shape = SubResource("RectangleShape2D_onrkg")
 position = Vector2(0, 1)
 scale = Vector2(0.020708, 0.0232174)
 texture = ExtResource("3_hqtel")
+
+[node name="Barra de vida" type="CanvasLayer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Barra de vida"]
+position = Vector2(148, 28)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_gu6f8")
+animation = &"Barra de vida"
+
+[node name="Barra de Stamina" type="CanvasLayer" parent="."]

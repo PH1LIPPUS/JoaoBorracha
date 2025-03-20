@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://jqbjgv6vxruj"]
+
+[ext_resource type="Script" uid="uid://do5of5x6os1v0" path="res://Scene/cutseen.gd" id="1_420m2"]
+
+[node name="cutseen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_420m2")
+
+[node name="Skip" type="Button" parent="."]
+offset_left = 1064.0
+offset_top = 23.0
+offset_right = 1106.0
+offset_bottom = 54.0
+text = "SKIP"
+
+[connection signal="pressed" from="Skip" to="." method="_on_skip_pressed"]
