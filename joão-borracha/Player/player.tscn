@@ -1,8 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://b3koslma6spkr"]
+[gd_scene load_steps=17 format=3 uid="uid://b3koslma6spkr"]
 
 [ext_resource type="Texture2D" uid="uid://cqh4eska8r7iv" path="res://Player/Player Sprits/borracha.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://tnje6u8fsn07" path="res://Player/player.gd" id="1_i3pqv"]
-[ext_resource type="Texture2D" uid="uid://depogusi1v4iq" path="res://Player/Player Sprits/hand/handback2.png" id="3_gu6f8"]
+[ext_resource type="Texture2D" uid="uid://cpjaoph37eqg1" path="res://Player/Player Sprits/mao.png" id="3_hqtel"]
 [ext_resource type="Texture2D" uid="uid://cy4mjii2q1ntb" path="res://Player/Player Sprits/Barra de vida/barra de vida1.png" id="4_gu6f8"]
 [ext_resource type="Texture2D" uid="uid://bmfsmagwwfbf8" path="res://Player/Player Sprits/Barra de vida/barra de vida2.png" id="5_dkpta"]
 [ext_resource type="Texture2D" uid="uid://6ta8ognvvp2s" path="res://Player/Player Sprits/Barra de vida/barra de vida3.png" id="6_lfmf2"]
@@ -17,17 +17,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(21, 35)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_dkpta"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_gu6f8")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gu6f8"]
 animations = [{
@@ -84,16 +73,16 @@ shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="Hands" type="Marker2D" parent="."]
 
-[node name="mãos" type="AnimatedSprite2D" parent="Hands"]
-sprite_frames = SubResource("SpriteFrames_dkpta")
-animation = &"idle"
-frame_progress = 0.128164
+[node name="mao direita" type="Sprite2D" parent="Hands"]
+position = Vector2(0, 1)
+scale = Vector2(0.020708, 0.0232174)
+texture = ExtResource("3_hqtel")
 
 [node name="Barra de vida" type="CanvasLayer" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Barra de vida"]
-position = Vector2(158, 38.25)
-scale = Vector2(5, 5.07143)
+position = Vector2(148, 28)
+scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_gu6f8")
 animation = &"Barra de vida"
 
