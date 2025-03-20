@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://jqbjgv6vxruj"]
 
-[ext_resource type="Script" uid="uid://do5of5x6os1v0" path="res://Scene/cutseen.gd" id="1_420m2"]
+[ext_resource type="Script" uid="uid://do5of5x6os1v0" path="res://Scripts/cutseen.gd" id="1_420m2"]
 
 [node name="cutseen" type="Control"]
 layout_mode = 3
