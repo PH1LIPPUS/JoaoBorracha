@@ -1,12 +1,57 @@
-[gd_scene load_steps=3 format=3 uid="uid://w2e5lycek025"]
+[gd_scene load_steps=4 format=3 uid="uid://w2e5lycek025"]
 
+[ext_resource type="Script" uid="uid://bi57yustibr60" path="res://Scene/game.gd" id="1_03iqk"]
 [ext_resource type="PackedScene" uid="uid://b3koslma6spkr" path="res://Player/player.tscn" id="1_w51g1"]
 [ext_resource type="PackedScene" uid="uid://b16unhwt7cbbr" path="res://Scene/mapa.tscn" id="2_4jv7b"]
 
 [node name="Game" type="Node"]
+script = ExtResource("1_03iqk")
 
 [node name="Mapa" parent="." instance=ExtResource("2_4jv7b")]
 
 [node name="Player" parent="." instance=ExtResource("1_w51g1")]
 position = Vector2(132, 500)
 scale = Vector2(5, 5)
+
+[node name="Menupausa" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Menupausa"]
+anchors_preset = -1
+anchor_left = -0.15625
+anchor_top = -0.0972222
+anchor_right = 0.219618
+anchor_bottom = 0.212963
+offset_left = 179.0
+offset_top = 59.0
+offset_right = 905.0
+offset_bottom = 526.0
+color = Color(0, 0, 0, 0.666667)
+metadata/_edit_use_anchors_ = true
+
+[node name="Resume" type="Button" parent="Menupausa"]
+offset_left = 501.0
+offset_top = 218.0
+offset_right = 597.0
+offset_bottom = 249.0
+text = "Resume"
+metadata/_edit_use_anchors_ = true
+
+[node name="Back" type="Button" parent="Menupausa"]
+offset_left = 21.0
+offset_top = 161.0
+offset_right = 66.0
+offset_bottom = 192.0
+text = "Back
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="Options" type="Button" parent="Menupausa"]
+offset_left = 114.0
+offset_top = 166.0
+offset_right = 145.0
+offset_bottom = 197.0
+text = "Op"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Menupausa/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Menupausa/Back" to="." method="_on_back_pressed"]
