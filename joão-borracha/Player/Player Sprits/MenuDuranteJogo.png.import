@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi3hhfpdaffja"
-path="res://.godot/imported/CapsuleLife.png-c91e0f649bbf20f101f651f1b1b0abe1.ctex"
+uid="uid://lrnlqrwrr71e"
+path="res://.godot/imported/MenuDuranteJogo.png-784119f75b4aad7e6c936d3dffd0cfe4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Player Sprits/CapsuleLife.png"
-dest_files=["res://.godot/imported/CapsuleLife.png-c91e0f649bbf20f101f651f1b1b0abe1.ctex"]
+source_file="res://Player/Player Sprits/MenuDuranteJogo.png"
+dest_files=["res://.godot/imported/MenuDuranteJogo.png-784119f75b4aad7e6c936d3dffd0cfe4.ctex"]
 
 [params]
 
