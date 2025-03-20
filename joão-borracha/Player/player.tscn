@@ -25,3 +25,7 @@ shape = SubResource("RectangleShape2D_onrkg")
 position = Vector2(0, 1)
 scale = Vector2(0.020708, 0.0232174)
 texture = ExtResource("3_hqtel")
+
+[node name="Barra de vida" type="CanvasLayer" parent="."]
+
+[node name="Barra de Stamina" type="CanvasLayer" parent="."]
