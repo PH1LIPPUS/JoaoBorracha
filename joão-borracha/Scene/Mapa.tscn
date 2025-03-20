@@ -1,18 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://b16unhwt7cbbr"]
 
-[ext_resource type="PackedScene" uid="uid://b3koslma6spkr" path="res://Player/player.tscn" id="1_wtcfe"]
+[ext_resource type="PackedScene" uid="uid://b3koslma6spkr" path="res://Player/player.tscn" id="1_jwj0k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
 size = Vector2(1238.5, 20)
 
-[node name="Node2D" type="Node2D"]
+[node name="Mapa" type="Node2D"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1570.0
-offset_bottom = 1193.0
-color = Color(0.485703, 0.485704, 0.485703, 1)
-
-[node name="Player" parent="." instance=ExtResource("1_wtcfe")]
+[node name="Player" parent="." instance=ExtResource("1_jwj0k")]
 position = Vector2(72, 411)
 scale = Vector2(4, 4)
 
