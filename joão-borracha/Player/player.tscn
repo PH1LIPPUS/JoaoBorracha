@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3koslma6spkr"]
+
+[ext_resource type="Texture2D" uid="uid://cqh4eska8r7iv" path="res://Player/Player Sprits/borracha.png" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://tnje6u8fsn07" path="res://Player/player.gd" id="1_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://cpjaoph37eqg1" path="res://Player/Player Sprits/mao.png" id="3_hqtel"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+size = Vector2(21, 35)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_i3pqv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.562496, -0.625)
+scale = Vector2(0.0899299, 0.0896794)
+texture = ExtResource("1_4flbx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_onrkg")
+
+[node name="Hands" type="Marker2D" parent="."]
+
+[node name="mao direita" type="Sprite2D" parent="Hands"]
+position = Vector2(0, 1)
+scale = Vector2(0.020708, 0.0232174)
+texture = ExtResource("3_hqtel")
