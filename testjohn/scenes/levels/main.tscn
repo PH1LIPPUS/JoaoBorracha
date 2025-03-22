@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn33qrqxp8ja"]
+
+[ext_resource type="PackedScene" uid="uid://dj5nbhjvnj2n5" path="res://scenes/generic/player.tscn" id="1_ncwke"]
+[ext_resource type="Texture2D" uid="uid://b8ieypcoa1ggt" path="res://resources/sprites/guns/glock/glockIdle.png.png" id="2_pi8k5"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lpy3b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hp6jh"]
+size = Vector2(814, 81)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(592, 468)
+physics_material_override = SubResource("PhysicsMaterial_lpy3b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 30.5)
+shape = SubResource("RectangleShape2D_hp6jh")
+
+[node name="Player" parent="." instance=ExtResource("1_ncwke")]
+position = Vector2(607, 350)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(620, 546)
+scale = Vector2(3.35556, 1)
+texture = ExtResource("2_pi8k5")
