@@ -12,7 +12,7 @@ config_version=5
 
 config/name="João Borracha"
 run/main_scene="uid://jq6n5j3ynvkb"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.3", "Forward Plus")
 
 [display]
 

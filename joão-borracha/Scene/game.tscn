@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b3koslma6spkr" path="res://Player/player.tscn" id="1_w51g1"]
 [ext_resource type="PackedScene" uid="uid://b16unhwt7cbbr" path="res://Scene/mapa.tscn" id="2_4jv7b"]
-[ext_resource type="Script" uid="uid://bhceiovadcvqo" path="res://Scene/pause_menu.gd" id="3_03iqk"]
+[ext_resource type="Script" path="res://Scene/pause_menu.gd" id="3_03iqk"]
 [ext_resource type="Texture2D" uid="uid://lrnlqrwrr71e" path="res://Player/Player Sprits/MenuDuranteJogo.png" id="4_03iqk"]
 
 [node name="Game" type="Node"]
