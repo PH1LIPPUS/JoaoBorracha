@@ -179,6 +179,9 @@ libraries = {
 "": SubResource("AnimationLibrary_fi5g0")
 }
 
+[node name="GunGrab" type="AudioStreamPlayer" parent="RightHand"]
+stream = ExtResource("11_rds4h")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, 5)
 scale = Vector2(-0.3, 0.3)
@@ -206,5 +209,5 @@ libraries = {
 "": SubResource("AnimationLibrary_lh0cl")
 }
 
-[node name="GunGrab" type="AudioStreamPlayer" parent="."]
+[node name="GunGrab" type="AudioStreamPlayer" parent="LeftHand"]
 stream = ExtResource("11_rds4h")
