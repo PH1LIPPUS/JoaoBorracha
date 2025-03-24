@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lrnlqrwrr71e"
-path="res://.godot/imported/MenuDuranteJogo.png-784119f75b4aad7e6c936d3dffd0cfe4.ctex"
+uid="uid://d1bmxhslenjpr"
+path="res://.godot/imported/MenuDuranteJogo4.png-0c768eae0c779e0cbb506c14816ce5ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Player Sprits/MenuDuranteJogo.png"
-dest_files=["res://.godot/imported/MenuDuranteJogo.png-784119f75b4aad7e6c936d3dffd0cfe4.ctex"]
+source_file="res://Player/Player Sprits/MenuDuranteJogo4.png"
+dest_files=["res://.godot/imported/MenuDuranteJogo4.png-0c768eae0c779e0cbb506c14816ce5ad.ctex"]
 
 [params]
 

@@ -1,7 +1,11 @@
 extends CharacterBody2D
 
-# Movement variables
-@export var speed: float = 300.0
+@onready var barra_de_vida = $"Barra de vida"
+
+# Movement variables - MODIFIED
+@export var walk_speed: float = 150.0
+@export var run_speed: float = 300.0
+@export var slow_speed: float = 75.0
 @export var acceleration: float = 5.0
 @export var deceleration: float = 5.0
 
@@ -54,6 +58,10 @@ var near_weapons: Array = []
 @onready var left_hand: Node2D = $LeftHand
 @onready var right_hand: Node2D = $RightHand
 
+func _ready() -> void:
+	if barra_de_vida == null:
+		print("Erro: Barra de vida não encontrada no nó Player!")
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("grab_left"):
 		try_grab_weapon($LeftHand)
@@ -63,7 +71,7 @@ func _input(event: InputEvent) -> void:
 		set_precision_aim(true)
 	elif event.is_action_released("precision_aim"):
 		set_precision_aim(false)
-		
+
 func _process(delta: float) -> void:
 	apply_gravity(delta)
 	handle_jump()
@@ -77,7 +85,6 @@ func _process(delta: float) -> void:
 	was_on_floor = is_on_floor()
 	var mouse_pos: Vector2 = get_global_mouse_position()
 	
-
 	update_hand_positions(mouse_pos)
 	# Flip player sprite based on mouse position
 	if precise_aim:
@@ -86,7 +93,6 @@ func _process(delta: float) -> void:
 		$RightHand/RIGHTY.flip_v = mouse_pos.x < global_position.x
 		$LeftHand/LEFTY.flip_v = mouse_pos.x < global_position.x
 		$Sprite2D.flip_h = mouse_pos.x < global_position.x
-	
 
 func apply_gravity(delta: float) -> void:
 	if not is_on_floor():
@@ -104,8 +110,15 @@ func handle_movement(delta: float) -> void:
 		direction = -1.0
 	elif Input.is_action_pressed("walk_right"):
 		direction = 1.0
-
-	target_speed = direction * speed
+	
+	# Determine target speed based on movement state
+	var target_speed: float
+	if Input.is_action_pressed("slow_move"):  # When Ctrl is pressed
+		target_speed = direction * slow_speed
+	elif Input.is_action_pressed("run"):  # When Shift is pressed
+		target_speed = direction * run_speed
+	else:
+		target_speed = direction * walk_speed  # Normal walking speed
 
 	# Air control adjustment
 	var current_acceleration = acceleration if is_on_floor() else acceleration * air_control_factor
@@ -240,3 +253,15 @@ func set_precision_aim(enable: bool) -> void:
 	
 	precision_tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	precision_tween.tween_property(self, "current_hand_angle_offset", target_offset, precise_hand_transition_duration)
+
+func receber_dano(dano: int) -> void:
+	if barra_de_vida:
+		barra_de_vida.receber_dano(dano)
+	else:
+		print("Aviso: Barra de vida não encontrada!")
+
+func curar(cura: int) -> void:
+	if barra_de_vida:
+		barra_de_vida.vida_atual += cura
+		barra_de_vida.vida_atual = clamp(barra_de_vida.vida_atual, 0, barra_de_vida.vida_maxima)
+		barra_de_vida.update_barra()

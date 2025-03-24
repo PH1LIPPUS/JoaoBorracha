@@ -1,12 +1,53 @@
-[gd_scene load_steps=10 format=3 uid="uid://w2e5lycek025"]
+[gd_scene load_steps=14 format=3 uid="uid://w2e5lycek025"]
 
 [ext_resource type="PackedScene" uid="uid://dj5nbhjvnj2n5" path="res://Player/player.tscn" id="1_w51g1"]
 [ext_resource type="PackedScene" uid="uid://b16unhwt7cbbr" path="res://Scene/mapa.tscn" id="2_4jv7b"]
 [ext_resource type="Script" uid="uid://bhceiovadcvqo" path="res://Scene/pause_menu.gd" id="3_03iqk"]
-[ext_resource type="Texture2D" uid="uid://lrnlqrwrr71e" path="res://Player/Player Sprits/MenuDuranteJogo.png" id="4_03iqk"]
+[ext_resource type="Texture2D" uid="uid://c82tmtipqpw8h" path="res://Player/Player Sprits/MenuDuranteJogo1.png" id="4_twwsd"]
+[ext_resource type="Texture2D" uid="uid://b7kop3huhsw7u" path="res://Player/Player Sprits/MenuDuranteJogo3.png" id="5_c6b8m"]
 [ext_resource type="PackedScene" uid="uid://2eprt2lw77xp" path="res://Player/props/PunchingBag.tscn" id="5_h8jt7"]
+[ext_resource type="Texture2D" uid="uid://bgvakuewfacwt" path="res://Player/Player Sprits/MenuDuranteJogo2.png" id="6_0ka5k"]
 [ext_resource type="Texture2D" uid="uid://b8ieypcoa1ggt" path="res://resources/sprites/guns/glock/glockIdle.png.png" id="6_sagxc"]
 [ext_resource type="PackedScene" uid="uid://btqhknhi5288e" path="res://Player/weapons/metal_pipe.tscn" id="7_8f6ah"]
+[ext_resource type="Texture2D" uid="uid://d1bmxhslenjpr" path="res://Player/Player Sprits/MenuDuranteJogo4.png" id="7_ha7wd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yjs1f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_twwsd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_c6b8m")
+}],
+"loop": false,
+"name": &"back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_twwsd")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_0ka5k")
+}],
+"loop": false,
+"name": &"options",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ha7wd")
+}],
+"loop": false,
+"name": &"resume",
+"speed": 5.0
+}]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_twwsd"]
 
@@ -22,7 +63,6 @@ position = Vector2(166, 468)
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 process_mode = 3
-visible = false
 script = ExtResource("3_03iqk")
 
 [node name="ColorRect" type="ColorRect" parent="PauseMenu"]
@@ -38,10 +78,13 @@ offset_bottom = 527.0
 color = Color(0, 0, 0, 0.666667)
 metadata/_edit_use_anchors_ = true
 
-[node name="MenuDuranteJogo" type="Sprite2D" parent="PauseMenu"]
+[node name="MenuDuranteJogo" type="AnimatedSprite2D" parent="PauseMenu"]
 position = Vector2(552, 329)
 scale = Vector2(5.26, 5.105)
-texture = ExtResource("4_03iqk")
+sprite_frames = SubResource("SpriteFrames_yjs1f")
+animation = &"options"
+autoplay = "idle"
+frame_progress = 1.0
 
 [node name="Resume" type="Button" parent="PauseMenu"]
 offset_left = 401.0
@@ -78,5 +121,9 @@ shape = SubResource("RectangleShape2D_c6b8m")
 [node name="MetalPipe" parent="." instance=ExtResource("7_8f6ah")]
 position = Vector2(1584, 652)
 
+[connection signal="mouse_entered" from="PauseMenu/Resume" to="PauseMenu" method="_on_resume_mouse_entered"]
+[connection signal="mouse_exited" from="PauseMenu/Resume" to="PauseMenu" method="_on_resume_mouse_exited"]
 [connection signal="pressed" from="PauseMenu/Resume" to="PauseMenu" method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/Back" to="PauseMenu" method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="PauseMenu/Back" to="PauseMenu" method="_on_back_mouse_exited"]
 [connection signal="pressed" from="PauseMenu/Back" to="PauseMenu" method="_on_back_pressed"]
