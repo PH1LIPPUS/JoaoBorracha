@@ -1,8 +1,0 @@
-res://scenes/generic/weapon.tscn
-res://scenes/generic/weapon.gd
-res://scenes/generic/player.tscn
-res://scenes/generic/LeftHand.gd
-res://scenes/generic/RightHand.gd
-res://scenes/generic/player.gd
-res://scenes/levels/main.tscn
-res://scenes/generic/hand.gd

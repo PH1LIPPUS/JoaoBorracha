@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b16unhwt7cbbr"]
+[gd_scene load_steps=4 format=3 uid="uid://b16unhwt7cbbr"]
 
 [ext_resource type="Texture2D" uid="uid://srkapw4j1ev0" path="res://Assets/Mapa/background.png" id="1_tbqtw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1y8w5"]
+size = Vector2(15, 578)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
 size = Vector2(1238.5, 20)
@@ -14,6 +17,10 @@ texture = ExtResource("1_tbqtw")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(556, 555)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-561.5, -278)
+shape = SubResource("RectangleShape2D_1y8w5")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(21, 16)

@@ -8,7 +8,6 @@ func _input(event):
 		toggle_pause()
 
 func _on_resume_pressed() -> void:
-	print("a")
 	toggle_pause()
 	
 func toggle_pause():

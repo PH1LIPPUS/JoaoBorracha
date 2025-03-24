@@ -1,0 +1,89 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1742806968
+icon.png::CompressedTexture2D/CompressedTexture2D::1295121381189766968::1742806313::1742806663::1::::<><><>0<>0<>20ad6a0de4716bda7fb2c40ffe1535f5<>res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.ctex::
+MetalPipe.gd::GDScript/GDScript::5692089589088441929::1742806313::0::1::::<>Area2D<><>0<>0<><>::
+::res://Assets/::1742806902
+::res://Assets/Mapa/::1742806902
+background.png::CompressedTexture2D/CompressedTexture2D::1299101600397894643::1742468835::1742806867::1::::<><><>0<>0<>20f9565643aafdb9b96f823272e55c1e<>res://.godot/imported/background.png-81d8b5ab0cf7b4daed6bbc4f839ebe3e.ctex::
+::res://Player/::1742806968
+BaseHand.gd::GDScript/GDScript::7628574792676533622::1742806313::0::1::::BaseHand<>Node2D<><>0<>0<><>::
+player.gd::GDScript/GDScript::1295817180944370488::1742806313::0::1::::<>CharacterBody2D<><>0<>0<><>::
+player.tscn::PackedScene/PackedScene::7853684465681849276::1742806948::0::1::::<><><>0<>0<><>::uid://spx6jd46pcku::::res://Player/player.gd<>uid://dgxlrog6dps2q::::res://Player/BaseHand.gd<>uid://jnoxfkq4xhnw::::res://resources/sprites/hands/handOpenBack.png.png<>uid://y5eu4ci3d42s::::res://resources/sprites/chars/johnny/johnnyBody.png<>uid://plcy1e3b1naj::::res://resources/sprites/hands/handGunBack.png.png<>uid://b5wapykkegbxq::::res://resources/sprites/hands/handFistBack.png.png<>uid://bgv6lgvxuq75i::::res://resources/sprites/hands/handGun.png.png<>uid://dcb14l371t2m4::::res://resources/sprites/hands/handOpen.png.png<>uid://mei3kq6ujwk6::::res://resources/sprites/hands/handFist.png.png<>uid://n6hanfivxqqw::::res://resources/sound/guns/gunDrop.ogg
+::res://Player/Player Sprits/::1742806902
+CapsuleLife.png::CompressedTexture2D/CompressedTexture2D::3006171815343059214::1742472467::1742806867::1::::<><><>0<>0<>70685cf04e4052ee5b12d9271ea06e6d<>res://.godot/imported/CapsuleLife.png-c91e0f649bbf20f101f651f1b1b0abe1.ctex::
+MenuDuranteJogo.png::CompressedTexture2D/CompressedTexture2D::807981534134570768::1742505132::1742806867::1::::<><><>0<>0<>88146e3ceac0d3861614ed431594735e<>res://.godot/imported/MenuDuranteJogo.png-784119f75b4aad7e6c936d3dffd0cfe4.ctex::
+::res://Player/Player Sprits/Barra de vida/::1742806902
+barra de vida1.png::CompressedTexture2D/CompressedTexture2D::6517985679419466347::1742467598::1742806867::1::::<><><>0<>0<>c6285279884b5c11d0a8720f8e7fc59e<>res://.godot/imported/barra de vida1.png-30cc4149f4ab7b798e02e9fb6bd2cc81.ctex::
+barra de vida2.png::CompressedTexture2D/CompressedTexture2D::3240123041814446743::1742467598::1742806867::1::::<><><>0<>0<>3ce3e98d534c9c2fcf6ffd48421f5e41<>res://.godot/imported/barra de vida2.png-21422c19a63a0bc3b51d3b533aa1f4a8.ctex::
+barra de vida3.png::CompressedTexture2D/CompressedTexture2D::2215137006520296956::1742467598::1742806867::1::::<><><>0<>0<>6a69906873cef15cbc17a534f7a84e47<>res://.godot/imported/barra de vida3.png-afdc87f1eb1ccc9a60ffab04956c06c9.ctex::
+barra de vida4.png::CompressedTexture2D/CompressedTexture2D::6059546456579252279::1742467598::1742806867::1::::<><><>0<>0<>a9a74e3858f9f24d6b9e6c4cde8b479d<>res://.godot/imported/barra de vida4.png-18390840f0da0738f2f9f33828111892.ctex::
+barra de vida5.png::CompressedTexture2D/CompressedTexture2D::6575450425844362162::1742467598::1742806867::1::::<><><>0<>0<>73c1d660178759794a6c8a67889da881<>res://.godot/imported/barra de vida5.png-60f3db8f273b404818600f92151dbef5.ctex::
+barra de vida6.png::CompressedTexture2D/CompressedTexture2D::7403666474901430403::1742467598::1742806867::1::::<><><>0<>0<>e8f39ee5fc6ef4bd77d2abee60778fc4<>res://.godot/imported/barra de vida6.png-5ad696732ace55e0ed2581463a028d7e.ctex::
+barra de vida7.png::CompressedTexture2D/CompressedTexture2D::4119755049108593536::1742467598::1742806867::1::::<><><>0<>0<>76ddaae0fe19ae5eafdb6f31f4a18529<>res://.godot/imported/barra de vida7.png-acc12e574d6ef46b74add5212e9c7e37.ctex::
+barra de vida8.png::CompressedTexture2D/CompressedTexture2D::391563066329937904::1742467598::1742806867::1::::<><><>0<>0<>4400587b90f9de9c5e4e20ee5a2dd358<>res://.godot/imported/barra de vida8.png-0acad26a22f8a1cc94713fa2e0173026.ctex::
+barra de vida9.png::CompressedTexture2D/CompressedTexture2D::8138666189966178310::1742467598::1742806867::1::::<><><>0<>0<>85570c65cb30bfa28c911814a11ee203<>res://.godot/imported/barra de vida9.png-4e11623dfd1ccfded1a49bb3b19ffa2c.ctex::
+barra de vida10.png::CompressedTexture2D/CompressedTexture2D::4108089938868946116::1742467598::1742806867::1::::<><><>0<>0<>3b637585176c1806fd92a6db61e05e66<>res://.godot/imported/barra de vida10.png-83b17997efad721213c2eea5ee642cf2.ctex::
+barra de vida11.png::CompressedTexture2D/CompressedTexture2D::4946221324302157653::1742467598::1742806867::1::::<><><>0<>0<>6d541702d1299ce9d9ee33722437d181<>res://.godot/imported/barra de vida11.png-be281d8dd20e0c1922ed80246f8b1c73.ctex::
+::res://Player/Player Sprits/hand/::1742806902
+hand1.png::CompressedTexture2D/CompressedTexture2D::6268282247425033927::1742467196::1742806867::1::::<><><>0<>0<>6f9a5e5cd4f89b4257610957e4b9702a<>res://.godot/imported/hand1.png-d9e892ba926093b804f7aa431c50e66d.ctex::
+hand2.png::CompressedTexture2D/CompressedTexture2D::1982299676215477226::1742467196::1742806867::1::::<><><>0<>0<>03ca2b5a1e8e42bc7cc49b91c146b03a<>res://.godot/imported/hand2.png-320e224b1064208670afbb7ea7766d16.ctex::
+hand3.png::CompressedTexture2D/CompressedTexture2D::3693427425942773301::1742467196::1742806867::1::::<><><>0<>0<>13bc2a44553ef8164e70cb92f89b56a0<>res://.godot/imported/hand3.png-dbc1a407400c8f38bbb698e7e0d5a18c.ctex::
+handback1.png::CompressedTexture2D/CompressedTexture2D::8702767024623801642::1742467196::1742806867::1::::<><><>0<>0<>ca80ba8335710e403241da18ceefe81c<>res://.godot/imported/handback1.png-9ebbe1fef42ab82c8e6e24be00181cc7.ctex::
+handback2.png::CompressedTexture2D/CompressedTexture2D::7471844923277058908::1742467196::1742806867::1::::<><><>0<>0<>f12c2ddf67a9ce2a9090167f03312f86<>res://.godot/imported/handback2.png-132ec5a7e33e0f4b7d319d0a2d117ef5.ctex::
+handback3.png::CompressedTexture2D/CompressedTexture2D::8063343566395461187::1742467196::1742806867::1::::<><><>0<>0<>8606fed98f831f75ee20527a5f257d62<>res://.godot/imported/handback3.png-a7592d2b33479e907e145bd7b88044fb.ctex::
+::res://Player/props/::1742806961
+PunchingBag.gd::GDScript::5584505719052517968::1742806313::0::1::::<>Area2D<><>0<>0<><>::
+PunchingBag.tscn::PackedScene::1904298442814850205::1742806961::0::1::::<><><>0<>0<><>::uid://cltf81ieiebfc::::res://Player/props/PunchingBag.gd<>uid://dxdwusp7t76id::::res://resources/sprites/props/punchingBag.png
+::res://Player/weapons/::1742806902
+metal_pipe.tscn::PackedScene::3753482327790943714::1742806675::0::1::::<><><>0<>0<><>::uid://cndj5b2dsegrp::::res://MetalPipe.gd<>uid://bvr1haxqr4hli::::res://resources/sprites/melee/Pipe.png
+::res://resources/::1742806902
+::res://resources/sound/::1742806902
+impactCement.ogg::AudioStreamOggVorbis/AudioStreamOggVorbis::6872209174304621284::1742806313::1742806663::1::::<><><>0<>0<>389bf1d3031bd8ab08577cfb7151085b<>res://.godot/imported/impactCement.ogg-4a1807eda755408dba8d178396d1f68f.oggvorbisstr::
+impact_cement.ogg::AudioStreamOggVorbis/AudioStreamOggVorbis::5638313233966426579::1742806313::1742806663::1::::<><><>0<>0<>6b4057f3e4e6108fc067c4f242b41046<>res://.godot/imported/impact_cement.ogg-7899129ace6a21254e6ad2ffb6bf9dfa.oggvorbisstr::
+impact_metal.ogg::AudioStreamOggVorbis/AudioStreamOggVorbis::7921864425072735879::1742806313::1742806663::1::::<><><>0<>0<>a4c5d9a5b0a2cf1ecb998e5a9f603493<>res://.godot/imported/impact_metal.ogg-9863e2f689ae1e3722b714d86439711a.oggvorbisstr::
+toss.ogg::AudioStreamOggVorbis/AudioStreamOggVorbis::6403245295482037259::1742806313::1742806663::1::::<><><>0<>0<>4d5d995ab47fb65fb1bb5d0e2eece9bc<>res://.godot/imported/toss.ogg-788f2004decf8bf363e25c1373d1f981.oggvorbisstr::
+::res://resources/sound/guns/::1742806902
+glock.ogg::AudioStreamOggVorbis/AudioStreamOggVorbis::1428612829856111715::1742806313::1742806663::1::::<><><>0<>0<>01c52cb84e69279c759c36de6c5128ef<>res://.godot/imported/glock.ogg-0ed9ed258d6a2fa39ec8ef5215646fb0.oggvorbisstr::
+gunDrop.ogg::AudioStreamOggVorbis/AudioStreamOggVorbis::976876387539682750::1742806313::1742806663::1::::<><><>0<>0<>1db8231a1df3a2a59e120d5a7d993822<>res://.godot/imported/gunDrop.ogg-b81096f76c3f113e9ca422714bc17851.oggvorbisstr::
+shell.ogg::AudioStreamOggVorbis/AudioStreamOggVorbis::7444477826736527682::1742806313::1742806663::1::::<><><>0<>0<>caea73b1c66728eacbe887f5258ec776<>res://.godot/imported/shell.ogg-79a54efbe8f5518fafa0ec888544c607.oggvorbisstr::
+::res://resources/sprites/::1742806902
+muzzleFlash.png::CompressedTexture2D/CompressedTexture2D::708950488029649277::1742806313::1742806663::1::::<><><>0<>0<>14eadc0414f182f587c0fa38bbc37d95<>res://.godot/imported/muzzleFlash.png-15b298cf706aed7150b7074da26e3ef2.ctex::
+::res://resources/sprites/chars/::1742806902
+::res://resources/sprites/chars/civ/::1742806902
+eraser body.png.png::CompressedTexture2D/CompressedTexture2D::2319666098339868132::1742806313::1742806663::1::::<><><>0<>0<>e53c70bcdf41a72b3d33066d7d67c017<>res://.godot/imported/eraser body.png.png-8cd15fcfb8eab8379692dcf6dc6422e9.ctex::
+::res://resources/sprites/chars/generic faces/::1742806902
+happy.png.png::CompressedTexture2D/CompressedTexture2D::5415468521247438026::1742806313::1742806663::1::::<><><>0<>0<>a34cc5907652cdf56d2172214682f0db<>res://.godot/imported/happy.png.png-096ff1e3e6aeed98fbf46589843ca1a1.ctex::
+::res://resources/sprites/chars/johnny/::1742806902
+johnnyBody.png::CompressedTexture2D/CompressedTexture2D::1746743690451550452::1742806313::1742806663::1::::<><><>0<>0<>cb31fbeb00f50ed3fdafcdf71c61bb2f<>res://.godot/imported/johnnyBody.png-9fdeac0a69a7c949575cf09a80e77a05.ctex::
+johnnyFace.png::CompressedTexture2D/CompressedTexture2D::4493733832398469714::1742806313::1742806663::1::::<><><>0<>0<>657f98c5e2468f90b21abc9041111dfb<>res://.godot/imported/johnnyFace.png-c65594454b6cc9d46d4c4dae70db80d5.ctex::
+::res://resources/sprites/guns/::1742806902
+::res://resources/sprites/guns/glock/::1742806902
+glockIdle.png.png::CompressedTexture2D/CompressedTexture2D::4719454064382417287::1742806313::1742806663::1::::<><><>0<>0<>e6f3ac0db89352a2cf1f0d007fbf113a<>res://.godot/imported/glockIdle.png.png-e5cc1fba84c13afff243412f9f4ebafd.ctex::
+glockShoot1.png.png::CompressedTexture2D/CompressedTexture2D::5131707883981226890::1742806313::1742806663::1::::<><><>0<>0<>a7baa2fd5752e7b0e9e9afa3e97121de<>res://.godot/imported/glockShoot1.png.png-1beb15033f600d6b957b65124e5132c2.ctex::
+glockShoot2.png.png::CompressedTexture2D/CompressedTexture2D::4690124555877504120::1742806313::1742806663::1::::<><><>0<>0<>6e5e5c52fe395c1ee334ea4dcfde49b8<>res://.godot/imported/glockShoot2.png.png-8a5e8171aa3088d175ab889fe3c0d281.ctex::
+::res://resources/sprites/guns/mp5k/::1742806902
+MP5K.png.png::CompressedTexture2D/CompressedTexture2D::4932170333883566106::1742806313::1742806663::1::::<><><>0<>0<>878245d3195aa9dd119d6cddd240d99a<>res://.godot/imported/MP5K.png.png-f8c869a3a9c79fec2340b0938fa45d7d.ctex::
+::res://resources/sprites/hands/::1742806902
+handFist.png.png::CompressedTexture2D/CompressedTexture2D::851059924230073011::1742806313::1742806663::1::::<><><>0<>0<>baad4f2d1a035769d09c0181805a0cc9<>res://.godot/imported/handFist.png.png-4098b8e95c6700f8692d116108789050.ctex::
+handFistBack.png.png::CompressedTexture2D/CompressedTexture2D::4537530366800346066::1742806313::1742806663::1::::<><><>0<>0<>a954951d28e86e8d65aae0c7a097fab0<>res://.godot/imported/handFistBack.png.png-d9081e2e426a7a352b78c5d33b7aeefc.ctex::
+handGun.png.png::CompressedTexture2D/CompressedTexture2D::2852807897518666852::1742806313::1742806663::1::::<><><>0<>0<>f104357116a2782523ae83d401457a66<>res://.godot/imported/handGun.png.png-64db276386ec4c42f108cf6136f3db55.ctex::
+handGunBack.png.png::CompressedTexture2D/CompressedTexture2D::1075706475965280285::1742806313::1742806663::1::::<><><>0<>0<>d97e14fba6049b9ff49b43b6289d9ed2<>res://.godot/imported/handGunBack.png.png-5e7bdf6d366c24e2b4d8664c863822d0.ctex::
+handOpen.png.png::CompressedTexture2D/CompressedTexture2D::7303335168445429721::1742806313::1742806663::1::::<><><>0<>0<>4c5ee3e391d1903de210a771f8f004a2<>res://.godot/imported/handOpen.png.png-fcbd0584aa50dcc66ee32439a245fa4d.ctex::
+handOpenBack.png.png::CompressedTexture2D/CompressedTexture2D::659427893535039604::1742806313::1742806663::1::::<><><>0<>0<>727bfef924bbec96b562143a51825491<>res://.godot/imported/handOpenBack.png.png-7909d55b96d0b1f763838cc275937dc8.ctex::
+::res://resources/sprites/melee/::1742806902
+Pipe.png::CompressedTexture2D/CompressedTexture2D::3897072000561394002::1742806313::1742806663::1::::<><><>0<>0<>8381efb37a4baa5937086306d62fb370<>res://.godot/imported/Pipe.png-82e9335a0027c1c8b41f0eefea72d675.ctex::
+::res://resources/sprites/props/::1742806902
+punchingBag.png::CompressedTexture2D/CompressedTexture2D::8781171047808174079::1742806313::1742806663::1::::<><><>0<>0<>07f994535b92979ffa7738a7828a2dce<>res://.godot/imported/punchingBag.png-a57e70bee5f66365f681169628346d31.ctex::
+::res://Scene/::1742806902
+cutseen.tscn::PackedScene/PackedScene::664806774963637533::1742805321::0::1::::<><><>0<>0<><>::uid://do5of5x6os1v0::::res://Scripts/cutseen.gd
+game.tscn::PackedScene/PackedScene::1600189816113335784::1742806312::0::1::::<><><>0<>0<><>::uid://b3koslma6spkr::::res://Player/player.tscn<>uid://b16unhwt7cbbr::::res://Scene/mapa.tscn<>res://Scene/pause_menu.gd<>uid://lrnlqrwrr71e::::res://Player/Player Sprits/MenuDuranteJogo.png
+main.tscn::PackedScene/PackedScene::666636669812315473::1742463926::0::1::::<><><>0<>0<><>::uid://dqb7eq54wcrw::::res://Scene/tela_inicial.tscn
+mapa.tscn::PackedScene/PackedScene::4276564286389152807::1742805321::0::1::::<><><>0<>0<><>::uid://srkapw4j1ev0::::res://Assets/Mapa/background.png
+pause_menu.gd::GDScript/GDScript::2882129266761659522::1742675523::0::1::::<>CanvasLayer<><>0<>0<><>::
+tela_inicial.tscn::PackedScene/PackedScene::243714673589732000::1742473085::0::1::::<><><>0<>0<><>::uid://crne7x6rqa824::::res://Scripts/tela_inicial.gd
+::res://scenes/::1742806974
+::res://scenes/levels/::1742806968
+main.tscn::PackedScene::239154387137280222::1742806968::0::1::::<><><>0<>0<><>::uid://dj5nbhjvnj2n5::::res://Player/player.tscn<>uid://b8ieypcoa1ggt::::res://resources/sprites/guns/glock/glockIdle.png.png<>uid://2eprt2lw77xp::::res://Player/props/PunchingBag.tscn<>uid://btqhknhi5288e::::res://Player/weapons/metal_pipe.tscn
+::res://Scripts/::1742806866
+cutseen.gd::GDScript/GDScript::8204697774160755803::1742480075::0::1::::<>Control<><>0<>0<><>::
+tela_inicial.gd::GDScript/GDScript::5993189890131365143::1742473009::0::1::::<>Control<><>0<>0<><>::
