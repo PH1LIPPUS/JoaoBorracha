@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1742806968
+::res://::1742809508
 icon.png::CompressedTexture2D/CompressedTexture2D::1295121381189766968::1742806313::1742806663::1::::<><><>0<>0<>20ad6a0de4716bda7fb2c40ffe1535f5<>res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.ctex::
 MetalPipe.gd::GDScript/GDScript::5692089589088441929::1742806313::0::1::::<>Area2D<><>0<>0<><>::
 ::res://Assets/::1742806902
@@ -32,10 +32,10 @@ handback1.png::CompressedTexture2D/CompressedTexture2D::8702767024623801642::174
 handback2.png::CompressedTexture2D/CompressedTexture2D::7471844923277058908::1742467196::1742806867::1::::<><><>0<>0<>f12c2ddf67a9ce2a9090167f03312f86<>res://.godot/imported/handback2.png-132ec5a7e33e0f4b7d319d0a2d117ef5.ctex::
 handback3.png::CompressedTexture2D/CompressedTexture2D::8063343566395461187::1742467196::1742806867::1::::<><><>0<>0<>8606fed98f831f75ee20527a5f257d62<>res://.godot/imported/handback3.png-a7592d2b33479e907e145bd7b88044fb.ctex::
 ::res://Player/props/::1742806961
-PunchingBag.gd::GDScript::5584505719052517968::1742806313::0::1::::<>Area2D<><>0<>0<><>::
-PunchingBag.tscn::PackedScene::1904298442814850205::1742806961::0::1::::<><><>0<>0<><>::uid://cltf81ieiebfc::::res://Player/props/PunchingBag.gd<>uid://dxdwusp7t76id::::res://resources/sprites/props/punchingBag.png
+PunchingBag.gd::GDScript/GDScript::5584505719052517968::1742806313::0::1::::<>Area2D<><>0<>0<><>::
+PunchingBag.tscn::PackedScene/PackedScene::1904298442814850205::1742806961::0::1::::<><><>0<>0<><>::uid://cltf81ieiebfc::::res://Player/props/PunchingBag.gd<>uid://dxdwusp7t76id::::res://resources/sprites/props/punchingBag.png
 ::res://Player/weapons/::1742806902
-metal_pipe.tscn::PackedScene::3753482327790943714::1742806675::0::1::::<><><>0<>0<><>::uid://cndj5b2dsegrp::::res://MetalPipe.gd<>uid://bvr1haxqr4hli::::res://resources/sprites/melee/Pipe.png
+metal_pipe.tscn::PackedScene/PackedScene::3753482327790943714::1742806675::0::1::::<><><>0<>0<><>::uid://cndj5b2dsegrp::::res://MetalPipe.gd<>uid://bvr1haxqr4hli::::res://resources/sprites/melee/Pipe.png
 ::res://resources/::1742806902
 ::res://resources/sound/::1742806902
 impactCement.ogg::AudioStreamOggVorbis/AudioStreamOggVorbis::6872209174304621284::1742806313::1742806663::1::::<><><>0<>0<>389bf1d3031bd8ab08577cfb7151085b<>res://.godot/imported/impactCement.ogg-4a1807eda755408dba8d178396d1f68f.oggvorbisstr::
@@ -74,16 +74,13 @@ handOpenBack.png.png::CompressedTexture2D/CompressedTexture2D::65942789353503960
 Pipe.png::CompressedTexture2D/CompressedTexture2D::3897072000561394002::1742806313::1742806663::1::::<><><>0<>0<>8381efb37a4baa5937086306d62fb370<>res://.godot/imported/Pipe.png-82e9335a0027c1c8b41f0eefea72d675.ctex::
 ::res://resources/sprites/props/::1742806902
 punchingBag.png::CompressedTexture2D/CompressedTexture2D::8781171047808174079::1742806313::1742806663::1::::<><><>0<>0<>07f994535b92979ffa7738a7828a2dce<>res://.godot/imported/punchingBag.png-a57e70bee5f66365f681169628346d31.ctex::
-::res://Scene/::1742806902
-cutseen.tscn::PackedScene/PackedScene::664806774963637533::1742805321::0::1::::<><><>0<>0<><>::uid://do5of5x6os1v0::::res://Scripts/cutseen.gd
-game.tscn::PackedScene/PackedScene::1600189816113335784::1742806312::0::1::::<><><>0<>0<><>::uid://b3koslma6spkr::::res://Player/player.tscn<>uid://b16unhwt7cbbr::::res://Scene/mapa.tscn<>res://Scene/pause_menu.gd<>uid://lrnlqrwrr71e::::res://Player/Player Sprits/MenuDuranteJogo.png
+::res://Scene/::1742809282
+cutseen.tscn::PackedScene::664806774963637533::1742809156::0::1::::<><><>0<>0<><>::uid://do5of5x6os1v0::::res://Scripts/cutseen.gd
+game.tscn::PackedScene::1600189816113335784::1742809282::0::1::::<><><>0<>0<><>::uid://dj5nbhjvnj2n5::::res://Player/player.tscn<>uid://b16unhwt7cbbr::::res://Scene/mapa.tscn<>uid://bhceiovadcvqo::::res://Scene/pause_menu.gd<>uid://lrnlqrwrr71e::::res://Player/Player Sprits/MenuDuranteJogo.png<>uid://2eprt2lw77xp::::res://Player/props/PunchingBag.tscn<>uid://b8ieypcoa1ggt::::res://resources/sprites/guns/glock/glockIdle.png.png<>uid://btqhknhi5288e::::res://Player/weapons/metal_pipe.tscn
 main.tscn::PackedScene/PackedScene::666636669812315473::1742463926::0::1::::<><><>0<>0<><>::uid://dqb7eq54wcrw::::res://Scene/tela_inicial.tscn
-mapa.tscn::PackedScene/PackedScene::4276564286389152807::1742805321::0::1::::<><><>0<>0<><>::uid://srkapw4j1ev0::::res://Assets/Mapa/background.png
+mapa.tscn::PackedScene::4276564286389152807::1742809156::0::1::::<><><>0<>0<><>::uid://srkapw4j1ev0::::res://Assets/Mapa/background.png
 pause_menu.gd::GDScript/GDScript::2882129266761659522::1742675523::0::1::::<>CanvasLayer<><>0<>0<><>::
 tela_inicial.tscn::PackedScene/PackedScene::243714673589732000::1742473085::0::1::::<><><>0<>0<><>::uid://crne7x6rqa824::::res://Scripts/tela_inicial.gd
-::res://scenes/::1742806974
-::res://scenes/levels/::1742806968
-main.tscn::PackedScene::239154387137280222::1742806968::0::1::::<><><>0<>0<><>::uid://dj5nbhjvnj2n5::::res://Player/player.tscn<>uid://b8ieypcoa1ggt::::res://resources/sprites/guns/glock/glockIdle.png.png<>uid://2eprt2lw77xp::::res://Player/props/PunchingBag.tscn<>uid://btqhknhi5288e::::res://Player/weapons/metal_pipe.tscn
 ::res://Scripts/::1742806866
 cutseen.gd::GDScript/GDScript::8204697774160755803::1742480075::0::1::::<>Control<><>0<>0<><>::
 tela_inicial.gd::GDScript/GDScript::5993189890131365143::1742473009::0::1::::<>Control<><>0<>0<><>::

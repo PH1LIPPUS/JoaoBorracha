@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dj5nbhjvnj2n5"]
+[gd_scene load_steps=36 format=3 uid="uid://dj5nbhjvnj2n5"]
 
 [ext_resource type="Script" uid="uid://spx6jd46pcku" path="res://Player/player.gd" id="1_ndis2"]
 [ext_resource type="Script" uid="uid://dgxlrog6dps2q" path="res://Player/BaseHand.gd" id="2_7dww7"]
@@ -9,7 +9,18 @@
 [ext_resource type="Texture2D" uid="uid://bgv6lgvxuq75i" path="res://resources/sprites/hands/handGun.png.png" id="4_khr71"]
 [ext_resource type="Texture2D" uid="uid://dcb14l371t2m4" path="res://resources/sprites/hands/handOpen.png.png" id="4_nbq43"]
 [ext_resource type="Texture2D" uid="uid://mei3kq6ujwk6" path="res://resources/sprites/hands/handFist.png.png" id="6_vko3x"]
+[ext_resource type="Texture2D" uid="uid://cy4mjii2q1ntb" path="res://Player/Player Sprits/Barra de vida/barra de vida1.png" id="11_7emwf"]
 [ext_resource type="AudioStream" uid="uid://n6hanfivxqqw" path="res://resources/sound/guns/gunDrop.ogg" id="11_rds4h"]
+[ext_resource type="Texture2D" uid="uid://bmfsmagwwfbf8" path="res://Player/Player Sprits/Barra de vida/barra de vida2.png" id="12_hshwv"]
+[ext_resource type="Texture2D" uid="uid://6ta8ognvvp2s" path="res://Player/Player Sprits/Barra de vida/barra de vida3.png" id="13_gpjlu"]
+[ext_resource type="Texture2D" uid="uid://cslj3yvfp14t4" path="res://Player/Player Sprits/Barra de vida/barra de vida4.png" id="14_8mwp6"]
+[ext_resource type="Texture2D" uid="uid://c0xgyciqqep35" path="res://Player/Player Sprits/Barra de vida/barra de vida5.png" id="15_qemgg"]
+[ext_resource type="Texture2D" uid="uid://ddqnkm0yfpxp8" path="res://Player/Player Sprits/Barra de vida/barra de vida6.png" id="16_8viyr"]
+[ext_resource type="Texture2D" uid="uid://byxv075vnttfc" path="res://Player/Player Sprits/Barra de vida/barra de vida7.png" id="17_sm0op"]
+[ext_resource type="Texture2D" uid="uid://ftw8snf7frmm" path="res://Player/Player Sprits/Barra de vida/barra de vida8.png" id="18_76lrf"]
+[ext_resource type="Texture2D" uid="uid://dn7ov4nn6c1yo" path="res://Player/Player Sprits/Barra de vida/barra de vida9.png" id="19_efx54"]
+[ext_resource type="Texture2D" uid="uid://byr8v2dsu8xmi" path="res://Player/Player Sprits/Barra de vida/barra de vida10.png" id="20_755ss"]
+[ext_resource type="Texture2D" uid="uid://ccp8spg0q2fcf" path="res://Player/Player Sprits/Barra de vida/barra de vida11.png" id="21_bbimk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nknpl"]
 radius = 30.0
@@ -156,6 +167,47 @@ _data = {
 &"RESET": SubResource("Animation_jp78c")
 }
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_m0h3t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_7emwf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_hshwv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_gpjlu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_8mwp6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_qemgg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8viyr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_sm0op")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_76lrf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_efx54")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_755ss")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_bbimk")
+}],
+"loop": true,
+"name": &"Vida",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(3, 2)
 script = ExtResource("1_ndis2")
@@ -176,7 +228,7 @@ shape = SubResource("CircleShape2D_nknpl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RightHand"]
 libraries = {
-"": SubResource("AnimationLibrary_fi5g0")
+&"": SubResource("AnimationLibrary_fi5g0")
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -204,8 +256,16 @@ shape = SubResource("CircleShape2D_qikd7")
 [node name="AnimationPlayerLeft" type="AnimationPlayer" parent="LeftHand"]
 root_node = NodePath("../../RightHand")
 libraries = {
-"": SubResource("AnimationLibrary_lh0cl")
+&"": SubResource("AnimationLibrary_lh0cl")
 }
 
 [node name="GunGrab" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_rds4h")
+
+[node name="Barra de vida" type="CanvasLayer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Barra de vida"]
+position = Vector2(217.625, 43.875)
+scale = Vector2(6.95909, 6.89286)
+sprite_frames = SubResource("SpriteFrames_m0h3t")
+animation = &"Vida"
