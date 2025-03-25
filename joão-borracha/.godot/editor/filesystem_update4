@@ -1,5 +1,8 @@
+res://Player/props/PunchingBag.tscn
+res://Player/weapons/metal_pipe.tscn
+res://Player/player.tscn
 res://Scene/cutseen.tscn
 res://Scene/game.tscn
+res://Scene/main.tscn
 res://Scene/mapa.tscn
-res://Player/player.tscn
-res://Scripts/cutseen.gd
+res://Scene/tela_inicial.tscn
