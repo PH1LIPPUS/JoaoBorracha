@@ -1,6 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://jqbjgv6vxruj"]
+[gd_scene load_steps=5 format=3 uid="uid://jqbjgv6vxruj"]
 
 [ext_resource type="Script" uid="uid://do5of5x6os1v0" path="res://Scripts/cutseen.gd" id="1_420m2"]
+[ext_resource type="Texture2D" uid="uid://b68hxhoedxwli" path="res://buttonSkip1.png" id="2_nhpub"]
+[ext_resource type="Texture2D" uid="uid://rxwb04i28d25" path="res://buttonSkip2.png" id="3_t8s27"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jwoqj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nhpub")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_t8s27")
+}],
+"loop": true,
+"name": &"skip",
+"speed": 5.0
+}]
 
 [node name="cutseen" type="Control"]
 layout_mode = 3
@@ -9,10 +30,21 @@ script = ExtResource("1_420m2")
 
 [node name="Skip" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1064.0
-offset_top = 23.0
-offset_right = 1106.0
+offset_left = 1011.0
+offset_top = 18.0
+offset_right = 1131.0
 offset_bottom = 54.0
+focus_mode = 0
 text = "SKIP"
+flat = true
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1070.5, 37)
+scale = Vector2(1.81159, 2.375)
+sprite_frames = SubResource("SpriteFrames_jwoqj")
+animation = &"skip"
+autoplay = "idle"
+
+[connection signal="mouse_entered" from="Skip" to="." method="_on_skip_mouse_entered"]
+[connection signal="mouse_exited" from="Skip" to="." method="_on_skip_mouse_exited"]
 [connection signal="pressed" from="Skip" to="." method="_on_skip_pressed"]
