@@ -63,6 +63,7 @@ position = Vector2(166, 468)
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 process_mode = 3
+visible = false
 script = ExtResource("3_03iqk")
 
 [node name="ColorRect" type="ColorRect" parent="PauseMenu"]
