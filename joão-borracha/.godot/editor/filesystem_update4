@@ -1,0 +1,6 @@
+res://Scene/main.tscn
+res://Scene/cutseen.tscn
+res://Scene/tela_inicial.tscn
+res://Scripts/cutseen.gd
+res://Player/player.gd
+res://Scene/pause_menu.gd

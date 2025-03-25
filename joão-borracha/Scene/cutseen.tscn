@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://jqbjgv6vxruj"]
+[gd_scene load_steps=3 format=3 uid="uid://jqbjgv6vxruj"]
 
 [ext_resource type="Script" uid="uid://do5of5x6os1v0" path="res://Scripts/cutseen.gd" id="1_420m2"]
+[ext_resource type="FontFile" uid="uid://js0ssghbweqw" path="res://resources/impact/impact.ttf" id="2_a1inv"]
 
 [node name="cutseen" type="Control"]
 layout_mode = 3
@@ -14,5 +15,13 @@ offset_top = 23.0
 offset_right = 1106.0
 offset_bottom = 54.0
 text = "SKIP"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 489.0
+offset_top = 556.0
+offset_right = 529.0
+offset_bottom = 579.0
+theme_override_fonts/font = ExtResource("2_a1inv")
 
 [connection signal="pressed" from="Skip" to="." method="_on_skip_pressed"]
