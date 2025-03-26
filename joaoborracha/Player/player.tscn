@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://brxp44x6qysd1"]
+[gd_scene load_steps=29 format=3 uid="uid://brxp44x6qysd1"]
 
 [ext_resource type="Texture2D" uid="uid://5t3jmtrju0vb" path="res://Resources/Player/idle.png" id="1_i3pqv"]
 [ext_resource type="Script" uid="uid://spx6jd46pcku" path="res://Player/player.gd" id="1_od3ui"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b5wapykkegbxq" path="res://Resources/Player/hands/handFistBack.png.png" id="2_od3ui"]
 [ext_resource type="Texture2D" uid="uid://7yy53drljuib" path="res://Resources/Player/walkL.png" id="3_sweqy"]
 [ext_resource type="Texture2D" uid="uid://bgv6lgvxuq75i" path="res://Resources/Player/hands/handGun.png.png" id="3_vtle1"]
+[ext_resource type="Script" uid="uid://dw8w0wwig0nk" path="res://Player/grab_area.gd" id="4_7emwf"]
 [ext_resource type="Texture2D" uid="uid://dcb14l371t2m4" path="res://Resources/Player/hands/handOpen.png.png" id="5_fhl08"]
 [ext_resource type="Texture2D" uid="uid://jnoxfkq4xhnw" path="res://Resources/Player/hands/handOpenBack.png.png" id="5_k53q1"]
 [ext_resource type="Script" uid="uid://bqffk61cjxkhu" path="res://Player/Barradevida.gd" id="9_n471f"]
@@ -149,6 +150,7 @@ animation = &"aim"
 autoplay = "idle"
 
 [node name="GrabArea" type="Area2D" parent="LeftHand"]
+script = ExtResource("4_7emwf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftHand/GrabArea"]
 shape = SubResource("CircleShape2D_qikd7")
@@ -176,6 +178,7 @@ animation = &"aim"
 autoplay = "idle"
 
 [node name="GrabArea" type="Area2D" parent="RightHand"]
+script = ExtResource("4_7emwf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightHand/GrabArea"]
 shape = SubResource("CircleShape2D_nknpl")
