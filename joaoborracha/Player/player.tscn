@@ -1,0 +1,197 @@
+[gd_scene load_steps=28 format=3 uid="uid://brxp44x6qysd1"]
+
+[ext_resource type="Texture2D" uid="uid://5t3jmtrju0vb" path="res://Resources/Player/idle.png" id="1_i3pqv"]
+[ext_resource type="Script" uid="uid://spx6jd46pcku" path="res://Player/player.gd" id="1_od3ui"]
+[ext_resource type="Texture2D" uid="uid://dij5wqx574okc" path="res://Resources/Player/walkR.png" id="2_hqtel"]
+[ext_resource type="Texture2D" uid="uid://b5wapykkegbxq" path="res://Resources/Player/hands/handFistBack.png.png" id="2_od3ui"]
+[ext_resource type="Texture2D" uid="uid://7yy53drljuib" path="res://Resources/Player/walkL.png" id="3_sweqy"]
+[ext_resource type="Texture2D" uid="uid://bgv6lgvxuq75i" path="res://Resources/Player/hands/handGun.png.png" id="3_vtle1"]
+[ext_resource type="Texture2D" uid="uid://dcb14l371t2m4" path="res://Resources/Player/hands/handOpen.png.png" id="5_fhl08"]
+[ext_resource type="Texture2D" uid="uid://jnoxfkq4xhnw" path="res://Resources/Player/hands/handOpenBack.png.png" id="5_k53q1"]
+[ext_resource type="Script" uid="uid://bqffk61cjxkhu" path="res://Player/Barradevida.gd" id="9_n471f"]
+[ext_resource type="Texture2D" uid="uid://ccp8spg0q2fcf" path="res://Resources/Barra de vida/barra de vida11.png" id="10_7emwf"]
+[ext_resource type="Texture2D" uid="uid://byr8v2dsu8xmi" path="res://Resources/Barra de vida/barra de vida10.png" id="11_hshwv"]
+[ext_resource type="Texture2D" uid="uid://dn7ov4nn6c1yo" path="res://Resources/Barra de vida/barra de vida9.png" id="12_gpjlu"]
+[ext_resource type="Texture2D" uid="uid://ftw8snf7frmm" path="res://Resources/Barra de vida/barra de vida8.png" id="13_8mwp6"]
+[ext_resource type="Texture2D" uid="uid://byxv075vnttfc" path="res://Resources/Barra de vida/barra de vida7.png" id="14_qemgg"]
+[ext_resource type="Texture2D" uid="uid://ddqnkm0yfpxp8" path="res://Resources/Barra de vida/barra de vida6.png" id="15_8viyr"]
+[ext_resource type="Texture2D" uid="uid://c0xgyciqqep35" path="res://Resources/Barra de vida/barra de vida5.png" id="16_sm0op"]
+[ext_resource type="Texture2D" uid="uid://cslj3yvfp14t4" path="res://Resources/Barra de vida/barra de vida4.png" id="17_76lrf"]
+[ext_resource type="Texture2D" uid="uid://6ta8ognvvp2s" path="res://Resources/Barra de vida/barra de vida3.png" id="18_efx54"]
+[ext_resource type="Texture2D" uid="uid://bmfsmagwwfbf8" path="res://Resources/Barra de vida/barra de vida2.png" id="19_755ss"]
+[ext_resource type="Texture2D" uid="uid://cy4mjii2q1ntb" path="res://Resources/Barra de vida/barra de vida1.png" id="20_bbimk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x3vf3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_od3ui")
+}],
+"loop": true,
+"name": &"aim",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_k53q1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qikd7"]
+radius = 30.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2hs0m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_i3pqv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hqtel")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_i3pqv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sweqy")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37c7o"]
+size = Vector2(121, 170)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_od3ui"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vtle1")
+}],
+"loop": true,
+"name": &"aim",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_fhl08")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nknpl"]
+radius = 30.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m0h3t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_7emwf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_hshwv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_gpjlu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_8mwp6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_qemgg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_8viyr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_sm0op")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_76lrf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_efx54")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_755ss")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_bbimk")
+}],
+"loop": false,
+"name": &"Vida",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+position = Vector2(3, 2)
+script = ExtResource("1_od3ui")
+
+[node name="LeftHand" type="Node2D" parent="."]
+position = Vector2(-97, 80)
+
+[node name="LEFTY" type="AnimatedSprite2D" parent="LeftHand"]
+position = Vector2(0.821091, -1)
+scale = Vector2(0.33, 0.34)
+sprite_frames = SubResource("SpriteFrames_x3vf3")
+animation = &"aim"
+autoplay = "idle"
+
+[node name="GrabArea" type="Area2D" parent="LeftHand"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftHand/GrabArea"]
+shape = SubResource("CircleShape2D_qikd7")
+
+[node name="player" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 5)
+rotation = 3.14159
+scale = Vector2(0.3, -0.3)
+sprite_frames = SubResource("SpriteFrames_2hs0m")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.661194
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_37c7o")
+
+[node name="RightHand" type="Node2D" parent="."]
+position = Vector2(107, 1)
+
+[node name="RIGHTY" type="AnimatedSprite2D" parent="RightHand"]
+position = Vector2(0, -0.999997)
+scale = Vector2(0.33, 0.38)
+sprite_frames = SubResource("SpriteFrames_od3ui")
+animation = &"aim"
+autoplay = "idle"
+
+[node name="GrabArea" type="Area2D" parent="RightHand"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightHand/GrabArea"]
+shape = SubResource("CircleShape2D_nknpl")
+
+[node name="Barra de vida" type="CanvasLayer" parent="."]
+script = ExtResource("9_n471f")
+
+[node name="BarraSprite" type="AnimatedSprite2D" parent="Barra de vida"]
+position = Vector2(217.625, 43.875)
+scale = Vector2(6.95909, 6.89286)
+sprite_frames = SubResource("SpriteFrames_m0h3t")
+animation = &"Vida"
+autoplay = "Vida"
+frame = 10
+frame_progress = 1.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -148)
+limit_left = 0

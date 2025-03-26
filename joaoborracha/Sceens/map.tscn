@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://dsx81hqv41qad"]
+
+[ext_resource type="Texture2D" uid="uid://dnj4qeq0qyo21" path="res://Resources/Maps/JoaoBackground01.png" id="1_1kbfe"]
+[ext_resource type="Texture2D" uid="uid://brhmxkht1qwou" path="res://Resources/Maps/JoaoBackground02.png" id="2_0ofuf"]
+[ext_resource type="Texture2D" uid="uid://c7y7wntt0pgh8" path="res://Resources/Maps/JoaoBackground3.png" id="3_o2xtr"]
+[ext_resource type="Texture2D" uid="uid://ppi8twld5iy7" path="res://Resources/Maps/JoaoBackground04.png" id="4_knvlg"]
+[ext_resource type="Texture2D" uid="uid://dh38ltvqgd02l" path="res://Resources/Maps/JoaoBackground05.png" id="5_0fuhp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1kbfe"]
+size = Vector2(3725, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ofuf"]
+size = Vector2(55, 661)
+
+[node name="Map" type="Node2D"]
+
+[node name="JoaoBackground01" type="Sprite2D" parent="."]
+position = Vector2(576, 323.5)
+scale = Vector2(1.8, 1.36042)
+texture = ExtResource("1_1kbfe")
+
+[node name="JoaoBackground02" type="Sprite2D" parent="."]
+position = Vector2(1590, 325)
+scale = Vector2(1.8, 1.342)
+texture = ExtResource("2_0ofuf")
+
+[node name="JoaoBackground3" type="Sprite2D" parent="."]
+position = Vector2(3066, 325)
+scale = Vector2(1.8, 1.342)
+texture = ExtResource("3_o2xtr")
+
+[node name="JoaoBackground04" type="Sprite2D" parent="."]
+position = Vector2(5000, 325)
+scale = Vector2(1.8, 1.342)
+texture = ExtResource("4_knvlg")
+
+[node name="JoaoBackground05" type="Sprite2D" parent="."]
+position = Vector2(5725, 164)
+scale = Vector2(1.8, 1.342)
+texture = ExtResource("5_0fuhp")
+
+[node name="Colisões" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Colisões"]
+position = Vector2(1827.5, 567)
+shape = SubResource("RectangleShape2D_1kbfe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisões"]
+position = Vector2(-28.5, 320.5)
+shape = SubResource("RectangleShape2D_0ofuf")
