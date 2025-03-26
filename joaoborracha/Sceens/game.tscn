@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bahbug2nbbn0r"]
+[gd_scene load_steps=10 format=3 uid="uid://bahbug2nbbn0r"]
 
 [ext_resource type="PackedScene" uid="uid://brxp44x6qysd1" path="res://Player/player.tscn" id="1_amtq0"]
 [ext_resource type="Script" uid="uid://bgj7m8jwdnufg" path="res://Scrips/pause_menu.gd" id="1_hvt6a"]
@@ -44,15 +44,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvt6a"]
-size = Vector2(2914, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_amtq0"]
-size = Vector2(55, 661)
-
 [node name="Game" type="Node"]
 
-[node name="Mapa" parent="." instance=ExtResource("1_i3dsi")]
+[node name="Map" parent="." instance=ExtResource("1_i3dsi")]
 
 [node name="Pistol" parent="." instance=ExtResource("2_wh8v3")]
 position = Vector2(571, 469)
@@ -101,19 +95,9 @@ offset_bottom = 349.0
 focus_mode = 0
 flat = true
 
-[node name="Colisões" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Colisões"]
-position = Vector2(1422, 567)
-shape = SubResource("RectangleShape2D_hvt6a")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisões"]
-position = Vector2(-28.5, 320.5)
-shape = SubResource("RectangleShape2D_amtq0")
-
 [node name="Capsula" parent="." instance=ExtResource("6_enaw6")]
 position = Vector2(857, 501)
-scale = Vector2(3, 3)
+scale = Vector2(0.2, 0.2)
 
 [connection signal="mouse_entered" from="PauseMenu/Resume" to="PauseMenu" method="_on_resume_mouse_entered"]
 [connection signal="mouse_exited" from="PauseMenu/Resume" to="PauseMenu" method="_on_resume_mouse_exited"]

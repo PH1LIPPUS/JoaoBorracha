@@ -4,10 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://bi3hhfpdaffja" path="res://Resources/Capsule/CapsuleLife.png" id="2_2q3if"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kovyr"]
-radius = 9.1603
-height = 33.9183
+radius = 80.4005
+height = 420.62
 
 [node name="Capsula" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
 script = ExtResource("1_ixbbn")
 
 [node name="CapsuleLife" type="Sprite2D" parent="."]
@@ -15,7 +17,7 @@ position = Vector2(1, 0)
 texture = ExtResource("2_2q3if")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
+position = Vector2(-27, 9)
 rotation = -2.39285
 shape = SubResource("CapsuleShape2D_kovyr")
 
