@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://jqbjgv6vxruj"]
+
+[ext_resource type="Script" uid="uid://bmig5dpbvw4fp" path="res://Scrips/cutsceen.gd" id="1_4ixod"]
+[ext_resource type="FontFile" uid="uid://js0ssghbweqw" path="res://Resources/Fontes/impact.ttf" id="2_lp7eo"]
+[ext_resource type="Texture2D" uid="uid://c4v03ilq57b0k" path="res://Resources/resources/sprites/ui/text/skip.png" id="3_6my6n"]
+[ext_resource type="Texture2D" uid="uid://rxwb04i28d25" path="res://Resources/Buttons/buttonSkip2.png" id="3_lp7eo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jwoqj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6my6n")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_lp7eo")
+}],
+"loop": true,
+"name": &"skip",
+"speed": 5.0
+}]
+
+[node name="cutseen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_4ixod")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 13.0
+offset_right = 928.0
+offset_bottom = 67.0
+theme_override_fonts/font = ExtResource("2_lp7eo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1096.5, 36.0547)
+scale = Vector2(0.0596946, 0.052707)
+sprite_frames = SubResource("SpriteFrames_jwoqj")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Skip" type="Button" parent="AnimatedSprite2D"]
+offset_left = -477.0
+offset_top = -286.0
+offset_right = 461.0
+offset_bottom = 284.0
+focus_mode = 0
+flat = true
+
+[connection signal="mouse_entered" from="AnimatedSprite2D/Skip" to="." method="_on_skip_mouse_entered"]
+[connection signal="mouse_exited" from="AnimatedSprite2D/Skip" to="." method="_on_skip_mouse_exited"]
+[connection signal="pressed" from="AnimatedSprite2D/Skip" to="." method="_on_skip_pressed"]

@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://jq6n5j3ynvkb"]
-
-[ext_resource type="PackedScene" uid="uid://dqb7eq54wcrw" path="res://Scene/tela_inicial.tscn" id="1_f6udf"]
-
-[node name="Main" type="Node"]
-
-[node name="Tela inicial" parent="." instance=ExtResource("1_f6udf")]

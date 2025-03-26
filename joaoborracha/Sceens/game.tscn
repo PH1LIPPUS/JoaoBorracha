@@ -1,0 +1,124 @@
+[gd_scene load_steps=12 format=3 uid="uid://bahbug2nbbn0r"]
+
+[ext_resource type="PackedScene" uid="uid://brxp44x6qysd1" path="res://Player/player.tscn" id="1_amtq0"]
+[ext_resource type="Script" uid="uid://bgj7m8jwdnufg" path="res://Scrips/pause_menu.gd" id="1_hvt6a"]
+[ext_resource type="PackedScene" uid="uid://dsx81hqv41qad" path="res://Sceens/map.tscn" id="1_i3dsi"]
+[ext_resource type="Texture2D" uid="uid://b7kop3huhsw7u" path="res://Resources/Menu/MenuDuranteJogo3.png" id="1_pldq6"]
+[ext_resource type="Texture2D" uid="uid://c82tmtipqpw8h" path="res://Resources/Menu/MenuDuranteJogo1.png" id="2_hvt6a"]
+[ext_resource type="PackedScene" uid="uid://cux24x5bxbs4b" path="res://Resources/Guns/Pistol/pistol.tscn" id="2_wh8v3"]
+[ext_resource type="Texture2D" uid="uid://d1bmxhslenjpr" path="res://Resources/Menu/MenuDuranteJogo4.png" id="3_amtq0"]
+[ext_resource type="PackedScene" uid="uid://cfu8pw3vt4s81" path="res://Resources/Capsule/capsula.tscn" id="6_enaw6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yjs1f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pldq6")
+}],
+"loop": false,
+"name": &"back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hvt6a")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hvt6a")
+}],
+"loop": false,
+"name": &"options",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_amtq0")
+}],
+"loop": false,
+"name": &"resume",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvt6a"]
+size = Vector2(2914, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_amtq0"]
+size = Vector2(55, 661)
+
+[node name="Game" type="Node"]
+
+[node name="Mapa" parent="." instance=ExtResource("1_i3dsi")]
+
+[node name="Pistol" parent="Mapa" instance=ExtResource("2_wh8v3")]
+position = Vector2(610, 487)
+scale = Vector2(4, 4)
+
+[node name="Player" parent="." instance=ExtResource("1_amtq0")]
+position = Vector2(194, 460)
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+script = ExtResource("1_hvt6a")
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+anchors_preset = -1
+anchor_left = -0.15625
+anchor_top = -0.0972222
+anchor_right = 0.219618
+anchor_bottom = 0.212963
+offset_left = 179.0
+offset_top = 60.0
+offset_right = 905.0
+offset_bottom = 527.0
+color = Color(0, 0, 0, 0.666667)
+metadata/_edit_use_anchors_ = true
+
+[node name="MenuDuranteJogo" type="AnimatedSprite2D" parent="PauseMenu"]
+position = Vector2(552, 329)
+scale = Vector2(5.26, 5.105)
+sprite_frames = SubResource("SpriteFrames_yjs1f")
+animation = &"resume"
+autoplay = "idle"
+
+[node name="Resume" type="Button" parent="PauseMenu"]
+offset_left = 401.0
+offset_top = 396.0
+offset_right = 708.0
+offset_bottom = 470.0
+focus_mode = 0
+flat = true
+
+[node name="Back" type="Button" parent="PauseMenu"]
+offset_left = 378.0
+offset_top = 233.0
+offset_right = 501.0
+offset_bottom = 349.0
+focus_mode = 0
+flat = true
+
+[node name="Colisões" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Colisões"]
+position = Vector2(1422, 567)
+shape = SubResource("RectangleShape2D_hvt6a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisões"]
+position = Vector2(-28.5, 320.5)
+shape = SubResource("RectangleShape2D_amtq0")
+
+[node name="Capsula" parent="." instance=ExtResource("6_enaw6")]
+position = Vector2(857, 501)
+scale = Vector2(3, 3)
+
+[connection signal="mouse_entered" from="PauseMenu/Resume" to="PauseMenu" method="_on_resume_mouse_entered"]
+[connection signal="mouse_exited" from="PauseMenu/Resume" to="PauseMenu" method="_on_resume_mouse_exited"]
+[connection signal="pressed" from="PauseMenu/Resume" to="PauseMenu" method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/Back" to="PauseMenu" method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="PauseMenu/Back" to="PauseMenu" method="_on_back_mouse_exited"]
+[connection signal="pressed" from="PauseMenu/Back" to="PauseMenu" method="_on_back_pressed"]

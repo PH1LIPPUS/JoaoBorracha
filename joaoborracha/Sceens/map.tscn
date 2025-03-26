@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsx81hqv41qad"]
+
+[ext_resource type="Texture2D" uid="uid://bfyhrje8kmbea" path="res://Resources/Maps/bg.png" id="1_k0hrr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1kbfe"]
+size = Vector2(3725, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ofuf"]
+size = Vector2(55, 661)
+
+[node name="Map" type="Node2D"]
+
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(573.5, 322)
+scale = Vector2(0.278071, 0.258268)
+texture = ExtResource("1_k0hrr")
+
+[node name="Colisões" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Colisões"]
+position = Vector2(1827.5, 567)
+shape = SubResource("RectangleShape2D_1kbfe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisões"]
+position = Vector2(-28.5, 320.5)
+shape = SubResource("RectangleShape2D_0ofuf")

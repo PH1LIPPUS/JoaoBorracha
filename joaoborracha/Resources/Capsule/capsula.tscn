@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfu8pw3vt4s81"]
+
+[ext_resource type="Script" uid="uid://242wt5xqkgkd" path="res://Resources/Capsule/capsula.gd" id="1_ixbbn"]
+[ext_resource type="Texture2D" uid="uid://bi3hhfpdaffja" path="res://Resources/Capsule/CapsuleLife.png" id="2_2q3if"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kovyr"]
+radius = 9.1603
+height = 33.9183
+
+[node name="Capsula" type="Area2D"]
+script = ExtResource("1_ixbbn")
+
+[node name="CapsuleLife" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("2_2q3if")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+rotation = -2.39285
+shape = SubResource("CapsuleShape2D_kovyr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
