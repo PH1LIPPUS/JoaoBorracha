@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c0xgyciqqep35"
-path="res://.godot/imported/barra de vida5.png-75329dbe2c325275ba9337fca9565662.ctex"
+path="res://.godot/imported/barra de vida5.png-60f3db8f273b404818600f92151dbef5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Barra de vida/barra de vida5.png"
-dest_files=["res://.godot/imported/barra de vida5.png-75329dbe2c325275ba9337fca9565662.ctex"]
+source_file="res://Player/Player Sprits/Barra de vida/barra de vida5.png"
+dest_files=["res://.godot/imported/barra de vida5.png-60f3db8f273b404818600f92151dbef5.ctex"]
 
 [params]
 
