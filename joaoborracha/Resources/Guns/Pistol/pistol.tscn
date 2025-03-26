@@ -18,7 +18,8 @@ animations = [{
 size = Vector2(53, 39.625)
 
 [node name="Pistol" type="RigidBody2D" groups=["weapon"]]
-collision_layer = 0
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_1fvv5")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
