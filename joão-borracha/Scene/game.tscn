@@ -59,7 +59,7 @@ size = Vector2(814, 81)
 [node name="Mapa" parent="." instance=ExtResource("2_4jv7b")]
 
 [node name="Player" parent="." instance=ExtResource("1_w51g1")]
-position = Vector2(166, 468)
+position = Vector2(165, 467)
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 process_mode = 3
