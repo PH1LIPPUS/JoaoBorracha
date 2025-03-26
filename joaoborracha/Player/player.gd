@@ -2,8 +2,6 @@ extends CharacterBody2D
 
 # Variáveis de controle
 @onready var barra_de_vida = $"Barra de vida"
-var current_weapon: Node2D = null
-var weapons_in_range: Array = []
 
 # Movimento
 @export var walk_speed: float = 150.0
@@ -49,15 +47,6 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("ui_0"):
 		test_take_damage()
-	if event.is_action_pressed("grab_left"):
-		try_grab_weapon(left_hand)
-	elif event.is_action_pressed("grab_right"):
-		try_grab_weapon(right_hand)
-	if event.is_action_pressed("shoot") and current_weapon:
-		current_weapon.shoot()
-	if event.is_action_pressed("drop_weapon") and current_weapon:
-		current_weapon.drop()
-		current_weapon = null
 	if event.is_action_pressed("precision_aim"):
 		set_precision_aim(true)
 	elif event.is_action_released("precision_aim"):
@@ -91,7 +80,7 @@ func handle_movement(delta):
 
 func handle_jump():
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		position.y -= 1.0  # Anti-colisão
+		position.y -= 1.0  
 		vertical_velocity = jump_force
 		is_jumping = true
 
@@ -133,41 +122,6 @@ func set_precision_aim(enable):
 	)
 	hleft.play("aim" if enable else "idle")
 	hright.play("aim" if enable else "idle")
-
-# Sistema de armas
-func _on_weapon_entered(weapon):
-	if weapon.is_in_group("Weapon") and not weapons_in_range.has(weapon):
-		weapon.highlight()
-		weapons_in_range.append(weapon)
-
-func _on_weapon_exited(weapon):
-	if weapons_in_range.has(weapon):
-		weapon.unhighlight()
-		weapons_in_range.erase(weapon)
-
-func try_grab_weapon(hand: Node2D) -> void:
-	if weapons_in_range.is_empty():
-		return
-	
-	# Encontra a arma mais próxima de forma correta
-	var nearest_weapon = weapons_in_range[0]
-	var min_distance = hand.global_position.distance_to(weapons_in_range[0].global_position)
-	
-	for weapon in weapons_in_range:
-		var current_distance = hand.global_position.distance_to(weapon.global_position)
-		if current_distance < min_distance:
-			min_distance = current_distance
-			nearest_weapon = weapon
-	
-	# Lógica de pegar a arma
-	if current_weapon:
-		current_weapon.drop()
-	
-	nearest_weapon.pickup(hand)
-	current_weapon = nearest_weapon
-	
-	if has_node("GunGrab"):
-		$GunGrab.play()
 
 # Sistema de vida
 func receber_dano(dano):
