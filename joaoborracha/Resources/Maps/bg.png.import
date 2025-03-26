@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7y7wntt0pgh8"
-path="res://.godot/imported/JoaoBackground3.png-d052cf7db55eeb8f00d44ab628931de3.ctex"
+uid="uid://bfyhrje8kmbea"
+path="res://.godot/imported/bg.png-19d67b304f80ed4a9ec8fb8986f62cca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Maps/JoaoBackground3.png"
-dest_files=["res://.godot/imported/JoaoBackground3.png-d052cf7db55eeb8f00d44ab628931de3.ctex"]
+source_file="res://Resources/Maps/bg.png"
+dest_files=["res://.godot/imported/bg.png-19d67b304f80ed4a9ec8fb8986f62cca.ctex"]
 
 [params]
 

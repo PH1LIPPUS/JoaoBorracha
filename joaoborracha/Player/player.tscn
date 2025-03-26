@@ -184,7 +184,7 @@ shape = SubResource("CircleShape2D_nknpl")
 script = ExtResource("9_n471f")
 
 [node name="BarraSprite" type="AnimatedSprite2D" parent="Barra de vida"]
-position = Vector2(217.625, 43.875)
+position = Vector2(195.625, 129.875)
 scale = Vector2(6.95909, 6.89286)
 sprite_frames = SubResource("SpriteFrames_m0h3t")
 animation = &"Vida"
