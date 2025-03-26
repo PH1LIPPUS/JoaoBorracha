@@ -54,26 +54,11 @@ size = Vector2(55, 661)
 
 [node name="Mapa" parent="." instance=ExtResource("1_i3dsi")]
 
-[node name="Pistol" parent="Mapa" instance=ExtResource("2_wh8v3")]
-position = Vector2(610, 487)
-scale = Vector2(4, 4)
+[node name="Pistol" parent="." instance=ExtResource("2_wh8v3")]
+position = Vector2(571, 469)
 
 [node name="Player" parent="." instance=ExtResource("1_amtq0")]
 position = Vector2(194, 460)
-walk_speed = 150.0
-run_speed = 300.0
-slow_speed = 75.0
-acceleration = 5.0
-deceleration = 5.0
-gravity = 800.0
-max_fall_speed = 900.0
-jump_force = -300.0
-air_control_factor = 0.1
-hand_orbit_radius = 20.0
-hand_offset_multiplier = 0.2
-hand_move_speed = 10.0
-base_hand_angle_offset = 30.0
-precise_hand_transition_duration = 0.2
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 process_mode = 3
