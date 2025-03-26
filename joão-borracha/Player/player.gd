@@ -259,9 +259,3 @@ func receber_dano(dano: int) -> void:
 		barra_de_vida.receber_dano(dano)
 	else:
 		print("Aviso: Barra de vida não encontrada!")
-
-func curar(cura: int) -> void:
-	if barra_de_vida:
-		barra_de_vida.vida_atual += cura
-		barra_de_vida.vida_atual = clamp(barra_de_vida.vida_atual, 0, barra_de_vida.vida_maxima)
-		barra_de_vida.update_barra()
