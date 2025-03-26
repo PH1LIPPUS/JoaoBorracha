@@ -1,89 +1,276 @@
-[gd_scene load_steps=17 format=3 uid="uid://b3koslma6spkr"]
+[gd_scene load_steps=37 format=3 uid="uid://dj5nbhjvnj2n5"]
 
-[ext_resource type="Texture2D" uid="uid://cqh4eska8r7iv" path="res://Player/Player Sprits/borracha.png" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://tnje6u8fsn07" path="res://Player/player.gd" id="1_i3pqv"]
-[ext_resource type="Texture2D" uid="uid://cpjaoph37eqg1" path="res://Player/Player Sprits/mao.png" id="3_hqtel"]
-[ext_resource type="Texture2D" uid="uid://cy4mjii2q1ntb" path="res://Player/Player Sprits/Barra de vida/barra de vida1.png" id="4_gu6f8"]
-[ext_resource type="Texture2D" uid="uid://bmfsmagwwfbf8" path="res://Player/Player Sprits/Barra de vida/barra de vida2.png" id="5_dkpta"]
-[ext_resource type="Texture2D" uid="uid://6ta8ognvvp2s" path="res://Player/Player Sprits/Barra de vida/barra de vida3.png" id="6_lfmf2"]
-[ext_resource type="Texture2D" uid="uid://cslj3yvfp14t4" path="res://Player/Player Sprits/Barra de vida/barra de vida4.png" id="7_pisgm"]
-[ext_resource type="Texture2D" uid="uid://c0xgyciqqep35" path="res://Player/Player Sprits/Barra de vida/barra de vida5.png" id="8_b1ygp"]
-[ext_resource type="Texture2D" uid="uid://ddqnkm0yfpxp8" path="res://Player/Player Sprits/Barra de vida/barra de vida6.png" id="9_o28un"]
-[ext_resource type="Texture2D" uid="uid://byxv075vnttfc" path="res://Player/Player Sprits/Barra de vida/barra de vida7.png" id="10_n471f"]
-[ext_resource type="Texture2D" uid="uid://ftw8snf7frmm" path="res://Player/Player Sprits/Barra de vida/barra de vida8.png" id="11_7emwf"]
-[ext_resource type="Texture2D" uid="uid://dn7ov4nn6c1yo" path="res://Player/Player Sprits/Barra de vida/barra de vida9.png" id="12_hshwv"]
-[ext_resource type="Texture2D" uid="uid://byr8v2dsu8xmi" path="res://Player/Player Sprits/Barra de vida/barra de vida10.png" id="13_gpjlu"]
-[ext_resource type="Texture2D" uid="uid://ccp8spg0q2fcf" path="res://Player/Player Sprits/Barra de vida/barra de vida11.png" id="14_8mwp6"]
+[ext_resource type="Script" uid="uid://spx6jd46pcku" path="res://Player/player.gd" id="1_ndis2"]
+[ext_resource type="Script" uid="uid://dgxlrog6dps2q" path="res://Player/BaseHand.gd" id="2_7dww7"]
+[ext_resource type="Texture2D" uid="uid://jnoxfkq4xhnw" path="res://resources/sprites/hands/handOpenBack.png.png" id="2_qq861"]
+[ext_resource type="Texture2D" uid="uid://y5eu4ci3d42s" path="res://resources/sprites/chars/johnny/johnnyBody.png" id="3_62sva"]
+[ext_resource type="Texture2D" uid="uid://plcy1e3b1naj" path="res://resources/sprites/hands/handGunBack.png.png" id="4_dnnr4"]
+[ext_resource type="Texture2D" uid="uid://b5wapykkegbxq" path="res://resources/sprites/hands/handFistBack.png.png" id="4_hk252"]
+[ext_resource type="Texture2D" uid="uid://bgv6lgvxuq75i" path="res://resources/sprites/hands/handGun.png.png" id="4_khr71"]
+[ext_resource type="Texture2D" uid="uid://dcb14l371t2m4" path="res://resources/sprites/hands/handOpen.png.png" id="4_nbq43"]
+[ext_resource type="Texture2D" uid="uid://mei3kq6ujwk6" path="res://resources/sprites/hands/handFist.png.png" id="6_vko3x"]
+[ext_resource type="Texture2D" uid="uid://cy4mjii2q1ntb" path="res://Player/Player Sprits/Barra de vida/barra de vida1.png" id="11_7emwf"]
+[ext_resource type="Script" uid="uid://bqsqds6v18ase" path="res://Player/barra_de_vida.gd" id="11_hshwv"]
+[ext_resource type="AudioStream" uid="uid://n6hanfivxqqw" path="res://resources/sound/guns/gunDrop.ogg" id="11_rds4h"]
+[ext_resource type="Texture2D" uid="uid://bmfsmagwwfbf8" path="res://Player/Player Sprits/Barra de vida/barra de vida2.png" id="12_hshwv"]
+[ext_resource type="Texture2D" uid="uid://6ta8ognvvp2s" path="res://Player/Player Sprits/Barra de vida/barra de vida3.png" id="13_gpjlu"]
+[ext_resource type="Texture2D" uid="uid://cslj3yvfp14t4" path="res://Player/Player Sprits/Barra de vida/barra de vida4.png" id="14_8mwp6"]
+[ext_resource type="Texture2D" uid="uid://c0xgyciqqep35" path="res://Player/Player Sprits/Barra de vida/barra de vida5.png" id="15_qemgg"]
+[ext_resource type="Texture2D" uid="uid://ddqnkm0yfpxp8" path="res://Player/Player Sprits/Barra de vida/barra de vida6.png" id="16_8viyr"]
+[ext_resource type="Texture2D" uid="uid://byxv075vnttfc" path="res://Player/Player Sprits/Barra de vida/barra de vida7.png" id="17_sm0op"]
+[ext_resource type="Texture2D" uid="uid://ftw8snf7frmm" path="res://Player/Player Sprits/Barra de vida/barra de vida8.png" id="18_76lrf"]
+[ext_resource type="Texture2D" uid="uid://dn7ov4nn6c1yo" path="res://Player/Player Sprits/Barra de vida/barra de vida9.png" id="19_efx54"]
+[ext_resource type="Texture2D" uid="uid://byr8v2dsu8xmi" path="res://Player/Player Sprits/Barra de vida/barra de vida10.png" id="20_755ss"]
+[ext_resource type="Texture2D" uid="uid://ccp8spg0q2fcf" path="res://Player/Player Sprits/Barra de vida/barra de vida11.png" id="21_bbimk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
-size = Vector2(21, 35)
+[sub_resource type="CircleShape2D" id="CircleShape2D_nknpl"]
+radius = 30.0
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_gu6f8"]
+[sub_resource type="Animation" id="Animation_scvf6"]
+resource_name = "Empty"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RIGHTY:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_qq861")]
+}
+
+[sub_resource type="Animation" id="Animation_v5g06"]
+resource_name = "HoldingGun"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RIGHTY:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_dnnr4")]
+}
+
+[sub_resource type="Animation" id="Animation_sylec"]
+resource_name = "HoldingMelee"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RIGHTY:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_hk252")]
+}
+
+[sub_resource type="Animation" id="Animation_k421d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RIGHTY:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_qq861")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fi5g0"]
+_data = {
+&"Empty": SubResource("Animation_scvf6"),
+&"HoldingGun": SubResource("Animation_v5g06"),
+&"HoldingMelee": SubResource("Animation_sylec"),
+&"RESET": SubResource("Animation_k421d")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37c7o"]
+size = Vector2(121, 170)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qikd7"]
+radius = 30.0
+
+[sub_resource type="Animation" id="Animation_8nmaq"]
+resource_name = "Empty"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../LeftHand/LEFTY:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_nbq43")]
+}
+
+[sub_resource type="Animation" id="Animation_05m6m"]
+resource_name = "HoldingGun"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../LeftHand/LEFTY:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_khr71")]
+}
+
+[sub_resource type="Animation" id="Animation_m2h2c"]
+resource_name = "HoldingMelee"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../LeftHand/LEFTY:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_vko3x")]
+}
+
+[sub_resource type="Animation" id="Animation_jp78c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../LeftHand/LEFTY:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_nbq43")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lh0cl"]
+_data = {
+&"Empty": SubResource("Animation_8nmaq"),
+&"HoldingGun": SubResource("Animation_05m6m"),
+&"HoldingMelee": SubResource("Animation_m2h2c"),
+&"RESET": SubResource("Animation_jp78c")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m0h3t"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_gu6f8")
+"texture": ExtResource("21_bbimk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_dkpta")
+"texture": ExtResource("20_755ss")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_lfmf2")
+"texture": ExtResource("19_efx54")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_pisgm")
+"texture": ExtResource("18_76lrf")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_b1ygp")
+"texture": ExtResource("17_sm0op")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_o28un")
+"texture": ExtResource("16_8viyr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_n471f")
+"texture": ExtResource("15_qemgg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_7emwf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_hshwv")
+"texture": ExtResource("14_8mwp6")
 }, {
 "duration": 1.0,
 "texture": ExtResource("13_gpjlu")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_8mwp6")
+"texture": ExtResource("12_hshwv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_7emwf")
 }],
-"loop": true,
-"name": &"Barra de vida",
+"loop": false,
+"name": &"Vida",
 "speed": 5.0
 }]
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_i3pqv")
+position = Vector2(3, 2)
+script = ExtResource("1_ndis2")
+
+[node name="RightHand" type="Node2D" parent="." node_paths=PackedStringArray("animation_player")]
+position = Vector2(107, 1)
+script = ExtResource("2_7dww7")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="RIGHTY" type="Sprite2D" parent="RightHand"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_qq861")
+
+[node name="GrabArea" type="Area2D" parent="RightHand"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightHand/GrabArea"]
+shape = SubResource("CircleShape2D_nknpl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RightHand"]
+libraries = {
+&"": SubResource("AnimationLibrary_fi5g0")
+}
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-0.562496, -0.625)
-scale = Vector2(0.0899299, 0.0896794)
-texture = ExtResource("1_4flbx")
+position = Vector2(1, 5)
+scale = Vector2(-0.3, 0.3)
+texture = ExtResource("3_62sva")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -0.5)
-shape = SubResource("RectangleShape2D_onrkg")
+shape = SubResource("RectangleShape2D_37c7o")
 
-[node name="Hands" type="Marker2D" parent="."]
+[node name="LeftHand" type="Node2D" parent="." node_paths=PackedStringArray("animation_player")]
+position = Vector2(-97, 80)
+script = ExtResource("2_7dww7")
+animation_player = NodePath("AnimationPlayerLeft")
 
-[node name="mao direita" type="Sprite2D" parent="Hands"]
-position = Vector2(0, 1)
-scale = Vector2(0.020708, 0.0232174)
-texture = ExtResource("3_hqtel")
+[node name="LEFTY" type="Sprite2D" parent="LeftHand"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_nbq43")
+
+[node name="GrabArea" type="Area2D" parent="LeftHand"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftHand/GrabArea"]
+shape = SubResource("CircleShape2D_qikd7")
+
+[node name="AnimationPlayerLeft" type="AnimationPlayer" parent="LeftHand"]
+root_node = NodePath("../../RightHand")
+libraries = {
+&"": SubResource("AnimationLibrary_lh0cl")
+}
+
+[node name="GunGrab" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_rds4h")
 
 [node name="Barra de vida" type="CanvasLayer" parent="."]
+script = ExtResource("11_hshwv")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Barra de vida"]
-position = Vector2(148, 28)
-scale = Vector2(5, 5)
-sprite_frames = SubResource("SpriteFrames_gu6f8")
-animation = &"Barra de vida"
-
-[node name="Barra de Stamina" type="CanvasLayer" parent="."]
+[node name="BarraSprite" type="AnimatedSprite2D" parent="Barra de vida"]
+position = Vector2(217.625, 43.875)
+scale = Vector2(6.95909, 6.89286)
+sprite_frames = SubResource("SpriteFrames_m0h3t")
+animation = &"Vida"
+autoplay = "Vida"
+frame = 10
+frame_progress = 1.0
