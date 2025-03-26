@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqb7eq54wcrw"]
+[gd_scene load_steps=6 format=3 uid="uid://dqb7eq54wcrw"]
 
 [ext_resource type="Script" uid="uid://cpbsrkr2b7qtq" path="res://Scrips/tela_inicial.gd" id="1_phcc0"]
+[ext_resource type="Texture2D" uid="uid://17opgr2d738l" path="res://Resources/resources/sprites/ui/menu/bg.png" id="2_dil2j"]
+[ext_resource type="Script" uid="uid://bd0bl2noky1jn" path="res://Scrips/fundo.gd" id="2_ftdq1"]
+[ext_resource type="Texture2D" uid="uid://vr2r367au6id" path="res://Resources/resources/sprites/ui/menu/city.png" id="3_ftdq1"]
+[ext_resource type="Texture2D" uid="uid://dykgie66otqpi" path="res://Resources/resources/sprites/ui/menu/shadow.png" id="4_qdyyu"]
 
 [node name="Tela inicial" type="Control"]
 layout_mode = 3
@@ -10,6 +14,32 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_phcc0")
+
+[node name="fundo" type="Node2D" parent="."]
+script = ExtResource("2_ftdq1")
+
+[node name="Background1" type="TextureRect" parent="fundo"]
+offset_left = -321.0
+offset_top = -142.0
+offset_right = 1507.0
+offset_bottom = 818.0
+texture = ExtResource("2_dil2j")
+expand_mode = 1
+
+[node name="Background2" type="TextureRect" parent="fundo"]
+offset_top = 320.0
+offset_right = 1161.0
+offset_bottom = 711.0
+texture = ExtResource("3_ftdq1")
+expand_mode = 1
+
+[node name="Background3" type="TextureRect" parent="fundo"]
+offset_left = 783.0
+offset_top = 233.0
+offset_right = 1160.0
+offset_bottom = 662.0
+texture = ExtResource("4_qdyyu")
+expand_mode = 1
 
 [node name="Start" type="Button" parent="."]
 layout_mode = 0
