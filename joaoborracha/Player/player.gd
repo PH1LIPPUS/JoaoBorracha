@@ -31,6 +31,8 @@ extends CharacterBody2D
 @onready var hright: AnimatedSprite2D = $RightHand/RIGHTY
 @onready var barra_de_vida: Node = $"Barra de vida"
 
+var has_weapon: bool = false
+
 # Internal variables
 var current_hand_angle_offset: float = base_hand_angle_offset
 var precise_aim: bool = false
@@ -249,8 +251,13 @@ func test_take_damage():
 
 func pickup_weapon():
 	var pistol_scene = load("res://Resources/Guns/Pistol/pistol.tscn")
-	
+	var marker = $RightHand/Marker2D
 	var pistol_instance = pistol_scene.instantiate()
+	
+	marker.add_child(pistol_instance)
+	
+	pistol_instance.global_position = marker.global_position
+	pistol_instance.global_rotation = marker.global_rotation
 	
 	if pistol_instance.has_method("_on_picked_up"):
 		pistol_instance._on_picked_up()
