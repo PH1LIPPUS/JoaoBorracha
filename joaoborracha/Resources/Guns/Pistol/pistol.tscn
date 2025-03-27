@@ -1,22 +1,52 @@
-[gd_scene load_steps=4 format=3 uid="uid://cux24x5bxbs4b"]
+[gd_scene load_steps=5 format=3 uid="uid://cux24x5bxbs4b"]
 
 [ext_resource type="Script" uid="uid://bd5x65fyklcp" path="res://Resources/Guns/Pistol/pistol.gd" id="1_1fvv5"]
 [ext_resource type="Texture2D" uid="uid://5pq85asmahae" path="res://Resources/Guns/Pistol/glockIdle.png.png" id="2_5p6r0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vxg2f"]
-size = Vector2(17, 15)
+[sub_resource type="SpriteFrames" id="SpriteFrames_1fvv5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5p6r0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
-[node name="Pistol" type="Node2D" groups=["weapon"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vxg2f"]
+size = Vector2(53, 39.625)
+
+[node name="Pistol" type="RigidBody2D" groups=["weapon"]]
+collision_layer = 4
 script = ExtResource("1_1fvv5")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(5, -1)
-scale = Vector2(0.0648149, 0.084893)
-texture = ExtResource("2_5p6r0")
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_1fvv5")
+animation = &"idle"
+autoplay = "idle"
 flip_h = true
 
+[node name="Muzzle" type="Marker2D" parent="Sprite2D"]
+position = Vector2(-77.1428, 11.7795)
+scale = Vector2(15.4286, 11.7795)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, -1)
+light_mask = 0
+visibility_layer = 0
+position = Vector2(4.5, -3.8125)
 shape = SubResource("RectangleShape2D_vxg2f")
 
-[node name="Marker2D" type="Marker2D" parent="."]
+[node name="PickupArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
+position = Vector2(4, -4)
+shape = SubResource("RectangleShape2D_vxg2f")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]

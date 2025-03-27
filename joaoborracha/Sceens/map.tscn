@@ -1,9 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsx81hqv41qad"]
+[gd_scene load_steps=5 format=3 uid="uid://dsx81hqv41qad"]
 
-[ext_resource type="Texture2D" uid="uid://bfyhrje8kmbea" path="res://Resources/Maps/bg.png" id="1_k0hrr"]
+[ext_resource type="Texture2D" uid="uid://bfyhrje8kmbea" path="res://Resources/resources/sprites/bg/bg1.png" id="1_k0hrr"]
+[ext_resource type="Texture2D" uid="uid://b44a4c7avvtsd" path="res://Resources/resources/sprites/bg/bg2.png" id="2_omlh4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1kbfe"]
-size = Vector2(3725, 20)
+size = Vector2(3725, 170)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ofuf"]
 size = Vector2(55, 661)
@@ -15,12 +16,21 @@ position = Vector2(573.5, 322)
 scale = Vector2(0.278071, 0.258268)
 texture = ExtResource("1_k0hrr")
 
+[node name="Bg2" type="Sprite2D" parent="."]
+position = Vector2(1729, 322)
+scale = Vector2(0.278, 0.258)
+texture = ExtResource("2_omlh4")
+
 [node name="Colisões" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Colisões"]
-position = Vector2(1827.5, 567)
+[node name="Chao" type="CollisionShape2D" parent="Colisões"]
+position = Vector2(1827.5, 642)
 shape = SubResource("RectangleShape2D_1kbfe")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisões"]
+[node name="Parede da direita" type="CollisionShape2D" parent="Colisões"]
 position = Vector2(-28.5, 320.5)
 shape = SubResource("RectangleShape2D_0ofuf")
+
+[node name="Teto" type="CollisionShape2D" parent="Colisões"]
+position = Vector2(1852, -55)
+shape = SubResource("RectangleShape2D_1kbfe")

@@ -1,13 +1,14 @@
-[gd_scene load_steps=28 format=3 uid="uid://brxp44x6qysd1"]
+[gd_scene load_steps=29 format=3 uid="uid://brxp44x6qysd1"]
 
-[ext_resource type="Texture2D" uid="uid://5t3jmtrju0vb" path="res://Resources/Player/idle.png" id="1_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://5t3jmtrju0vb" path="res://Resources/resources/sprites/chars/johnny/idle.png" id="1_i3pqv"]
 [ext_resource type="Script" uid="uid://spx6jd46pcku" path="res://Player/player.gd" id="1_od3ui"]
-[ext_resource type="Texture2D" uid="uid://dij5wqx574okc" path="res://Resources/Player/walkR.png" id="2_hqtel"]
-[ext_resource type="Texture2D" uid="uid://b5wapykkegbxq" path="res://Resources/Player/hands/handFistBack.png.png" id="2_od3ui"]
-[ext_resource type="Texture2D" uid="uid://7yy53drljuib" path="res://Resources/Player/walkL.png" id="3_sweqy"]
-[ext_resource type="Texture2D" uid="uid://bgv6lgvxuq75i" path="res://Resources/Player/hands/handGun.png.png" id="3_vtle1"]
-[ext_resource type="Texture2D" uid="uid://dcb14l371t2m4" path="res://Resources/Player/hands/handOpen.png.png" id="5_fhl08"]
-[ext_resource type="Texture2D" uid="uid://jnoxfkq4xhnw" path="res://Resources/Player/hands/handOpenBack.png.png" id="5_k53q1"]
+[ext_resource type="Texture2D" uid="uid://dij5wqx574okc" path="res://Resources/resources/sprites/chars/johnny/walkR.png" id="2_hqtel"]
+[ext_resource type="Texture2D" uid="uid://b5wapykkegbxq" path="res://Resources/resources/sprites/hands/handFistBack.png.png" id="2_od3ui"]
+[ext_resource type="Texture2D" uid="uid://7yy53drljuib" path="res://Resources/resources/sprites/chars/johnny/walkL.png" id="3_sweqy"]
+[ext_resource type="Texture2D" uid="uid://bgv6lgvxuq75i" path="res://Resources/resources/sprites/hands/handGun.png.png" id="3_vtle1"]
+[ext_resource type="Script" uid="uid://dw8w0wwig0nk" path="res://Player/grab_area.gd" id="4_7emwf"]
+[ext_resource type="Texture2D" uid="uid://dcb14l371t2m4" path="res://Resources/resources/sprites/hands/handOpen.png.png" id="5_fhl08"]
+[ext_resource type="Texture2D" uid="uid://jnoxfkq4xhnw" path="res://Resources/resources/sprites/hands/handOpenBack.png.png" id="5_k53q1"]
 [ext_resource type="Script" uid="uid://bqffk61cjxkhu" path="res://Player/Barradevida.gd" id="9_n471f"]
 [ext_resource type="Texture2D" uid="uid://ccp8spg0q2fcf" path="res://Resources/Barra de vida/barra de vida11.png" id="10_7emwf"]
 [ext_resource type="Texture2D" uid="uid://byr8v2dsu8xmi" path="res://Resources/Barra de vida/barra de vida10.png" id="11_hshwv"]
@@ -56,9 +57,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_hqtel")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_i3pqv")
 }, {
 "duration": 1.0,
 "texture": ExtResource("3_sweqy")
@@ -136,6 +134,8 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(3, 2)
+collision_layer = 6
+collision_mask = 9
 script = ExtResource("1_od3ui")
 
 [node name="LeftHand" type="Node2D" parent="."]
@@ -148,9 +148,14 @@ sprite_frames = SubResource("SpriteFrames_x3vf3")
 animation = &"aim"
 autoplay = "idle"
 
-[node name="GrabArea" type="Area2D" parent="LeftHand"]
+[node name="PickupArea" type="Area2D" parent="LeftHand" groups=["player"]]
+position = Vector2(107, 1)
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("4_7emwf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftHand/GrabArea"]
+[node name="L" type="CollisionShape2D" parent="LeftHand/PickupArea"]
+position = Vector2(-105, -3)
 shape = SubResource("CircleShape2D_qikd7")
 
 [node name="player" type="AnimatedSprite2D" parent="."]
@@ -158,9 +163,8 @@ position = Vector2(1, 5)
 rotation = 3.14159
 scale = Vector2(0.3, -0.3)
 sprite_frames = SubResource("SpriteFrames_2hs0m")
-animation = &"idle"
+animation = &"walk"
 autoplay = "idle"
-frame_progress = 0.661194
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_37c7o")
@@ -175,17 +179,20 @@ sprite_frames = SubResource("SpriteFrames_od3ui")
 animation = &"aim"
 autoplay = "idle"
 
-[node name="GrabArea" type="Area2D" parent="RightHand"]
+[node name="PickupArea" type="Area2D" parent="RightHand" groups=["player"]]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("4_7emwf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RightHand/GrabArea"]
+[node name="R" type="CollisionShape2D" parent="RightHand/PickupArea"]
 shape = SubResource("CircleShape2D_nknpl")
 
 [node name="Barra de vida" type="CanvasLayer" parent="."]
 script = ExtResource("9_n471f")
 
 [node name="BarraSprite" type="AnimatedSprite2D" parent="Barra de vida"]
-position = Vector2(195.625, 129.875)
-scale = Vector2(6.95909, 6.89286)
+position = Vector2(184.613, 34.1674)
+scale = Vector2(1.1, 0.867)
 sprite_frames = SubResource("SpriteFrames_m0h3t")
 animation = &"Vida"
 autoplay = "Vida"
@@ -195,3 +202,7 @@ frame_progress = 1.0
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -148)
 limit_left = 0
+
+[connection signal="body_entered" from="LeftHand/PickupArea" to="LeftHand/PickupArea" method="_on_body_entered"]
+[connection signal="body_exited" from="LeftHand/PickupArea" to="LeftHand/PickupArea" method="_on_body_exited"]
+[connection signal="body_entered" from="RightHand/PickupArea" to="RightHand/PickupArea" method="_on_body_entered"]
