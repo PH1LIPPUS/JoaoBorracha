@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://jqbjgv6vxruj"]
 
 [ext_resource type="Script" uid="uid://bmig5dpbvw4fp" path="res://Scrips/cutsceen.gd" id="1_4ixod"]
-[ext_resource type="FontFile" uid="uid://js0ssghbweqw" path="res://Resources/resources/impact/impact.ttf" id="2_lp7eo"]
+[ext_resource type="VideoStream" uid="uid://cusxnp7gykpmv" path="res://Resources/johnnyOrigin.ogv" id="2_lp7eo"]
 [ext_resource type="Texture2D" uid="uid://c4v03ilq57b0k" path="res://Resources/resources/sprites/ui/text/skip.png" id="3_6my6n"]
 [ext_resource type="Texture2D" uid="uid://cx75fenxqq8wp" path="res://Resources/resources/sprites/ui/text/skip1.png" id="4_6my6n"]
 
@@ -29,13 +29,13 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_4ixod")
 
-[node name="Label" type="Label" parent="."]
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 layout_mode = 0
-offset_left = 210.0
-offset_top = 13.0
-offset_right = 928.0
-offset_bottom = 67.0
-theme_override_fonts/font = ExtResource("2_lp7eo")
+offset_right = 1150.0
+offset_bottom = 648.0
+stream = ExtResource("2_lp7eo")
+autoplay = true
+expand = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1088.75, 50.5274)
