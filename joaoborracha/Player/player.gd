@@ -40,7 +40,6 @@ var jump_buffer_timer: float = 0.0
 var was_on_floor: bool = false
 var facing_direction: int = 1  
 
-
 func _ready():
 	if hleft and hright:
 		hleft.play("idle")
@@ -60,9 +59,6 @@ func _input(event):
 		set_precision_aim(true)
 	elif event.is_action_released("precision_aim"):
 		set_precision_aim(false)
-
-
-
 
 func _physics_process(delta):
 	# Update timers
@@ -194,12 +190,12 @@ func update_animation():
 	if not sprite:
 		return
 	
-	if not is_on_floor():
-		sprite.play("jump" if velocity.y < 0 else "")
-	elif abs(velocity.x) > 10:
-		sprite.play("run" if Input.is_action_pressed("run") else "walk")
+	if abs(velocity.x) > 10 and is_on_floor():
+		# Andando
+		sprite.play("walk")
 		sprite.flip_h = velocity.x < 0
 	else:
+		# Parado ou no ar
 		sprite.play("idle")
 
 func set_precision_aim(enable: bool):
