@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dsx81hqv41qad"]
 
-[ext_resource type="Texture2D" uid="uid://bfyhrje8kmbea" path="res://Resources/Maps/bg.png" id="1_k0hrr"]
+[ext_resource type="Texture2D" uid="uid://bfyhrje8kmbea" path="res://Resources/resources/sprites/bg/bg1.png" id="1_k0hrr"]
 [ext_resource type="Texture2D" uid="uid://b44a4c7avvtsd" path="res://Resources/resources/sprites/bg/bg2.png" id="2_omlh4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1kbfe"]
