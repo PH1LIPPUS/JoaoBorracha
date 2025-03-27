@@ -11,13 +11,12 @@ config_version=5
 [application]
 
 config/name="JoaoBorracha"
-run/main_scene="uid://wt6ly2t1kea8"
+run/main_scene="uid://bahbug2nbbn0r"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="uid://b3n1ktd61c03j"
 
 [display]
 
-window/size/mode=3
 window/stretch/mode="viewport"
 
 [input]

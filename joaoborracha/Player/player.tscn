@@ -59,9 +59,6 @@ animations = [{
 "texture": ExtResource("2_hqtel")
 }, {
 "duration": 1.0,
-"texture": ExtResource("1_i3pqv")
-}, {
-"duration": 1.0,
 "texture": ExtResource("3_sweqy")
 }],
 "loop": true,
@@ -137,7 +134,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(3, 2)
-collision_layer = 2
+collision_layer = 6
 collision_mask = 9
 script = ExtResource("1_od3ui")
 
@@ -151,10 +148,14 @@ sprite_frames = SubResource("SpriteFrames_x3vf3")
 animation = &"aim"
 autoplay = "idle"
 
-[node name="PickupArea" type="Area2D" parent="LeftHand"]
+[node name="PickupArea" type="Area2D" parent="LeftHand" groups=["player"]]
+position = Vector2(107, 1)
+collision_layer = 2
+collision_mask = 4
 script = ExtResource("4_7emwf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftHand/PickupArea"]
+[node name="L" type="CollisionShape2D" parent="LeftHand/PickupArea"]
+position = Vector2(-105, -3)
 shape = SubResource("CircleShape2D_qikd7")
 
 [node name="player" type="AnimatedSprite2D" parent="."]
@@ -162,9 +163,8 @@ position = Vector2(1, 5)
 rotation = 3.14159
 scale = Vector2(0.3, -0.3)
 sprite_frames = SubResource("SpriteFrames_2hs0m")
-animation = &"idle"
+animation = &"walk"
 autoplay = "idle"
-frame_progress = 0.661194
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_37c7o")
@@ -179,18 +179,20 @@ sprite_frames = SubResource("SpriteFrames_od3ui")
 animation = &"aim"
 autoplay = "idle"
 
-[node name="PickupArea" type="Area2D" parent="RightHand"]
+[node name="PickupArea" type="Area2D" parent="RightHand" groups=["player"]]
+collision_layer = 2
+collision_mask = 4
 script = ExtResource("4_7emwf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RightHand/PickupArea"]
+[node name="R" type="CollisionShape2D" parent="RightHand/PickupArea"]
 shape = SubResource("CircleShape2D_nknpl")
 
 [node name="Barra de vida" type="CanvasLayer" parent="."]
 script = ExtResource("9_n471f")
 
 [node name="BarraSprite" type="AnimatedSprite2D" parent="Barra de vida"]
-position = Vector2(198, 45)
-scale = Vector2(1.1, 1.04944)
+position = Vector2(184.613, 34.1674)
+scale = Vector2(1.1, 0.867)
 sprite_frames = SubResource("SpriteFrames_m0h3t")
 animation = &"Vida"
 autoplay = "Vida"
@@ -200,3 +202,7 @@ frame_progress = 1.0
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -148)
 limit_left = 0
+
+[connection signal="body_entered" from="LeftHand/PickupArea" to="LeftHand/PickupArea" method="_on_body_entered"]
+[connection signal="body_exited" from="LeftHand/PickupArea" to="LeftHand/PickupArea" method="_on_body_exited"]
+[connection signal="body_entered" from="RightHand/PickupArea" to="RightHand/PickupArea" method="_on_body_entered"]
