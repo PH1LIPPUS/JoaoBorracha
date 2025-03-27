@@ -31,8 +31,6 @@ extends CharacterBody2D
 @onready var hright: AnimatedSprite2D = $RightHand/RIGHTY
 @onready var barra_de_vida: Node = $"Barra de vida"
 
-@onready var left_hand_collision: CollisionShape2D = $L
-@onready var right_hand_collision: CollisionShape2D = $R
 # Internal variables
 var current_hand_angle_offset: float = base_hand_angle_offset
 var precise_aim: bool = false
@@ -53,10 +51,10 @@ func _ready():
 		push_error("Health bar not found!")
 
 func _input(event):
-	if event.is_action_pressed("pickup") :
-		print("huivgu")
 	if event.is_action_pressed("ui_0"):
 		test_take_damage()
+	if event.is_action_pressed("pickup"):
+		pickup_gun()
 	if event.is_action_pressed("precision_aim"):
 		set_precision_aim(true)
 	elif event.is_action_released("precision_aim"):
@@ -239,6 +237,6 @@ func test_take_damage():
 	print("Vida: ", barra_de_vida.vida_atual if barra_de_vida else "N/A")
 
 
-var inareawp = false
+
 func pickup_gun():
-		print("arma na mao")
+	print("dhuiu")
