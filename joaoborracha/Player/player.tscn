@@ -172,6 +172,9 @@ shape = SubResource("RectangleShape2D_37c7o")
 [node name="RightHand" type="Node2D" parent="."]
 position = Vector2(107, 1)
 
+[node name="Marker2D" type="Marker2D" parent="RightHand"]
+position = Vector2(0, -1)
+
 [node name="RIGHTY" type="AnimatedSprite2D" parent="RightHand"]
 position = Vector2(0, -0.999997)
 scale = Vector2(0.33, 0.38)

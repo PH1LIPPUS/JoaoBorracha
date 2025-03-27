@@ -247,7 +247,15 @@ func test_take_damage():
 	receber_dano(1)
 	print("Vida: ", barra_de_vida.vida_atual if barra_de_vida else "N/A")
 
-
-
 func pickup_weapon():
-	print("dhuiu")
+ # Dynamically load the pistol scene
+	var pistol_scene = load("res://Resources/Guns/Pistol/pistol.tscn")
+	
+	# Instantiate the pistol scene
+	var pistol_instance = pistol_scene.instantiate()
+	
+	# Call the _on_picked_up method on the instantiated pistol
+	if pistol_instance.has_method("_on_picked_up"):
+		pistol_instance._on_picked_up()
+	else:
+		print("Pistol does not have _on_picked_up method")

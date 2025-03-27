@@ -30,7 +30,7 @@ autoplay = "idle"
 flip_h = true
 
 [node name="Muzzle" type="Marker2D" parent="Sprite2D"]
-position = Vector2(-77.1428, 11.7795)
+position = Vector2(127.857, -73.2205)
 scale = Vector2(15.4286, 11.7795)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
