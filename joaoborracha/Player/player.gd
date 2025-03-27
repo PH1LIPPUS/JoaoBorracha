@@ -41,6 +41,12 @@ var was_on_floor: bool = false
 var facing_direction: int = 1  
 
 func _ready():
+	if $LeftHand/PickupArea:
+		$LeftHand/PickupArea.connect("weapon_in_area_changed", Callable(self, "_update_weapon_in_area"))
+	
+	if $RightHand/PickupArea:
+		$RightHand/PickupArea.connect("weapon_in_area_changed", Callable(self, "_update_weapon_in_area"))
+		
 	if hleft and hright:
 		hleft.play("idle")
 		hright.play("idle")
@@ -50,11 +56,16 @@ func _ready():
 	if !barra_de_vida:
 		push_error("Health bar not found!")
 
+var weapon_in_area := false
+
+func _update_weapon_in_area(is_weapon_in_area: bool):
+	weapon_in_area = is_weapon_in_area 
+
 func _input(event):
 	if event.is_action_pressed("ui_0"):
 		test_take_damage()
-	if event.is_action_pressed("pickup"):
-		pickup_gun()
+	if event.is_action_pressed("pickup") and weapon_in_area:
+		pickup_weapon()  
 	if event.is_action_pressed("precision_aim"):
 		set_precision_aim(true)
 	elif event.is_action_released("precision_aim"):
@@ -238,5 +249,5 @@ func test_take_damage():
 
 
 
-func pickup_gun():
+func pickup_weapon():
 	print("dhuiu")
