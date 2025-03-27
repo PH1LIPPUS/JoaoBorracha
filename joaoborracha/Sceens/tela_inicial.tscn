@@ -1,20 +1,30 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqb7eq54wcrw"]
+[gd_scene load_steps=13 format=3 uid="uid://dqb7eq54wcrw"]
 
 [ext_resource type="Script" uid="uid://cpbsrkr2b7qtq" path="res://Scrips/tela_inicial.gd" id="1_phcc0"]
 [ext_resource type="Texture2D" uid="uid://17opgr2d738l" path="res://Resources/resources/sprites/ui/menu/bg.png" id="2_dil2j"]
 [ext_resource type="Script" uid="uid://bd0bl2noky1jn" path="res://Scrips/fundo.gd" id="2_ftdq1"]
 [ext_resource type="Texture2D" uid="uid://vr2r367au6id" path="res://Resources/resources/sprites/ui/menu/city.png" id="3_ftdq1"]
 [ext_resource type="Texture2D" uid="uid://dykgie66otqpi" path="res://Resources/resources/sprites/ui/menu/shadow.png" id="4_qdyyu"]
+[ext_resource type="Texture2D" uid="uid://cl4k2kdqrakky" path="res://Resources/resources/sprites/ui/text/quit.png" id="6_abi7u"]
+[ext_resource type="Texture2D" uid="uid://dpjowdow1l8k8" path="res://Resources/resources/sprites/ui/text/quit1.png" id="7_44u72"]
+[ext_resource type="Texture2D" uid="uid://copvaw6ffaxsw" path="res://Resources/resources/sprites/ui/text/play.png" id="8_6rexp"]
 [ext_resource type="Texture2D" uid="uid://bb6ijlg5v3sck" path="res://Resources/resources/sprites/ui/text/logo.png" id="8_7b5cv"]
+[ext_resource type="Texture2D" uid="uid://7eyy66bmy3i4" path="res://Resources/resources/sprites/ui/text/play1.png" id="9_4dmv5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qdyyu"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_abi7u")
+}],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_44u72")
+}],
 "loop": true,
 "name": &"sair",
 "speed": 5.0
@@ -22,12 +32,18 @@ animations = [{
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h8kk8"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_6rexp")
+}],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_4dmv5")
+}],
 "loop": true,
 "name": &"play",
 "speed": 5.0
@@ -92,14 +108,14 @@ flat = true
 position = Vector2(126.125, 464.813)
 scale = Vector2(0.125583, 0.115669)
 sprite_frames = SubResource("SpriteFrames_qdyyu")
-animation = &"sair"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="Play" type="AnimatedSprite2D" parent="."]
 position = Vector2(149.688, 395)
 scale = Vector2(0.1249, 0.114648)
 sprite_frames = SubResource("SpriteFrames_h8kk8")
-animation = &"play"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="Logo" type="Sprite2D" parent="."]
