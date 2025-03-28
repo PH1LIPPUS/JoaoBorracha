@@ -13,11 +13,9 @@ func receber_dano(dano):
 	vida_atual = clamp(vida_atual, 0, vida_maxima)  
 
 	if vida_atual <= 0:
-		get_parent().die()  
+9		get_parent().die()  
 
 	update_barra()
 	
-
-
 func update_barra():
 	barra_sprite.frame = vida_atual
