@@ -68,6 +68,8 @@ func _input(event):
 		test_take_damage()
 	if event.is_action_pressed("pickup") and weapon_in_area:
 		pickup_weapon()  
+	if event.is_action_pressed("drop"):
+		drop_weapon()  
 	if event.is_action_pressed("precision_aim"):
 		set_precision_aim(true)
 	elif event.is_action_released("precision_aim"):
@@ -228,9 +230,15 @@ func set_precision_aim(enable: bool):
 		precise_hand_transition_duration
 	)
 	
+	# Atualiza a arma também
+	if has_weapon and $RightHand/Marker2D.get_child_count() > 0:
+		var weapon = $RightHand/Marker2D.get_child(0)
+		if weapon.has_method("set_precision_aim"):
+			weapon.set_precision_aim(enable)
+	
 	hleft.play("aim" if enable else "idle")
 	hright.play("aim" if enable else "idle")
-
+	
 # Health system
 func receber_dano(dano: int):
 	if barra_de_vida:
@@ -250,15 +258,37 @@ func test_take_damage():
 	print("Vida: ", barra_de_vida.vida_atual if barra_de_vida else "N/A")
 
 func pickup_weapon():
+	if has_weapon:
+		return
+	
 	var pistol_scene = load("res://Resources/Guns/Pistol/pistol.tscn")
-	var marker = $RightHand/Marker2D
 	var pistol_instance = pistol_scene.instantiate()
 	
-	marker.add_child(pistol_instance)
+	# Adiciona como filho do Marker2D
+	$RightHand/Marker2D.add_child(pistol_instance)
 	
-	pistol_instance.global_position = marker.global_position
-	pistol_instance.global_rotation = marker.global_rotation
+	# Configura posição inicial
+	pistol_instance.position = Vector2.ZERO
 	
 	if pistol_instance.has_method("_on_picked_up"):
 		pistol_instance._on_picked_up()
 	
+	has_weapon = true
+	
+func drop_weapon():
+	if has_weapon and $RightHand/Marker2D.get_child_count() > 0:
+		var weapon = $RightHand/Marker2D.get_child(0)
+		$RightHand/Marker2D.remove_child(weapon)
+		get_parent().add_child(weapon)
+		
+		# Reativa a física
+		weapon.being_held = false
+		weapon.freeze = false
+		weapon.set_collision_layer_value(1, true)
+		weapon.set_collision_mask_value(1, true)
+		
+		# Posiciona onde estava a mão
+		weapon.global_position = $RightHand.global_position
+		weapon.linear_velocity = velocity  # Herda velocidade do jogador
+		
+		has_weapon = false

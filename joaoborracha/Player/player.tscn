@@ -137,6 +137,7 @@ position = Vector2(3, 2)
 collision_layer = 6
 collision_mask = 9
 script = ExtResource("1_od3ui")
+metadata/_edit_vertical_guides_ = [-1083.0]
 
 [node name="LeftHand" type="Node2D" parent="."]
 position = Vector2(-97, 80)
@@ -173,7 +174,7 @@ shape = SubResource("RectangleShape2D_37c7o")
 position = Vector2(107, 1)
 
 [node name="Marker2D" type="Marker2D" parent="RightHand"]
-position = Vector2(0, -1)
+position = Vector2(6, -17)
 
 [node name="RIGHTY" type="AnimatedSprite2D" parent="RightHand"]
 position = Vector2(0, -0.999997)
