@@ -264,7 +264,6 @@ func pickup_weapon():
 	var pistol_scene = load("res://Resources/Guns/Pistol/pistol.tscn")
 	var pistol_instance = pistol_scene.instantiate()
 	
-	# Adiciona como filho do Marker2D
 	$RightHand/Marker2D.add_child(pistol_instance)
 	
 	# Configura posição inicial
