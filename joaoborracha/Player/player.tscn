@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b5wapykkegbxq" path="res://Resources/resources/sprites/hands/handFistBack.png.png" id="2_od3ui"]
 [ext_resource type="Texture2D" uid="uid://7yy53drljuib" path="res://Resources/resources/sprites/chars/johnny/walkL.png" id="3_sweqy"]
 [ext_resource type="Texture2D" uid="uid://bgv6lgvxuq75i" path="res://Resources/resources/sprites/hands/handGun.png.png" id="3_vtle1"]
-[ext_resource type="Script" uid="uid://dw8w0wwig0nk" path="res://Player/grab_area.gd" id="4_7emwf"]
+[ext_resource type="Script" uid="uid://qpypjaapsxsv" path="res://Player/pickup_area.gd" id="4_7emwf"]
 [ext_resource type="Texture2D" uid="uid://dcb14l371t2m4" path="res://Resources/resources/sprites/hands/handOpen.png.png" id="5_fhl08"]
 [ext_resource type="Texture2D" uid="uid://jnoxfkq4xhnw" path="res://Resources/resources/sprites/hands/handOpenBack.png.png" id="5_k53q1"]
 [ext_resource type="Script" uid="uid://bqffk61cjxkhu" path="res://Player/Barradevida.gd" id="9_n471f"]
@@ -172,6 +172,9 @@ shape = SubResource("RectangleShape2D_37c7o")
 [node name="RightHand" type="Node2D" parent="."]
 position = Vector2(107, 1)
 
+[node name="Marker2D" type="Marker2D" parent="RightHand"]
+position = Vector2(0, -1)
+
 [node name="RIGHTY" type="AnimatedSprite2D" parent="RightHand"]
 position = Vector2(0, -0.999997)
 scale = Vector2(0.33, 0.38)
@@ -191,8 +194,8 @@ shape = SubResource("CircleShape2D_nknpl")
 script = ExtResource("9_n471f")
 
 [node name="BarraSprite" type="AnimatedSprite2D" parent="Barra de vida"]
-position = Vector2(184.613, 44.6575)
-scale = Vector2(1.1, 1.04944)
+position = Vector2(184.613, 34.6574)
+scale = Vector2(1.1, 0.875523)
 sprite_frames = SubResource("SpriteFrames_m0h3t")
 animation = &"Vida"
 autoplay = "Vida"
@@ -206,3 +209,4 @@ limit_left = 0
 [connection signal="body_entered" from="LeftHand/PickupArea" to="LeftHand/PickupArea" method="_on_body_entered"]
 [connection signal="body_exited" from="LeftHand/PickupArea" to="LeftHand/PickupArea" method="_on_body_exited"]
 [connection signal="body_entered" from="RightHand/PickupArea" to="RightHand/PickupArea" method="_on_body_entered"]
+[connection signal="body_exited" from="RightHand/PickupArea" to="RightHand/PickupArea" method="_on_body_exited"]

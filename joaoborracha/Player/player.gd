@@ -31,8 +31,8 @@ extends CharacterBody2D
 @onready var hright: AnimatedSprite2D = $RightHand/RIGHTY
 @onready var barra_de_vida: Node = $"Barra de vida"
 
-@onready var left_hand_collision: CollisionShape2D = $L
-@onready var right_hand_collision: CollisionShape2D = $R
+var has_weapon: bool = false
+
 # Internal variables
 var current_hand_angle_offset: float = base_hand_angle_offset
 var precise_aim: bool = false
@@ -43,6 +43,12 @@ var was_on_floor: bool = false
 var facing_direction: int = 1  
 
 func _ready():
+	if $LeftHand/PickupArea:
+		$LeftHand/PickupArea.connect("weapon_in_area_changed", Callable(self, "_update_weapon_in_area"))
+	
+	if $RightHand/PickupArea:
+		$RightHand/PickupArea.connect("weapon_in_area_changed", Callable(self, "_update_weapon_in_area"))
+		
 	if hleft and hright:
 		hleft.play("idle")
 		hright.play("idle")
@@ -52,11 +58,16 @@ func _ready():
 	if !barra_de_vida:
 		push_error("Health bar not found!")
 
+var weapon_in_area := false
+
+func _update_weapon_in_area(is_weapon_in_area: bool):
+	weapon_in_area = is_weapon_in_area 
+
 func _input(event):
-	if event.is_action_pressed("pickup") :
-		print("huivgu")
 	if event.is_action_pressed("ui_0"):
 		test_take_damage()
+	if event.is_action_pressed("pickup") and weapon_in_area:
+		pickup_weapon()  
 	if event.is_action_pressed("precision_aim"):
 		set_precision_aim(true)
 	elif event.is_action_released("precision_aim"):
@@ -238,7 +249,16 @@ func test_take_damage():
 	receber_dano(1)
 	print("Vida: ", barra_de_vida.vida_atual if barra_de_vida else "N/A")
 
-
-var inareawp = false
-func pickup_gun():
-		print("arma na mao")
+func pickup_weapon():
+	var pistol_scene = load("res://Resources/Guns/Pistol/pistol.tscn")
+	var marker = $RightHand/Marker2D
+	var pistol_instance = pistol_scene.instantiate()
+	
+	marker.add_child(pistol_instance)
+	
+	pistol_instance.global_position = marker.global_position
+	pistol_instance.global_rotation = marker.global_rotation
+	
+	if pistol_instance.has_method("_on_picked_up"):
+		pistol_instance._on_picked_up()
+	
