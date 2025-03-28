@@ -13,7 +13,7 @@ func receber_dano(dano):
 	vida_atual = clamp(vida_atual, 0, vida_maxima)  
 
 	if vida_atual <= 0:
-9		get_parent().die()  
+		get_parent().die()  
 
 	update_barra()
 	
