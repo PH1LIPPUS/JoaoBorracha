@@ -142,6 +142,9 @@ metadata/_edit_vertical_guides_ = [-1083.0]
 [node name="LeftHand" type="Node2D" parent="."]
 position = Vector2(-97, 80)
 
+[node name="Marker2D" type="Marker2D" parent="LeftHand"]
+position = Vector2(6, -17)
+
 [node name="LEFTY" type="AnimatedSprite2D" parent="LeftHand"]
 position = Vector2(0.821091, -1)
 scale = Vector2(0.33, 0.34)

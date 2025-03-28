@@ -200,7 +200,8 @@ func update_hand_positions(mouse_pos: Vector2):
 	else:
 		hright.flip_v = false
 		hleft.flip_v = false
-
+		
+	update_weapon_flip()
 func update_animation():
 	if not sprite:
 		return
@@ -229,7 +230,7 @@ func set_precision_aim(enable: bool):
 		0.0 if enable else base_hand_angle_offset, 
 		precise_hand_transition_duration
 	)
-	
+	update_weapon_flip()
 	# Atualiza a arma também
 	if has_weapon and $RightHand/Marker2D.get_child_count() > 0:
 		var weapon = $RightHand/Marker2D.get_child(0)
@@ -264,6 +265,7 @@ func pickup_weapon():
 	var pistol_scene = load("res://Resources/Guns/Pistol/pistol.tscn")
 	var pistol_instance = pistol_scene.instantiate()
 	
+	# Adiciona como filho do Marker2D
 	$RightHand/Marker2D.add_child(pistol_instance)
 	
 	# Configura posição inicial
@@ -291,3 +293,15 @@ func drop_weapon():
 		weapon.linear_velocity = velocity  # Herda velocidade do jogador
 		
 		has_weapon = false
+
+func update_weapon_flip():
+	if has_weapon and $RightHand/Marker2D.get_child_count() > 0:
+		var weapon = $RightHand/Marker2D.get_child(0)
+		if weapon.has_method("update_flip"):
+			# Se a arma tem seu próprio método para lidar com flip
+			weapon.update_flip(sprite.flip_h)
+		else:
+			# Método genérico
+			weapon.scale.y = -1 if sprite.flip_h else 1
+			# Ajuste adicional para a posição se necessário
+			weapon.position.y = abs(weapon.position.y) * (-1 if sprite.flip_h else 1)
