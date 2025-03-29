@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bahbug2nbbn0r"]
 
-[ext_resource type="Script" uid="uid://bpoxqlr83unm1" path="res://Sceens/game.gd" id="1_8dnjt"]
+[ext_resource type="Script" uid="uid://bpoxqlr83unm1" path="res://Scrips/game.gd" id="1_8dnjt"]
 [ext_resource type="PackedScene" uid="uid://brxp44x6qysd1" path="res://Player/player.tscn" id="1_amtq0"]
 [ext_resource type="Script" uid="uid://bgj7m8jwdnufg" path="res://Scrips/pause_menu.gd" id="1_hvt6a"]
 [ext_resource type="PackedScene" uid="uid://dsx81hqv41qad" path="res://Sceens/map.tscn" id="1_i3dsi"]
@@ -55,6 +55,23 @@ position = Vector2(571, 469)
 
 [node name="Player" parent="." instance=ExtResource("1_amtq0")]
 position = Vector2(194, 460)
+walk_speed = 150.0
+run_speed = 300.0
+slow_speed = 75.0
+acceleration = 15.0
+deceleration = 20.0
+gravity = 800.0
+max_fall_speed = 900.0
+jump_force = -300.0
+air_control_factor = 0.5
+coyote_time = 0.1
+jump_buffer_time = 0.1
+hand_orbit_radius = 20.0
+hand_offset_multiplier = 0.2
+hand_move_smoothness = 10.0
+base_hand_angle_offset = 30.0
+precise_hand_transition_duration = 0.2
+max_hand_distance = 150.0
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 process_mode = 3

@@ -10,3 +10,7 @@ func _on_skip_mouse_entered() -> void:
 
 func _on_skip_mouse_exited() -> void:
 	anim.play("idle")
+
+
+func _on_video_stream_player_finished() -> void:
+	get_tree().change_scene_to_file("res://Sceens/game.tscn")

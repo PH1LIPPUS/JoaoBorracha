@@ -64,6 +64,8 @@ func _update_weapon_in_area(is_weapon_in_area: bool):
 	weapon_in_area = is_weapon_in_area 
 
 func _input(event):
+	if event.is_action_pressed("shoot"):
+		shoot()
 	if event.is_action_pressed("ui_0"):
 		test_take_damage()
 	if event.is_action_pressed("pickup") and weapon_in_area:
@@ -201,7 +203,12 @@ func update_hand_positions(mouse_pos: Vector2):
 		hright.flip_v = false
 		hleft.flip_v = false
 		
-	update_weapon_flip()
+	# Update weapon flip ONLY based on mouse position, not player movement
+	if has_weapon and $RightHand/Marker2D.get_child_count() > 0:
+		var weapon = $RightHand/Marker2D.get_child(0)
+		if weapon.has_method("update_flip"):
+			weapon.update_flip(mouse_pos.x < global_position.x)
+			
 func update_animation():
 	if not sprite:
 		return
@@ -262,14 +269,48 @@ func pickup_weapon():
 	if has_weapon:
 		return
 	
+	# Procurar por armas próximas através da área de pickup
+	var pickup_area = $RightHand/PickupArea  # Assumindo que você está usando a área da mão direita
+	
+	if pickup_area:
+		# Verificar se há armas na área de pickup
+		var weapons_in_area = []
+		for body in pickup_area.get_overlapping_bodies():
+			if body.is_in_group("weapons"):
+				weapons_in_area.append(body)
+		
+		if weapons_in_area.size() > 0:
+			var weapon = weapons_in_area[0]
+			
+			# Remover a arma completamente da cena atual
+			weapon.get_parent().remove_child(weapon)
+			
+			# Adicionar a arma ao Marker2D da mão direita
+			$RightHand/Marker2D.add_child(weapon)
+			
+			# Configurar a arma
+			weapon.position = Vector2.ZERO
+			weapon.being_held = true
+			weapon.freeze = true
+			
+			# Desativar colisões temporariamente
+			weapon.set_collision_layer_value(1, false)  # Não colide com o mundo
+			weapon.set_collision_mask_value(1, false)   # Não detecta colisões com o mundo
+			
+			if weapon.has_method("_on_picked_up"):
+				weapon._on_picked_up()
+			
+			has_weapon = true
+			return
+	
+	# Caso não encontre uma arma para pegar, você pode instanciar uma nova se quiser
+	# (opcional, mantenha isso se quiser que o jogador sempre tenha uma arma)
 	var pistol_scene = load("res://Resources/Guns/Pistol/pistol.tscn")
 	var pistol_instance = pistol_scene.instantiate()
-	
-	# Adiciona como filho do Marker2D
 	$RightHand/Marker2D.add_child(pistol_instance)
-	
-	# Configura posição inicial
 	pistol_instance.position = Vector2.ZERO
+	pistol_instance.being_held = true
+	pistol_instance.freeze = true
 	
 	if pistol_instance.has_method("_on_picked_up"):
 		pistol_instance._on_picked_up()
@@ -280,17 +321,35 @@ func drop_weapon():
 	if has_weapon and $RightHand/Marker2D.get_child_count() > 0:
 		var weapon = $RightHand/Marker2D.get_child(0)
 		$RightHand/Marker2D.remove_child(weapon)
+		
+		# Adicionar a arma de volta à cena do jogo (como filha do nó pai do jogador)
 		get_parent().add_child(weapon)
 		
-		# Reativa a física
+		# Reativar física e colisões
 		weapon.being_held = false
 		weapon.freeze = false
-		weapon.set_collision_layer_value(1, true)
-		weapon.set_collision_mask_value(1, true)
+		weapon.set_collision_layer_value(1, true)  # Colide com o mundo
+		weapon.set_collision_mask_value(1, true)   # Detecta colisões com o mundo
 		
-		# Posiciona onde estava a mão
+		# Posicionar onde estava a mão
 		weapon.global_position = $RightHand.global_position
 		weapon.linear_velocity = velocity  # Herda velocidade do jogador
+		
+		# Temporariamente desativar colisão com o jogador para evitar bugs
+		weapon.set_collision_layer_value(2, false)  # Não colide com o jogador
+		weapon.set_collision_mask_value(2, false)   # Não detecta colisões com o jogador
+		
+		# Timer para reativar colisão com o jogador após 1 segundo
+		var timer = Timer.new()
+		weapon.add_child(timer)
+		timer.wait_time = 1.0
+		timer.one_shot = true
+		timer.timeout.connect(func():
+			weapon.set_collision_layer_value(2, true)
+			weapon.set_collision_mask_value(2, true)
+			timer.queue_free()
+		)
+		timer.start()
 		
 		has_weapon = false
 
@@ -298,10 +357,10 @@ func update_weapon_flip():
 	if has_weapon and $RightHand/Marker2D.get_child_count() > 0:
 		var weapon = $RightHand/Marker2D.get_child(0)
 		if weapon.has_method("update_flip"):
-			# Se a arma tem seu próprio método para lidar com flip
-			weapon.update_flip(sprite.flip_h)
-		else:
-			# Método genérico
-			weapon.scale.y = -1 if sprite.flip_h else 1
-			# Ajuste adicional para a posição se necessário
-			weapon.position.y = abs(weapon.position.y) * (-1 if sprite.flip_h else 1)
+			# Use only mouse position to determine flip
+			var mouse_pos = get_global_mouse_position()
+			weapon.update_flip(mouse_pos.x < global_position.x)
+			
+			
+func shoot():
+	pass

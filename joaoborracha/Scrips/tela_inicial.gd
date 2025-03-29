@@ -12,15 +12,15 @@ func _on_quit_pressed() -> void:
 
 
 func _on_start_mouse_entered() -> void:
-	play.play("idle")
+	play.play("play")
 
 func _on_start_mouse_exited() -> void:
-	play.play("sair")
+	play.play("idle")
 
 
 func _on_quit_mouse_entered() -> void:
-	sair.play("idle")
+	sair.play("sair")
 
 
 func _on_quit_mouse_exited() -> void:
-	sair.play("sair")
+	sair.play("idle")
