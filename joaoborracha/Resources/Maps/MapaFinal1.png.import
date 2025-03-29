@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxdwusp7t76id"
-path="res://.godot/imported/punchingBag.png-efdff298141b8edcaf1e0ac3d6846aae.ctex"
+uid="uid://cxbkah47ibe8v"
+path="res://.godot/imported/MapaFinal1.png-5234fdd4078222578696388857b98488.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/resources/sprites/props/punchingBag.png"
-dest_files=["res://.godot/imported/punchingBag.png-efdff298141b8edcaf1e0ac3d6846aae.ctex"]
+source_file="res://Resources/Maps/MapaFinal1.png"
+dest_files=["res://.godot/imported/MapaFinal1.png-5234fdd4078222578696388857b98488.ctex"]
 
 [params]
 

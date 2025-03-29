@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpb6awh43dpll"]
+
+[ext_resource type="Texture2D" uid="uid://dxdwusp7t76id" path="res://Resources/Saco de porrada/punchingBag.png" id="1_knjax"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_00jxf"]
+size = Vector2(119, 181)
+
+[node name="PunchingBag" type="CharacterBody2D"]
+
+[node name="PunchingBag" type="Sprite2D" parent="."]
+position = Vector2(3.57628e-07, 0)
+scale = Vector2(0.301034, 0.289223)
+texture = ExtResource("1_knjax")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, -2.5)
+shape = SubResource("RectangleShape2D_00jxf")

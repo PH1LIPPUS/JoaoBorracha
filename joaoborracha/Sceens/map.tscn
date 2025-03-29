@@ -1,30 +1,28 @@
 [gd_scene load_steps=5 format=3 uid="uid://dsx81hqv41qad"]
 
-[ext_resource type="Texture2D" uid="uid://bfyhrje8kmbea" path="res://Resources/resources/sprites/bg/bg1.png" id="1_k0hrr"]
-[ext_resource type="Texture2D" uid="uid://b44a4c7avvtsd" path="res://Resources/resources/sprites/bg/bg2.png" id="2_omlh4"]
+[ext_resource type="Texture2D" uid="uid://cxbkah47ibe8v" path="res://Resources/Maps/MapaFinal1.png" id="1_k0hrr"]
+[ext_resource type="Script" uid="uid://dums2q62dm1ed" path="res://Scrips/map.gd" id="1_omlh4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1kbfe"]
-size = Vector2(3725, 170)
+size = Vector2(14182.5, 170)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ofuf"]
 size = Vector2(55, 661)
 
 [node name="Map" type="Node2D"]
+script = ExtResource("1_omlh4")
 
-[node name="Bg" type="Sprite2D" parent="."]
-position = Vector2(573.5, 322)
-scale = Vector2(0.278071, 0.258268)
+[node name="MapaFinal1" type="Sprite2D" parent="."]
+position = Vector2(2512.5, 323.5)
+scale = Vector2(0.302019, 0.254724)
 texture = ExtResource("1_k0hrr")
 
-[node name="Bg2" type="Sprite2D" parent="."]
-position = Vector2(1729, 321)
-scale = Vector2(0.278, 0.258)
-texture = ExtResource("2_omlh4")
-
 [node name="Colisões" type="StaticBody2D" parent="."]
+collision_layer = 33
+collision_mask = 0
 
 [node name="Chao" type="CollisionShape2D" parent="Colisões"]
-position = Vector2(1827.5, 642)
+position = Vector2(7014, 602)
 shape = SubResource("RectangleShape2D_1kbfe")
 
 [node name="Parede da direita" type="CollisionShape2D" parent="Colisões"]
@@ -32,5 +30,5 @@ position = Vector2(-28.5, 320.5)
 shape = SubResource("RectangleShape2D_0ofuf")
 
 [node name="Teto" type="CollisionShape2D" parent="Colisões"]
-position = Vector2(1852, -55)
+position = Vector2(7017, -76)
 shape = SubResource("RectangleShape2D_1kbfe")
