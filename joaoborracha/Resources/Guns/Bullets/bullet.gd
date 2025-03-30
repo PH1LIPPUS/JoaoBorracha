@@ -22,5 +22,5 @@ func _physics_process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	
+		print("a")
 		queue_free()
