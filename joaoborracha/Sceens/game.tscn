@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bahbug2nbbn0r"]
+[gd_scene load_steps=13 format=3 uid="uid://bahbug2nbbn0r"]
 
 [ext_resource type="Script" uid="uid://bpoxqlr83unm1" path="res://Scrips/game.gd" id="1_8dnjt"]
 [ext_resource type="PackedScene" uid="uid://brxp44x6qysd1" path="res://Player/player.tscn" id="1_amtq0"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cux24x5bxbs4b" path="res://Resources/Guns/Pistol/pistol.tscn" id="2_wh8v3"]
 [ext_resource type="Texture2D" uid="uid://d1bmxhslenjpr" path="res://Resources/Menu/MenuDuranteJogo4.png" id="3_amtq0"]
 [ext_resource type="PackedScene" uid="uid://cfu8pw3vt4s81" path="res://Resources/Capsule/capsula.tscn" id="6_enaw6"]
+[ext_resource type="PackedScene" uid="uid://cpb6awh43dpll" path="res://Resources/punching_bag.tscn" id="10_lg856"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yjs1f"]
 animations = [{
@@ -45,16 +46,19 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dnjt"]
+size = Vector2(125, 742)
+
 [node name="Game" type="Node"]
 script = ExtResource("1_8dnjt")
 
 [node name="Map" parent="." instance=ExtResource("1_i3dsi")]
 
 [node name="Pistol" parent="." instance=ExtResource("2_wh8v3")]
-position = Vector2(571, 469)
+position = Vector2(482, 474)
 
 [node name="Player" parent="." instance=ExtResource("1_amtq0")]
-position = Vector2(194, 460)
+position = Vector2(201, 424)
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -98,8 +102,39 @@ focus_mode = 0
 flat = true
 
 [node name="Capsula" parent="." instance=ExtResource("6_enaw6")]
-position = Vector2(857, 501)
+position = Vector2(3699, 473)
 scale = Vector2(0.2, 0.2)
+
+[node name="Dentro" type="ColorRect" parent="."]
+anchors_preset = -1
+anchor_top = -0.646605
+anchor_bottom = 0.470679
+offset_left = 5025.0
+offset_right = 5153.0
+offset_bottom = 646.0
+color = Color(0, 0, 0, 0.34902)
+metadata/_edit_use_anchors_ = true
+
+[node name="Fora" type="ColorRect" parent="."]
+anchors_preset = -1
+anchor_top = -0.643519
+anchor_bottom = 0.479938
+offset_left = 5025.0
+offset_right = 5153.0
+offset_bottom = 646.0
+color = Color(0.051971, 0.051971, 0.0519709, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Preto" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Preto"]
+position = Vector2(5088, 280)
+shape = SubResource("RectangleShape2D_8dnjt")
+
+[node name="PunchingBag" parent="." instance=ExtResource("10_lg856")]
+position = Vector2(973, 426)
 
 [connection signal="mouse_entered" from="PauseMenu/Resume" to="PauseMenu" method="_on_resume_mouse_entered"]
 [connection signal="mouse_exited" from="PauseMenu/Resume" to="PauseMenu" method="_on_resume_mouse_exited"]
@@ -107,3 +142,5 @@ scale = Vector2(0.2, 0.2)
 [connection signal="mouse_entered" from="PauseMenu/Back" to="PauseMenu" method="_on_back_mouse_entered"]
 [connection signal="mouse_exited" from="PauseMenu/Back" to="PauseMenu" method="_on_back_mouse_exited"]
 [connection signal="pressed" from="PauseMenu/Back" to="PauseMenu" method="_on_back_pressed"]
+[connection signal="body_entered" from="Preto" to="." method="_on_preto_body_entered"]
+[connection signal="body_exited" from="Preto" to="." method="_on_preto_body_exited"]

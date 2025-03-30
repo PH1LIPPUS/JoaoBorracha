@@ -363,4 +363,7 @@ func update_weapon_flip():
 			
 			
 func shoot():
-	pass
+	if has_weapon and $RightHand/Marker2D.get_child_count() > 0:
+		var weapon = $RightHand/Marker2D.get_child(0)
+		if weapon.has_method("shoot"):
+			weapon.shoot()

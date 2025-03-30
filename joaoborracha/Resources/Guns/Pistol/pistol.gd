@@ -35,6 +35,10 @@ func update_flip(is_flipped: bool):
 
 var bullet_path=preload("res://Resources/Guns/Bullets/bullet.tscn")
 
+
 func shoot():
-	print("aa")
-	
+	var bullet= bullet_path.instantiate()
+	bullet.dir=rotation
+	bullet.pos=$Node2D.global_position
+	bullet.rota=global_rotation
+	get_parent().add_child(bullet)

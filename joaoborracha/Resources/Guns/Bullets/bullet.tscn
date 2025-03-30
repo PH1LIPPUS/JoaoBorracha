@@ -4,21 +4,25 @@
 [ext_resource type="Texture2D" uid="uid://dykdu0elwlf8k" path="res://Resources/Guns/Bullets/shellSmall.png" id="2_0eiik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lw4yq"]
-size = Vector2(45, 20)
+size = Vector2(20, 7)
 
 [node name="bullet" type="CharacterBody2D"]
 script = ExtResource("1_imi6u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2.5, 2)
 shape = SubResource("RectangleShape2D_lw4yq")
 
 [node name="ShellSmall" type="Sprite2D" parent="."]
-position = Vector2(3, 2)
+position = Vector2(-0.375, 0.125)
+scale = Vector2(0.419491, 0.263514)
 texture = ExtResource("2_0eiik")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="bullet" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 50
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(2.5, 2)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bullet"]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_lw4yq")
+
+[connection signal="body_entered" from="bullet" to="." method="_on_area_2d_body_entered"]
