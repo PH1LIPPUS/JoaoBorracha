@@ -210,6 +210,9 @@ frame_progress = 1.0
 position = Vector2(0, -148)
 limit_left = 0
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
 [connection signal="body_entered" from="LeftHand/PickupArea" to="LeftHand/PickupArea" method="_on_body_entered"]
 [connection signal="body_exited" from="LeftHand/PickupArea" to="LeftHand/PickupArea" method="_on_body_exited"]
 [connection signal="body_entered" from="RightHand/PickupArea" to="RightHand/PickupArea" method="_on_body_entered"]

@@ -69,6 +69,9 @@ offset_right = 4780.0
 offset_bottom = 493.0
 color = Color(0.482353, 0.482353, 0.482353, 1)
 
+[node name="enemy" parent="." instance=ExtResource("12_slqoo")]
+position = Vector2(4145, 490)
+
 [node name="Player" parent="." instance=ExtResource("1_amtq0")]
 position = Vector2(62, 430)
 
@@ -149,11 +152,6 @@ offset_right = 501.0
 offset_bottom = 349.0
 focus_mode = 0
 flat = true
-
-[node name="enemy" parent="." instance=ExtResource("12_slqoo")]
-position = Vector2(4145, 490)
-
-[node name="enemy2" parent="." instance=ExtResource("12_slqoo")]
 
 [connection signal="body_entered" from="Preto" to="." method="_on_preto_body_entered"]
 [connection signal="body_exited" from="Preto" to="." method="_on_preto_body_exited"]

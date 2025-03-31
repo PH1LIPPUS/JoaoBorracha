@@ -287,27 +287,24 @@ func receber_cura(cura: int):
 func start_invincibility():
 	is_invincible = true
 	
-	# Create timer for invincibility
 	var timer = Timer.new()
 	add_child(timer)
 	timer.wait_time = invincibility_time
 	timer.one_shot = true
 	timer.timeout.connect(func():
 		is_invincible = false
-		sprite.modulate = original_color  # Ensure color is reset
+		sprite.modulate = original_color  
 		timer.queue_free()
 	)
 	timer.start()
 
 func apply_damage_effect():
-	# Flash effect
 	var flash_tween = create_tween()
 	
 	for i in range(damage_flash_count * 2):
 		var target_color = flash_color if i % 2 == 0 else original_color
 		flash_tween.tween_property(sprite, "modulate", target_color, damage_flash_duration)
 	
-	# Optional: Apply knockback effect
 	var direction_to_knockback = -facing_direction
 	velocity.x = direction_to_knockback * 300
 	velocity.y = -200  # Small upward bounce
@@ -317,7 +314,6 @@ func die():
 	set_process_input(false)
 	set_physics_process(false)
 	
-	# Death animation
 	
 	
 	# Handle game over or respawn logic here
@@ -332,9 +328,8 @@ func die():
 	sprite.modulate = original_color
 	sprite.scale = Vector2(1, 1)
 	
-	# Emit game over signal or call game over function
-	# You can uncomment and implement this later
-	# emit_signal("player_died")
+	get_tree().change_scene_to_file("res://Sceens/game_over.tscn")
+
 
 func test_take_damage():
 	receber_dano(1)
@@ -378,8 +373,7 @@ func pickup_weapon():
 			has_weapon = true
 			return
 	
-	# Caso não encontre uma arma para pegar, você pode instanciar uma nova se quiser
-	# (opcional, mantenha isso se quiser que o jogador sempre tenha uma arma)
+
 	var pistol_scene = load("res://Resources/Guns/Pistol/pistol.tscn")
 	var pistol_instance = pistol_scene.instantiate()
 	$RightHand/Marker2D.add_child(pistol_instance)
@@ -397,7 +391,6 @@ func drop_weapon():
 		var weapon = $RightHand/Marker2D.get_child(0)
 		$RightHand/Marker2D.remove_child(weapon)
 		
-		# Adicionar a arma de volta à cena do jogo (como filha do nó pai do jogador)
 		get_parent().add_child(weapon)
 		
 		# Reativar física e colisões
