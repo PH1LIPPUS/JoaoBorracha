@@ -42,7 +42,7 @@ scale = Vector2(0.314547, 0.341408)
 sprite_frames = SubResource("SpriteFrames_gocp1")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.0963132
+frame_progress = 0.288131
 flip_h = true
 
 [node name="Area2D" type="Area2D" parent="."]

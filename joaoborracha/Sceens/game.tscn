@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bahbug2nbbn0r"]
+[gd_scene load_steps=15 format=3 uid="uid://bahbug2nbbn0r"]
 
 [ext_resource type="Script" uid="uid://bpoxqlr83unm1" path="res://Scrips/game.gd" id="1_8dnjt"]
 [ext_resource type="PackedScene" uid="uid://brxp44x6qysd1" path="res://Player/player.tscn" id="1_amtq0"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cfu8pw3vt4s81" path="res://Resources/Capsule/capsula.tscn" id="6_enaw6"]
 [ext_resource type="PackedScene" uid="uid://cpb6awh43dpll" path="res://Resources/Saco de porrada/punching_bag.tscn" id="10_lg856"]
 [ext_resource type="PackedScene" uid="uid://b7vqi47vmfy18" path="res://Enemy/segurança.tscn" id="11_rscs6"]
+[ext_resource type="PackedScene" uid="uid://dx4p0lx6l28ih" path="res://Enemy/enemy.tscn" id="12_slqoo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8dnjt"]
 size = Vector2(125, 742)
@@ -148,6 +149,11 @@ offset_right = 501.0
 offset_bottom = 349.0
 focus_mode = 0
 flat = true
+
+[node name="enemy" parent="." instance=ExtResource("12_slqoo")]
+position = Vector2(861, 421)
+
+[node name="enemy2" parent="." instance=ExtResource("12_slqoo")]
 
 [connection signal="body_entered" from="Preto" to="." method="_on_preto_body_entered"]
 [connection signal="body_exited" from="Preto" to="." method="_on_preto_body_exited"]

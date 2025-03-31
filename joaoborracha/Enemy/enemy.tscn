@@ -1,0 +1,99 @@
+[gd_scene load_steps=12 format=3 uid="uid://dx4p0lx6l28ih"]
+
+[ext_resource type="Script" uid="uid://c0uw7ijjyy5j" path="res://Enemy/enemy.gd" id="1_eqilm"]
+[ext_resource type="Texture2D" uid="uid://b6w4pyq06y6hc" path="res://Resources/resources/sprites/chars/elite/elite.png" id="2_ncf7h"]
+[ext_resource type="Texture2D" uid="uid://cea1gge2k2tx4" path="res://Resources/resources/sprites/chars/elite/walkR.png" id="3_m6jha"]
+[ext_resource type="Texture2D" uid="uid://cqok3xsvrtviu" path="res://Resources/resources/sprites/chars/elite/walkL.png" id="4_glvfu"]
+[ext_resource type="Texture2D" uid="uid://b5wapykkegbxq" path="res://Resources/resources/sprites/hands/handFistBack.png.png" id="5_efk13"]
+[ext_resource type="Texture2D" uid="uid://dgk2ivmog7fqc" path="res://Resources/resources/sprites/guns/tmp/TMP.png" id="7_47ove"]
+[ext_resource type="Texture2D" uid="uid://bgv6lgvxuq75i" path="res://Resources/resources/sprites/hands/handGun.png.png" id="8_jovdv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0rspp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ncf7h")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_m6jha")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ncf7h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_glvfu")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eqilm"]
+radius = 29.0
+height = 194.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_glvfu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_jovdv")
+}],
+"loop": true,
+"name": &"aim",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_efk13"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_efk13")
+}],
+"loop": true,
+"name": &"aim",
+"speed": 5.0
+}]
+
+[node name="enemy" type="CharacterBody2D"]
+script = ExtResource("1_eqilm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -0.499999)
+scale = Vector2(0.236799, 0.280726)
+sprite_frames = SubResource("SpriteFrames_0rspp")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_eqilm")
+
+[node name="Tmp" type="Sprite2D" parent="."]
+position = Vector2(-96.2344, 15.0781)
+scale = Vector2(0.246247, 0.245876)
+texture = ExtResource("7_47ove")
+
+[node name="RightHand" type="Node2D" parent="."]
+position = Vector2(107, 1)
+
+[node name="RIGHTY" type="AnimatedSprite2D" parent="RightHand"]
+position = Vector2(-182, 14)
+scale = Vector2(0.245537, 0.271301)
+sprite_frames = SubResource("SpriteFrames_glvfu")
+animation = &"aim"
+autoplay = "aim"
+flip_h = true
+
+[node name="LeftHand" type="Node2D" parent="."]
+position = Vector2(-97, 80)
+
+[node name="LEFTY" type="AnimatedSprite2D" parent="LeftHand"]
+position = Vector2(-20.6475, -65.35)
+scale = Vector2(0.270691, 0.260909)
+sprite_frames = SubResource("SpriteFrames_efk13")
+animation = &"aim"
+autoplay = "aim"
+flip_h = true
