@@ -1,12 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpb6awh43dpll"]
+[gd_scene load_steps=6 format=3 uid="uid://cpb6awh43dpll"]
 
 [ext_resource type="Script" uid="uid://cq1wlxngv0naq" path="res://Resources/punching_bag.gd" id="1_00jxf"]
 [ext_resource type="Texture2D" uid="uid://dxdwusp7t76id" path="res://Resources/Saco de porrada/punchingBag.png" id="1_knjax"]
+[ext_resource type="FontFile" uid="uid://js0ssghbweqw" path="res://Resources/Fontes/impact.ttf" id="3_xff5h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_00jxf"]
-size = Vector2(119, 181)
+size = Vector2(46, 178.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xff5h"]
+size = Vector2(81, 159)
 
 [node name="PunchingBag" type="CharacterBody2D"]
+collision_layer = 16
 script = ExtResource("1_00jxf")
 
 [node name="PunchingBag" type="Sprite2D" parent="."]
@@ -15,22 +20,25 @@ scale = Vector2(0.301034, 0.289223)
 texture = ExtResource("1_knjax")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, -2.5)
+position = Vector2(-4, 3)
 shape = SubResource("RectangleShape2D_00jxf")
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_mask = 0
+collision_layer = 16
+collision_mask = 64
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1.5, -2.5)
-shape = SubResource("RectangleShape2D_00jxf")
+[node name="area" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-3.5, -3.5)
+shape = SubResource("RectangleShape2D_xff5h")
 
-[node name="Label" type="Label" parent="."]
-offset_left = -34.0
-offset_top = -40.0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="BagLabel" type="Label" parent="."]
+offset_left = -53.0
+offset_top = -85.0
+offset_right = 62.0
+offset_bottom = 59.0
 theme_override_colors/font_color = Color(0.513753, 1.11904e-06, 1.92523e-07, 1)
+theme_override_fonts/font = ExtResource("3_xff5h")
+theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -13,7 +13,7 @@ size = Vector2(55, 661)
 script = ExtResource("1_omlh4")
 
 [node name="MapaFinal1" type="Sprite2D" parent="."]
-position = Vector2(2512.5, 323.5)
+position = Vector2(4400, 148)
 scale = Vector2(0.302019, 0.254724)
 texture = ExtResource("1_k0hrr")
 
