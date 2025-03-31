@@ -107,11 +107,13 @@ scale = Vector2(0.2, 0.2)
 
 [node name="Dentro" type="ColorRect" parent="."]
 anchors_preset = -1
+anchor_left = 4.413
 anchor_top = -0.646605
-anchor_bottom = 0.470679
-offset_left = 5025.0
-offset_right = 5153.0
-offset_bottom = 646.0
+anchor_right = 4.469
+anchor_bottom = 1.0
+offset_left = -63.7764
+offset_right = -0.288574
+offset_bottom = 303.0
 color = Color(0, 0, 0, 0.34902)
 metadata/_edit_use_anchors_ = true
 
@@ -119,8 +121,8 @@ metadata/_edit_use_anchors_ = true
 anchors_preset = -1
 anchor_top = -0.643519
 anchor_bottom = 0.479938
-offset_left = 5025.0
-offset_right = 5153.0
+offset_left = 5018.0
+offset_right = 5146.0
 offset_bottom = 646.0
 color = Color(0.051971, 0.051971, 0.0519709, 1)
 metadata/_edit_use_anchors_ = true
@@ -134,7 +136,7 @@ position = Vector2(5088, 280)
 shape = SubResource("RectangleShape2D_8dnjt")
 
 [node name="PunchingBag" parent="." instance=ExtResource("10_lg856")]
-position = Vector2(973, 426)
+position = Vector2(1419, 482)
 
 [connection signal="mouse_entered" from="PauseMenu/Resume" to="PauseMenu" method="_on_resume_mouse_entered"]
 [connection signal="mouse_exited" from="PauseMenu/Resume" to="PauseMenu" method="_on_resume_mouse_exited"]
