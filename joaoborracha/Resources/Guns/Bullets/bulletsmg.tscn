@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://db8xoe2nrkavm"]
+
+[ext_resource type="Script" uid="uid://cu7o7jtespn0" path="res://Resources/Guns/Bullets/bulletsmg.gd" id="1_24a8n"]
+[ext_resource type="Texture2D" uid="uid://dykdu0elwlf8k" path="res://Resources/Guns/Bullets/shellSmall.png" id="2_ywe5l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lw4yq"]
+size = Vector2(26.375, 5.75)
+
+[node name="bulletsmg" type="CharacterBody2D"]
+collision_layer = 64
+collision_mask = 35
+script = ExtResource("1_24a8n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -0.75)
+shape = SubResource("RectangleShape2D_lw4yq")
+
+[node name="ShellSmall" type="Sprite2D" parent="."]
+position = Vector2(4.76837e-07, -2.98023e-08)
+scale = Vector2(0.525424, 0.236487)
+texture = ExtResource("2_ywe5l")
+
+[node name="bullet" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 50
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bullet"]
+position = Vector2(0.1875, 0)
+shape = SubResource("RectangleShape2D_lw4yq")

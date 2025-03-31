@@ -23,6 +23,14 @@ extends CharacterBody2D
 @export var precise_hand_transition_duration: float = 0.2
 @export var max_hand_distance: float = 150.0
 
+# Damage and invincibility settings
+@export var invincibility_time: float = 1.0
+var is_invincible: bool = false
+var damage_flash_duration: float = 0.1
+var damage_flash_count: int = 3
+var original_color: Color = Color(1, 1, 1)
+var flash_color: Color = Color(1, 0, 0, 0.5)
+
 # Nodes
 @onready var sprite: AnimatedSprite2D = $player
 @onready var left_hand: Node2D = $LeftHand
@@ -43,6 +51,9 @@ var was_on_floor: bool = false
 var facing_direction: int = 1  
 
 func _ready():
+	# Add to player group for enemy detection
+	add_to_group("player")
+	
 	if $LeftHand/PickupArea:
 		$LeftHand/PickupArea.connect("weapon_in_area_changed", Callable(self, "_update_weapon_in_area"))
 	
@@ -247,10 +258,22 @@ func set_precision_aim(enable: bool):
 	hleft.play("aim" if enable else "idle")
 	hright.play("aim" if enable else "idle")
 	
-# Health system
+# Health system - ENHANCED
 func receber_dano(dano: int):
+	# Skip damage if player is invincible
+	if is_invincible:
+		return
+		
 	if barra_de_vida:
 		barra_de_vida.receber_dano(dano)
+		
+		# Apply hit effect
+		start_invincibility()
+		apply_damage_effect()
+		
+		# Check if player died
+		if barra_de_vida.vida_atual <= 0:
+			die()
 
 func receber_cura(cura: int):
 	if barra_de_vida:
@@ -260,6 +283,58 @@ func receber_cura(cura: int):
 			barra_de_vida.vida_maxima
 		)
 		barra_de_vida.update_barra()
+
+func start_invincibility():
+	is_invincible = true
+	
+	# Create timer for invincibility
+	var timer = Timer.new()
+	add_child(timer)
+	timer.wait_time = invincibility_time
+	timer.one_shot = true
+	timer.timeout.connect(func():
+		is_invincible = false
+		sprite.modulate = original_color  # Ensure color is reset
+		timer.queue_free()
+	)
+	timer.start()
+
+func apply_damage_effect():
+	# Flash effect
+	var flash_tween = create_tween()
+	
+	for i in range(damage_flash_count * 2):
+		var target_color = flash_color if i % 2 == 0 else original_color
+		flash_tween.tween_property(sprite, "modulate", target_color, damage_flash_duration)
+	
+	# Optional: Apply knockback effect
+	var direction_to_knockback = -facing_direction
+	velocity.x = direction_to_knockback * 300
+	velocity.y = -200  # Small upward bounce
+
+func die():
+	# Disable input
+	set_process_input(false)
+	set_physics_process(false)
+	
+	# Death animation
+	
+	
+	# Handle game over or respawn logic here
+	# For testing, just reset health
+	if barra_de_vida:
+		barra_de_vida.vida_atual = barra_de_vida.vida_maxima
+		barra_de_vida.update_barra()
+	
+	# Re-enable input and processes
+	set_process_input(true)
+	set_physics_process(true)
+	sprite.modulate = original_color
+	sprite.scale = Vector2(1, 1)
+	
+	# Emit game over signal or call game over function
+	# You can uncomment and implement this later
+	# emit_signal("player_died")
 
 func test_take_damage():
 	receber_dano(1)

@@ -5,7 +5,7 @@ var rota: float
 var dir: float
 var speed = 500
 var lifetime = 4.0
-var damage = 10
+var damage = 1
 
 func _ready():
 	global_position = pos
