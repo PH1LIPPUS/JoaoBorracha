@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cpb6awh43dpll"]
 
-[ext_resource type="Script" uid="uid://cq1wlxngv0naq" path="res://Resources/punching_bag.gd" id="1_00jxf"]
+[ext_resource type="Script" uid="uid://cq1wlxngv0naq" path="res://Resources/Saco de porrada/punching_bag.gd" id="1_00jxf"]
 [ext_resource type="Texture2D" uid="uid://dxdwusp7t76id" path="res://Resources/Saco de porrada/punchingBag.png" id="1_knjax"]
-[ext_resource type="FontFile" uid="uid://js0ssghbweqw" path="res://Resources/Fontes/impact.ttf" id="3_xff5h"]
+[ext_resource type="FontFile" uid="uid://js0ssghbweqw" path="res://Resources/resources/impact/impact.ttf" id="3_xff5h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_00jxf"]
 size = Vector2(46, 178.5)
