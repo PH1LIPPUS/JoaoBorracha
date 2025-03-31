@@ -11,12 +11,13 @@ config_version=5
 [application]
 
 config/name="JoaoBorracha"
-run/main_scene="uid://bahbug2nbbn0r"
+run/main_scene="uid://wt6ly2t1kea8"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="uid://b3n1ktd61c03j"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="viewport"
 
 [input]
@@ -81,6 +82,7 @@ shoot={
 2d_physics/layer_5="inimigo"
 2d_physics/layer_6="estrutura"
 2d_physics/layer_7="bala"
+2d_physics/layer_8="estrutura para inimigo"
 
 [rendering]
 

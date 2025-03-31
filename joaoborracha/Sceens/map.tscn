@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dsx81hqv41qad"]
+[gd_scene load_steps=6 format=3 uid="uid://dsx81hqv41qad"]
 
 [ext_resource type="Texture2D" uid="uid://cxbkah47ibe8v" path="res://Resources/Maps/MapaFinal1.png" id="1_k0hrr"]
 [ext_resource type="Script" uid="uid://dums2q62dm1ed" path="res://Scrips/map.gd" id="1_omlh4"]
@@ -8,6 +8,9 @@ size = Vector2(14182.5, 170)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ofuf"]
 size = Vector2(55, 661)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_omlh4"]
+size = Vector2(400, 27.5)
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_omlh4")
@@ -32,3 +35,11 @@ shape = SubResource("RectangleShape2D_0ofuf")
 [node name="Teto" type="CollisionShape2D" parent="Colisões"]
 position = Vector2(7017, -76)
 shape = SubResource("RectangleShape2D_1kbfe")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(4524, 454)
+shape = SubResource("RectangleShape2D_omlh4")
