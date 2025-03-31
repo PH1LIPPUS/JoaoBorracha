@@ -3,22 +3,25 @@ extends CharacterBody2D
 # Enemy Properties
 var speed = 100
 var health = 10
-var direction = 1  
+var direction = 1  # 1 = right, -1 = left
 var patrol_distance = 200
 var start_position = Vector2.ZERO
 
 # Shooting Properties
-var bullet_scene = preload("res://Resources/Guns/Bullets/bullet.tscn")  # Replace with your bullet path
+var bullet_scene = preload("res://Resources/Guns/Bullets/bulletsmg.tscn")  # Replace with your enemy bullet path
 var can_shoot = true
-var shoot_cooldown = 1.0  # Time between shots in seconds
+var shoot_cooldown = 1.5  # Time between shots in seconds
 var detection_range = 300  # How far the enemy can detect the player
 
 # References
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var detection_area = $DetectionArea
-@onready var gun_position = $LeftHand/LEFTY  # Using the left hand as gun position based on your scene tree
+@onready var gun_position = $LeftHand/LEFTY  # Using the left hand as gun position
 
 func _ready():
+	# Add to enemy group
+	add_to_group("enemy")
+	
 	start_position = global_position
 	
 	# Setup shooting cooldown timer
@@ -63,7 +66,7 @@ func patrol(delta):
 		direction = -1
 		flip_sprite(true)
 	elif global_position.x < start_position.x - patrol_distance:
-		direction = 1
+		direction = -1
 		flip_sprite(false)
 		
 	velocity.x = direction * speed
@@ -77,9 +80,9 @@ func flip_sprite(flip_h):
 
 func find_player_in_range():
 	# Find player in the scene
-	var player = get_tree().get_nodes_in_group("player")
-	if player.size() > 0:
-		var player_node = player[0]
+	var players = get_tree().get_nodes_in_group("player")
+	if players.size() > 0:
+		var player_node = players[0]
 		var distance = global_position.distance_to(player_node.global_position)
 		if distance <= detection_range:
 			return player_node
@@ -120,15 +123,19 @@ func reset_shoot_cooldown():
 func take_damage(amount):
 	health -= amount
 	
+	# Flash or show hit animation
 	if animated_sprite:
-		animated_sprite.modulate = Color(1, 0.5, 0.5)  
+		animated_sprite.modulate = Color(1, 0.5, 0.5)  # Tint red
 		await get_tree().create_timer(0.1).timeout
-		animated_sprite.modulate = Color(1, 1, 1)  
+		animated_sprite.modulate = Color(1, 1, 1)  # Reset tint
 	
 	if health <= 0:
 		die()
 
 func die():
+	
+	
+	# Remove the enemy
 	queue_free()
 
 func _on_detection_area_body_entered(body):

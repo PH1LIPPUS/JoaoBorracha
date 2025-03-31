@@ -151,7 +151,7 @@ focus_mode = 0
 flat = true
 
 [node name="enemy" parent="." instance=ExtResource("12_slqoo")]
-position = Vector2(861, 421)
+position = Vector2(4145, 490)
 
 [node name="enemy2" parent="." instance=ExtResource("12_slqoo")]
 

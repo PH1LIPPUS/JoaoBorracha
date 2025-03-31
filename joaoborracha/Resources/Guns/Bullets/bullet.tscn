@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dykdu0elwlf8k" path="res://Resources/Guns/Bullets/shellSmall.png" id="2_0eiik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lw4yq"]
-size = Vector2(17.5, 5.75)
+size = Vector2(26.375, 5.75)
 
 [node name="bullet" type="CharacterBody2D"]
 collision_layer = 64

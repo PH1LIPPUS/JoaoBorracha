@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dx4p0lx6l28ih"]
+[gd_scene load_steps=13 format=3 uid="uid://dx4p0lx6l28ih"]
 
 [ext_resource type="Script" uid="uid://c0uw7ijjyy5j" path="res://Enemy/enemy.gd" id="1_eqilm"]
 [ext_resource type="Texture2D" uid="uid://b6w4pyq06y6hc" path="res://Resources/resources/sprites/chars/elite/elite.png" id="2_ncf7h"]
@@ -59,6 +59,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glvfu"]
+size = Vector2(1574, 179)
+
 [node name="enemy" type="CharacterBody2D"]
 script = ExtResource("1_eqilm")
 
@@ -97,3 +100,9 @@ sprite_frames = SubResource("SpriteFrames_efk13")
 animation = &"aim"
 autoplay = "aim"
 flip_h = true
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(53, 2.5)
+shape = SubResource("RectangleShape2D_glvfu")
