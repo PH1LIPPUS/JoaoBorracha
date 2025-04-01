@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dsx81hqv41qad"]
+[gd_scene load_steps=11 format=3 uid="uid://dsx81hqv41qad"]
 
 [ext_resource type="Script" uid="uid://dums2q62dm1ed" path="res://Scrips/map.gd" id="1_omlh4"]
 [ext_resource type="Texture2D" uid="uid://eshlcm1fv8sv" path="res://Resources/Maps/FirstMap.png" id="2_0ofuf"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cq425ck3or4q3" path="res://Resources/Maps/Final2.png" id="3_o2xtr"]
 [ext_resource type="Texture2D" uid="uid://c4hncmrhbwhaa" path="res://Resources/Maps/Final3.png" id="4_knvlg"]
 [ext_resource type="Texture2D" uid="uid://wese7xclmpjk" path="res://Resources/resources/sprites/chars/rockstar.png" id="4_qitap"]
+[ext_resource type="Texture2D" uid="uid://c0j8amab1rwnw" path="res://Resources/Maps/Final4.png" id="5_o2xtr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1kbfe"]
 size = Vector2(14182.5, 170)
@@ -30,16 +31,21 @@ scale = Vector2(0.302019, 0.254724)
 texture = ExtResource("3_o2xtr")
 
 [node name="MapaFinal3" type="Sprite2D" parent="."]
-position = Vector2(6946, 218)
+position = Vector2(7477, 218)
 scale = Vector2(0.302019, 0.254724)
 texture = ExtResource("4_knvlg")
+
+[node name="MapaFinal4" type="Sprite2D" parent="."]
+position = Vector2(11594, 218)
+scale = Vector2(0.302019, 0.254724)
+texture = ExtResource("5_o2xtr")
 
 [node name="Colisões" type="StaticBody2D" parent="."]
 collision_layer = 33
 collision_mask = 0
 
 [node name="Chao" type="CollisionShape2D" parent="Colisões"]
-position = Vector2(7014, 602)
+position = Vector2(7014, 600)
 shape = SubResource("RectangleShape2D_1kbfe")
 
 [node name="Parede da direita" type="CollisionShape2D" parent="Colisões"]
