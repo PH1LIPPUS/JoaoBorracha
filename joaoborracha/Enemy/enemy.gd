@@ -6,12 +6,13 @@ var health = 10
 var direction = 1  # 1 = right, -1 = left
 var patrol_distance = 200
 var start_position = Vector2.ZERO
+var is_shooting = false  # Nova variável para controlar quando o inimigo está atirando
 
 # Shooting Properties
 var bullet_scene = preload("res://Resources/Guns/Bullets/bulletsmg.tscn")  # Replace with your enemy bullet path
 var can_shoot = true
-var shoot_cooldown = 1.5  # Time between shots in seconds
-var detection_range = 300  # How far the enemy can detect the player
+var shoot_cooldown = 0.5  # Reduzido de 0 para 0.3 segundos entre tiros
+var detection_range = 500  # Aumentado de 800 para 1200 para detectar o jogador de mais longe
 
 # References
 @onready var animated_sprite = $AnimatedSprite2D
@@ -51,14 +52,21 @@ func _ready():
 		detection_area = area
 
 func _physics_process(delta):
-	patrol(delta)
-	
-	# Update gun position to always point at player if player is detected
 	var player = find_player_in_range()
+	
 	if player:
+		# Se o jogador for detectado, pare de andar e comece a atirar
+		is_shooting = true
 		look_at_player(player)
 		if can_shoot:
 			shoot_at_player(player)
+		velocity = Vector2.ZERO  # Pare o movimento enquanto atira
+	else:
+		# Se não há jogador detectado, continue patrulhando normalmente
+		is_shooting = false
+		patrol(delta)
+	
+	move_and_slide()
 
 func patrol(delta):
 	# Move side to side within patrol_distance
@@ -66,13 +74,11 @@ func patrol(delta):
 		direction = -1
 		flip_sprite(true)
 	elif global_position.x < start_position.x - patrol_distance:
-		direction = -1
+		direction = 1  # Corrigido de -1 para 1
 		flip_sprite(false)
 		
 	velocity.x = direction * speed
 	velocity.y = 0
-	
-	move_and_slide()
 
 func flip_sprite(flip_h):
 	if animated_sprite:
@@ -93,6 +99,12 @@ func look_at_player(player):
 	var gun = $LeftHand/LEFTY if has_node("LeftHand/LEFTY") else $RightHand/RIGHTY
 	if gun:
 		gun.look_at(player.global_position)
+		
+		# Também ajusta o sprite do inimigo para olhar na direção do jogador
+		if player.global_position.x < global_position.x:
+			flip_sprite(true)  # Olha para a esquerda
+		else:
+			flip_sprite(false)  # Olha para a direita
 
 func shoot_at_player(player):
 	# Create a bullet
@@ -133,8 +145,6 @@ func take_damage(amount):
 		die()
 
 func die():
-	
-	
 	# Remove the enemy
 	queue_free()
 
