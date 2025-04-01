@@ -1,53 +1,55 @@
-[gd_scene load_steps=15 format=3 uid="uid://bahbug2nbbn0r"]
+[gd_scene load_steps=18 format=3 uid="uid://bahbug2nbbn0r"]
 
 [ext_resource type="Script" uid="uid://bpoxqlr83unm1" path="res://Scrips/game.gd" id="1_8dnjt"]
 [ext_resource type="PackedScene" uid="uid://brxp44x6qysd1" path="res://Player/player.tscn" id="1_amtq0"]
 [ext_resource type="Script" uid="uid://bgj7m8jwdnufg" path="res://Scrips/pause_menu.gd" id="1_hvt6a"]
 [ext_resource type="PackedScene" uid="uid://dsx81hqv41qad" path="res://Sceens/map.tscn" id="1_i3dsi"]
-[ext_resource type="Texture2D" uid="uid://b7kop3huhsw7u" path="res://Resources/Menu/MenuDuranteJogo3.png" id="1_pldq6"]
-[ext_resource type="Texture2D" uid="uid://c82tmtipqpw8h" path="res://Resources/Menu/MenuDuranteJogo1.png" id="2_hvt6a"]
 [ext_resource type="PackedScene" uid="uid://cux24x5bxbs4b" path="res://Resources/Guns/Pistol/pistol.tscn" id="2_wh8v3"]
-[ext_resource type="Texture2D" uid="uid://d1bmxhslenjpr" path="res://Resources/Menu/MenuDuranteJogo4.png" id="3_amtq0"]
+[ext_resource type="Texture2D" uid="uid://dy6ocjw1o3hu3" path="res://Resources/resources/sprites/mesa_de_recepção.png" id="5_5wbk0"]
 [ext_resource type="PackedScene" uid="uid://cfu8pw3vt4s81" path="res://Resources/Capsule/capsula.tscn" id="6_enaw6"]
 [ext_resource type="PackedScene" uid="uid://cpb6awh43dpll" path="res://Resources/Saco de porrada/punching_bag.tscn" id="10_lg856"]
+[ext_resource type="Texture2D" uid="uid://b2gc08rupre7d" path="res://Resources/resources/sprites/ui/panel/pause panel.png" id="10_rscs6"]
+[ext_resource type="Texture2D" uid="uid://bmyasnj4sy7eq" path="res://Resources/resources/sprites/ui/text/resume.png" id="11_337g8"]
 [ext_resource type="PackedScene" uid="uid://b7vqi47vmfy18" path="res://Enemy/segurança.tscn" id="11_rscs6"]
+[ext_resource type="Texture2D" uid="uid://dpjowdow1l8k8" path="res://Resources/resources/sprites/ui/text/quit1.png" id="12_5wbk0"]
 [ext_resource type="PackedScene" uid="uid://dx4p0lx6l28ih" path="res://Enemy/enemy.tscn" id="12_slqoo"]
+[ext_resource type="Texture2D" uid="uid://cl4k2kdqrakky" path="res://Resources/resources/sprites/ui/text/quit.png" id="13_glp81"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8dnjt"]
 size = Vector2(125, 742)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_yjs1f"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_t5c0d"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_pldq6")
+"texture": ExtResource("11_337g8")
 }],
-"loop": false,
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8p5qq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_5wbk0")
+}],
+"loop": true,
 "name": &"back",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_hvt6a")
+"texture": ExtResource("13_glp81")
 }],
-"loop": false,
+"loop": true,
 "name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_hvt6a")
-}],
-"loop": false,
-"name": &"options",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_amtq0")
-}],
-"loop": false,
-"name": &"resume",
 "speed": 5.0
 }]
 
@@ -62,15 +64,13 @@ position = Vector2(482, 474)
 [node name="Segurança" parent="." instance=ExtResource("11_rscs6")]
 position = Vector2(4516, 343)
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 4306.0
-offset_top = 376.0
-offset_right = 4780.0
-offset_bottom = 493.0
-color = Color(0.482353, 0.482353, 0.482353, 1)
+[node name="MesaDeRecepção" type="Sprite2D" parent="."]
+position = Vector2(4514.63, 414.031)
+scale = Vector2(0.301459, 0.254058)
+texture = ExtResource("5_5wbk0")
 
 [node name="enemy" parent="." instance=ExtResource("12_slqoo")]
-position = Vector2(4145, 490)
+position = Vector2(7771, 394)
 
 [node name="Player" parent="." instance=ExtResource("1_amtq0")]
 position = Vector2(62, 430)
@@ -114,42 +114,44 @@ position = Vector2(1419, 482)
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 process_mode = 3
-visible = false
 script = ExtResource("1_hvt6a")
 
 [node name="ColorRect" type="ColorRect" parent="PauseMenu"]
-anchors_preset = -1
-anchor_left = -0.15625
-anchor_top = -0.0972222
-anchor_right = 0.219618
-anchor_bottom = 0.212963
-offset_left = 179.0
-offset_top = 60.0
-offset_right = 905.0
-offset_bottom = 527.0
-color = Color(0, 0, 0, 0.666667)
-metadata/_edit_use_anchors_ = true
+offset_right = 1155.0
+offset_bottom = 653.0
+color = Color(0, 0, 0, 0.756863)
 
-[node name="MenuDuranteJogo" type="AnimatedSprite2D" parent="PauseMenu"]
-position = Vector2(552, 329)
-scale = Vector2(5.26, 5.105)
-sprite_frames = SubResource("SpriteFrames_yjs1f")
-animation = &"back"
+[node name="PausePanel" type="Sprite2D" parent="PauseMenu"]
+position = Vector2(574.5, 320.25)
+scale = Vector2(0.880755, 0.706603)
+texture = ExtResource("10_rscs6")
+
+[node name="resume" type="AnimatedSprite2D" parent="PauseMenu/PausePanel"]
+position = Vector2(-106.159, 122.771)
+scale = Vector2(0.201828, 0.348683)
+sprite_frames = SubResource("SpriteFrames_t5c0d")
+animation = &"idle"
+
+[node name="back" type="AnimatedSprite2D" parent="PauseMenu/PausePanel"]
+position = Vector2(-107.294, 282.691)
+scale = Vector2(0.126168, 0.190214)
+sprite_frames = SubResource("SpriteFrames_8p5qq")
+animation = &"idle"
 autoplay = "idle"
 
 [node name="Resume" type="Button" parent="PauseMenu"]
-offset_left = 401.0
-offset_top = 396.0
-offset_right = 708.0
-offset_bottom = 470.0
+offset_left = 327.0
+offset_top = 351.0
+offset_right = 640.0
+offset_bottom = 462.0
 focus_mode = 0
 flat = true
 
 [node name="Back" type="Button" parent="PauseMenu"]
-offset_left = 378.0
-offset_top = 233.0
-offset_right = 501.0
-offset_bottom = 349.0
+offset_left = 423.0
+offset_top = 490.0
+offset_right = 538.0
+offset_bottom = 549.0
 focus_mode = 0
 flat = true
 

@@ -20,12 +20,12 @@ size = Vector2(400, 27.5)
 script = ExtResource("1_omlh4")
 
 [node name="MapaFinal1" type="Sprite2D" parent="."]
-position = Vector2(1462, 218)
+position = Vector2(1462, 233)
 scale = Vector2(0.302019, 0.254724)
 texture = ExtResource("2_0ofuf")
 
 [node name="MapaFinal2" type="Sprite2D" parent="."]
-position = Vector2(4002, 218)
+position = Vector2(4002, 233)
 scale = Vector2(0.302019, 0.254724)
 texture = ExtResource("3_o2xtr")
 

@@ -12,7 +12,7 @@ var is_shooting = false  # Nova variável para controlar quando o inimigo está 
 var bullet_scene = preload("res://Resources/Guns/Bullets/bulletsmg.tscn")  # Replace with your enemy bullet path
 var can_shoot = true
 var shoot_cooldown = 0.5  # Reduzido de 0 para 0.3 segundos entre tiros
-var detection_range = 500  # Aumentado de 800 para 1200 para detectar o jogador de mais longe
+var detection_range = 500 
 
 # References
 @onready var animated_sprite = $AnimatedSprite2D
