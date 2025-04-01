@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dsx81hqv41qad"]
+[gd_scene load_steps=10 format=3 uid="uid://dsx81hqv41qad"]
 
-[ext_resource type="Texture2D" uid="uid://cxbkah47ibe8v" path="res://Resources/Maps/MapaFinal1.png" id="1_k0hrr"]
 [ext_resource type="Script" uid="uid://dums2q62dm1ed" path="res://Scrips/map.gd" id="1_omlh4"]
+[ext_resource type="Texture2D" uid="uid://eshlcm1fv8sv" path="res://Resources/Maps/FirstMap.png" id="2_0ofuf"]
 [ext_resource type="Texture2D" uid="uid://cyj6ylgm7x40r" path="res://Resources/resources/sprites/chars/Prostituta.png" id="3_mhqvs"]
+[ext_resource type="Texture2D" uid="uid://cq425ck3or4q3" path="res://Resources/Maps/Final2.png" id="3_o2xtr"]
+[ext_resource type="Texture2D" uid="uid://c4hncmrhbwhaa" path="res://Resources/Maps/Final3.png" id="4_knvlg"]
 [ext_resource type="Texture2D" uid="uid://wese7xclmpjk" path="res://Resources/resources/sprites/chars/rockstar.png" id="4_qitap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1kbfe"]
@@ -18,9 +20,19 @@ size = Vector2(400, 27.5)
 script = ExtResource("1_omlh4")
 
 [node name="MapaFinal1" type="Sprite2D" parent="."]
-position = Vector2(4400, 148)
+position = Vector2(1462, 218)
 scale = Vector2(0.302019, 0.254724)
-texture = ExtResource("1_k0hrr")
+texture = ExtResource("2_0ofuf")
+
+[node name="MapaFinal2" type="Sprite2D" parent="."]
+position = Vector2(4002, 218)
+scale = Vector2(0.302019, 0.254724)
+texture = ExtResource("3_o2xtr")
+
+[node name="MapaFinal3" type="Sprite2D" parent="."]
+position = Vector2(6946, 218)
+scale = Vector2(0.302019, 0.254724)
+texture = ExtResource("4_knvlg")
 
 [node name="Colisões" type="StaticBody2D" parent="."]
 collision_layer = 33
@@ -46,12 +58,12 @@ collision_mask = 0
 position = Vector2(4524, 454)
 shape = SubResource("RectangleShape2D_omlh4")
 
+[node name="Rockstar" type="Sprite2D" parent="."]
+position = Vector2(5644, 368)
+scale = Vector2(0.289721, 0.355252)
+texture = ExtResource("4_qitap")
+
 [node name="Prostituta" type="Sprite2D" parent="."]
 position = Vector2(5522, 377)
 scale = Vector2(0.268827, 0.302265)
 texture = ExtResource("3_mhqvs")
-
-[node name="Rockstar" type="Sprite2D" parent="."]
-position = Vector2(5659, 366)
-scale = Vector2(0.289721, 0.355252)
-texture = ExtResource("4_qitap")
