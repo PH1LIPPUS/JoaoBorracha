@@ -1,6 +1,6 @@
 extends CanvasLayer
-
-@onready var anim: AnimatedSprite2D = $MenuDuranteJogo
+@onready var res: AnimatedSprite2D = $PausePanel/resume
+@onready var back: AnimatedSprite2D = $PausePanel/back
 
 func _ready():
 	visible = false
@@ -24,16 +24,16 @@ func _on_back_pressed() -> void:
 
 
 func _on_resume_mouse_entered() -> void:
-	anim.play("resume")
+	res.play("resume")
 
 
 func _on_resume_mouse_exited() -> void:
-		anim.play("idle")
+		res.play("idle")
 
 
 func _on_back_mouse_entered() -> void:
-	anim.play("back")
+	back.play("back")
 
 
 func _on_back_mouse_exited() -> void:
-		anim.play("idle")
+		back.play("idle")

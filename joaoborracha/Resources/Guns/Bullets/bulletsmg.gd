@@ -4,7 +4,7 @@ var pos: Vector2
 var rota: float
 var dir: float
 var speed = 400
-var lifetime = 3.0
+var lifetime = 2.0
 var damage = 1
 var shooter_type = "enemy"  # Identifier to know this bullet came from enemy
 

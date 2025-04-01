@@ -3,7 +3,7 @@ extends CharacterBody2D
 var pos: Vector2
 var rota: float
 var dir: float
-var speed = 500
+var speed = 10000000000
 var lifetime = 4.0
 var damage = 1
 
