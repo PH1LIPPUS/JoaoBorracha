@@ -83,6 +83,7 @@ shoot={
 2d_physics/layer_6="estrutura"
 2d_physics/layer_7="bala"
 2d_physics/layer_8="estrutura para inimigo"
+2d_physics/layer_9="bala do inimigo"
 
 [rendering]
 

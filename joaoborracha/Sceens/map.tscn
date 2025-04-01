@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsx81hqv41qad"]
+[gd_scene load_steps=8 format=3 uid="uid://dsx81hqv41qad"]
 
 [ext_resource type="Texture2D" uid="uid://cxbkah47ibe8v" path="res://Resources/Maps/MapaFinal1.png" id="1_k0hrr"]
 [ext_resource type="Script" uid="uid://dums2q62dm1ed" path="res://Scrips/map.gd" id="1_omlh4"]
 [ext_resource type="Texture2D" uid="uid://cyj6ylgm7x40r" path="res://Resources/resources/sprites/chars/Prostituta.png" id="3_mhqvs"]
+[ext_resource type="Texture2D" uid="uid://wese7xclmpjk" path="res://Resources/resources/sprites/chars/rockstar.png" id="4_qitap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1kbfe"]
 size = Vector2(14182.5, 170)
@@ -46,6 +47,11 @@ position = Vector2(4524, 454)
 shape = SubResource("RectangleShape2D_omlh4")
 
 [node name="Prostituta" type="Sprite2D" parent="."]
-position = Vector2(5630.25, 376.75)
+position = Vector2(5522, 377)
 scale = Vector2(0.268827, 0.302265)
 texture = ExtResource("3_mhqvs")
+
+[node name="Rockstar" type="Sprite2D" parent="."]
+position = Vector2(5659, 366)
+scale = Vector2(0.289721, 0.355252)
+texture = ExtResource("4_qitap")
