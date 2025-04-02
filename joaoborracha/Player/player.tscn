@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://brxp44x6qysd1"]
+[gd_scene load_steps=32 format=3 uid="uid://brxp44x6qysd1"]
 
 [ext_resource type="Texture2D" uid="uid://5t3jmtrju0vb" path="res://Resources/resources/sprites/chars/johnny/idle.png" id="1_i3pqv"]
 [ext_resource type="Script" uid="uid://spx6jd46pcku" path="res://Player/player.gd" id="1_od3ui"]
@@ -21,6 +21,9 @@
 [ext_resource type="Texture2D" uid="uid://6ta8ognvvp2s" path="res://Resources/Barra de vida/barra de vida3.png" id="18_efx54"]
 [ext_resource type="Texture2D" uid="uid://bmfsmagwwfbf8" path="res://Resources/Barra de vida/barra de vida2.png" id="19_755ss"]
 [ext_resource type="Texture2D" uid="uid://cy4mjii2q1ntb" path="res://Resources/Barra de vida/barra de vida1.png" id="20_bbimk"]
+[ext_resource type="AudioStream" uid="uid://dos0b5de3qx43" path="res://Resources/resources/sound/jumping-on-wooden-floor-41234.mp3" id="22_8mwp6"]
+[ext_resource type="AudioStream" uid="uid://mrybrpffvnr2" path="res://Resources/resources/sound/walking-sound-effect-272246.mp3" id="22_gpjlu"]
+[ext_resource type="AudioStream" uid="uid://umbbrsmisrpr" path="res://Resources/resources/sound/guns/glock.ogg" id="23_8mwp6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x3vf3"]
 animations = [{
@@ -211,7 +214,16 @@ position = Vector2(0, -148)
 limit_left = 0
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.3
+
+[node name="JumpPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_8mwp6")
+
+[node name="FootstepPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_gpjlu")
+
+[node name="ShootPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_8mwp6")
 
 [connection signal="body_entered" from="LeftHand/PickupArea" to="LeftHand/PickupArea" method="_on_body_entered"]
 [connection signal="body_exited" from="LeftHand/PickupArea" to="LeftHand/PickupArea" method="_on_body_exited"]

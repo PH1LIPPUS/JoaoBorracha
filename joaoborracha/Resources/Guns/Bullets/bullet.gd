@@ -3,7 +3,7 @@ extends CharacterBody2D
 var pos: Vector2
 var rota: float
 var dir: float
-var speed = 10000000000
+var speed = 100
 var lifetime = 4.0
 var damage = 1
 
@@ -21,7 +21,7 @@ func _ready():
 	
 func _physics_process(delta):
 	# Make sure direction is properly set from rotation
-	velocity = Vector2(speed, 0).rotated(rota)
+	velocity = Vector2(speed*3, 0).rotated(rota)
 	var collision = move_and_collide(velocity * delta)
 	
 	if collision:

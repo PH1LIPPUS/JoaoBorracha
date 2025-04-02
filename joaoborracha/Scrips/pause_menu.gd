@@ -20,7 +20,7 @@ func toggle_pause():
 
 func _on_back_pressed() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Scene/main.tscn")
+	get_tree().change_scene_to_file("res://Sceens/main.tscn")
 
 
 func _on_resume_mouse_entered() -> void:

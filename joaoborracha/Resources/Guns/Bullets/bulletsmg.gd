@@ -3,7 +3,7 @@ extends CharacterBody2D
 var pos: Vector2
 var rota: float
 var dir: float
-var speed = 400
+var speed = 100
 var lifetime = 2.0
 var damage = 1
 var shooter_type = "enemy"  # Identifier to know this bullet came from enemy
@@ -42,7 +42,7 @@ func _ready():
 
 func _physics_process(delta):
 	# Make sure direction is properly set from rotation
-	velocity = Vector2(speed, 0).rotated(rota)
+	velocity = Vector2(speed*20, 0).rotated(rota)
 	var collision = move_and_collide(velocity * delta)
 	
 	if collision:

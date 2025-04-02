@@ -8,9 +8,9 @@ extends CharacterBody2D
 @export var deceleration: float = 20.0
 
 # Jump/gravity settings
-@export var gravity: float = 800.0
+@export var gravity: float = 700.0
 @export var max_fall_speed: float = 900.0
-@export var jump_force: float = -300.0
+@export var jump_force: float = -400.0
 @export var air_control_factor: float = 0.5
 @export var coyote_time: float = 0.1
 @export var jump_buffer_time: float = 0.1
@@ -31,6 +31,10 @@ var damage_flash_count: int = 3
 var original_color: Color = Color(1, 1, 1)
 var flash_color: Color = Color(1, 0, 0, 0.5)
 
+# Sound settings
+@export var footstep_interval: float = 0.3  # Time between footstep sounds
+var footstep_timer: float = 0.0
+
 # Nodes
 @onready var sprite: AnimatedSprite2D = $player
 @onready var left_hand: Node2D = $LeftHand
@@ -38,6 +42,9 @@ var flash_color: Color = Color(1, 0, 0, 0.5)
 @onready var hleft: AnimatedSprite2D = $LeftHand/LEFTY
 @onready var hright: AnimatedSprite2D = $RightHand/RIGHTY
 @onready var barra_de_vida: Node = $"Barra de vida"
+@onready var footstep_player: AudioStreamPlayer = $FootstepPlayer
+@onready var shoot_player: AudioStreamPlayer = $ShootPlayer
+@onready var jump_player: AudioStreamPlayer = $JumpPlayer  # New jump sound player
 
 var has_weapon: bool = false
 
@@ -68,6 +75,10 @@ func _ready():
 	
 	if !barra_de_vida:
 		push_error("Health bar not found!")
+		
+	# Check if audio players exist
+	if !footstep_player or !shoot_player or !jump_player:
+		push_error("Audio players not found! Make sure to add them to the scene.")
 
 var weapon_in_area := false
 
@@ -96,6 +107,9 @@ func _physics_process(delta):
 	apply_gravity(delta)
 	handle_jump()
 	handle_movement(delta)
+	
+	# Handle footstep sounds
+	handle_footstep_sounds(delta)
 	
 	# Hands and animation
 	update_hand_positions(get_global_mouse_position())
@@ -136,6 +150,10 @@ func handle_jump():
 		velocity.y = jump_force
 		jump_buffer_timer = 0.0
 		coyote_timer = 0.0
+		
+		# Play jump sound
+		if jump_player:
+			jump_player.play()
 
 func handle_movement(delta):
 	var direction = Input.get_axis("left", "right")
@@ -162,6 +180,30 @@ func handle_movement(delta):
 		target_speed, 
 		current_accel * control_factor * delta
 	)
+
+func handle_footstep_sounds(delta):
+	if footstep_player and is_on_floor() and abs(velocity.x) > 20:
+		# Only play footstep sounds when moving on the ground
+		footstep_timer -= delta
+		
+		if footstep_timer <= 0:
+			# Play footstep sound
+			if !footstep_player.playing:
+				footstep_player.play()
+			
+			# Reset timer - make footsteps faster when running
+			var speed_factor = 1.0
+			if Input.is_action_pressed("run"):
+				speed_factor = 0.6  # Faster footsteps when running
+			elif Input.is_action_pressed("slow_move"):
+				speed_factor = 1.5  # Slower footsteps when moving slowly
+				
+			footstep_timer = footstep_interval * speed_factor
+	
+	# Stop sound if not moving
+	elif footstep_player and footstep_player.playing and (abs(velocity.x) < 20 or !is_on_floor()):
+		# Stop the sound if we're in the air or stopped moving
+		footstep_player.stop()
 
 func update_hand_positions(mouse_pos: Vector2):
 	if not hleft or not hright:
@@ -314,8 +356,6 @@ func die():
 	set_process_input(false)
 	set_physics_process(false)
 	
-	
-	
 	# Handle game over or respawn logic here
 	# For testing, just reset health
 	if barra_de_vida:
@@ -435,3 +475,8 @@ func shoot():
 		var weapon = $RightHand/Marker2D.get_child(0)
 		if weapon.has_method("shoot"):
 			weapon.shoot()
+			
+			# Play shoot sound - force it to play every time by stopping first
+			if shoot_player:
+				shoot_player.stop()  # Stop any currently playing sound
+				shoot_player.play()  # Start the sound fresh

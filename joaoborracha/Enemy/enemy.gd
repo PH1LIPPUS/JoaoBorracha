@@ -6,18 +6,20 @@ var health = 10
 var direction = 1  # 1 = right, -1 = left
 var patrol_distance = 200
 var start_position = Vector2.ZERO
-var is_shooting = false  # Nova variável para controlar quando o inimigo está atirando
+var is_shooting = false  # Variável para controlar quando o inimigo está atirando
 
 # Shooting Properties
 var bullet_scene = preload("res://Resources/Guns/Bullets/bulletsmg.tscn")  # Replace with your enemy bullet path
 var can_shoot = true
-var shoot_cooldown = 0.5  # Reduzido de 0 para 0.3 segundos entre tiros
+var shoot_cooldown = 0.5 
 var detection_range = 500 
 
 # References
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var detection_area = $DetectionArea
-@onready var gun_position = $LeftHand/LEFTY  # Using the left hand as gun position
+@onready var left_hand = $LeftHand
+@onready var right_hand = $RightHand
+@onready var gun = $LeftHand/LEFTY if has_node("LeftHand/LEFTY") else $RightHand/RIGHTY
 
 func _ready():
 	# Add to enemy group
@@ -57,7 +59,7 @@ func _physics_process(delta):
 	if player:
 		# Se o jogador for detectado, pare de andar e comece a atirar
 		is_shooting = true
-		look_at_player(player)
+		aim_at_player(player)
 		if can_shoot:
 			shoot_at_player(player)
 		velocity = Vector2.ZERO  # Pare o movimento enquanto atira
@@ -74,7 +76,7 @@ func patrol(delta):
 		direction = -1
 		flip_sprite(true)
 	elif global_position.x < start_position.x - patrol_distance:
-		direction = 1  # Corrigido de -1 para 1
+		direction = 1
 		flip_sprite(false)
 		
 	velocity.x = direction * speed
@@ -94,24 +96,38 @@ func find_player_in_range():
 			return player_node
 	return null
 
-func look_at_player(player):
-	# Make the gun point at the player
-	var gun = $LeftHand/LEFTY if has_node("LeftHand/LEFTY") else $RightHand/RIGHTY
+func aim_at_player(player):
+	# Somente rotaciona a arma, não o personagem inteiro
 	if gun:
-		gun.look_at(player.global_position)
+		var facing_left = animated_sprite.flip_h
 		
-		# Também ajusta o sprite do inimigo para olhar na direção do jogador
+		# Determina para qual lado o inimigo está olhando
 		if player.global_position.x < global_position.x:
-			flip_sprite(true)  # Olha para a esquerda
+			# Jogador está à esquerda
+			if !facing_left:
+				flip_sprite(true)  # Vira o sprite para a esquerda
 		else:
-			flip_sprite(false)  # Olha para a direita
+			# Jogador está à direita
+			if facing_left:
+				flip_sprite(false)  # Vira o sprite para a direita
+		
+		# Faz apenas a arma apontar para o jogador, sem modificar a orientação do personagem
+		var target_pos = player.global_position
+		
+		# Ajusta a rotação da arma sem girar o personagem
+		var angle_to_target = (target_pos - gun.global_position).angle()
+		
+		# Se o inimigo estiver olhando para a esquerda, inverte o ângulo da arma 
+		if facing_left:
+			gun.rotation = angle_to_target + PI  # Adiciona 180 graus quando virado para a esquerda
+		else:
+			gun.rotation = angle_to_target
 
 func shoot_at_player(player):
 	# Create a bullet
 	var bullet = bullet_scene.instantiate()
 	
 	# Get gun position
-	var gun = $LeftHand/LEFTY if has_node("LeftHand/LEFTY") else $RightHand/RIGHTY
 	var spawn_position = gun.global_position if gun else global_position
 	
 	# Calculate direction to player
