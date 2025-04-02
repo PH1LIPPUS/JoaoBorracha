@@ -79,6 +79,10 @@ position = Vector2(-96.2344, 15.0781)
 scale = Vector2(0.246247, 0.245876)
 texture = ExtResource("7_47ove")
 
+[node name="MuzzlePoint" type="Marker2D" parent="Tmp"]
+position = Vector2(-206.157, -114.196)
+scale = Vector2(4.06096, 4.06709)
+
 [node name="RightHand" type="Node2D" parent="."]
 position = Vector2(107, 1)
 

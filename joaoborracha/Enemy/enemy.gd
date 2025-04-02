@@ -128,8 +128,7 @@ func shoot_at_player(player):
 	var bullet = bullet_scene.instantiate()
 	
 	# Get gun position
-	var spawn_position = gun.global_position if gun else global_position
-	
+	var spawn_position = gun.get_node("MuzzlePoint").global_position if gun and gun.has_node("MuzzlePoint") else gun.global_position	
 	# Calculate direction to player
 	var direction = (player.global_position - spawn_position).normalized()
 	var angle = direction.angle()
